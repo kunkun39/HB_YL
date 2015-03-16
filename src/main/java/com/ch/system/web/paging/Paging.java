@@ -1,4 +1,4 @@
-package com.changhong.system.web.paging;
+package com.ch.system.web.paging;
 
 import java.util.List;
 

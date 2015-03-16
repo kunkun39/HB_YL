@@ -1,6 +1,6 @@
-package com.changhong.system.web.controller;
+package com.ch.system.web.controller;
 
-import com.changhong.system.service.UserService;
+import com.ch.system.service.UserService;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;

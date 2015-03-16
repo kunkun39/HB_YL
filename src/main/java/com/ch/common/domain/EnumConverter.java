@@ -1,4 +1,4 @@
-package com.changhong.common.domain;
+package com.ch.common.domain;
 
 import org.hibernate.HibernateException;
 import org.hibernate.usertype.EnhancedUserType;

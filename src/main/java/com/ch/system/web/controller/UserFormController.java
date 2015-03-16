@@ -1,7 +1,7 @@
-package com.changhong.system.web.controller;
+package com.ch.system.web.controller;
 
-import com.changhong.system.service.UserService;
-import com.changhong.system.web.facade.dto.UserDTO;
+import com.ch.system.service.UserService;
+import com.ch.system.web.facade.dto.UserDTO;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.ServletRequestUtils;

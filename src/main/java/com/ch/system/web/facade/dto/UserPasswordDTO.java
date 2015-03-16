@@ -1,4 +1,4 @@
-package com.changhong.system.web.facade.dto;
+package com.ch.system.web.facade.dto;
 
 import java.io.Serializable;
 

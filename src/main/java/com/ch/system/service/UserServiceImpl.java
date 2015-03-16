@@ -1,10 +1,10 @@
-package com.changhong.system.service;
+package com.ch.system.service;
 
-import com.changhong.system.domain.User;
-import com.changhong.system.repository.UserDao;
-import com.changhong.system.web.facade.dto.UserDTO;
-import com.changhong.system.web.facade.assember.*;
-import com.changhong.system.web.facade.dto.UserPasswordDTO;
+import com.ch.system.domain.User;
+import com.ch.system.repository.UserDao;
+import com.ch.system.web.facade.dto.UserDTO;
+import com.ch.system.web.facade.assember.*;
+import com.ch.system.web.facade.dto.UserPasswordDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.changhong.common.exception;
+package com.ch.common.exception;
 
 /**
  * User: Jack Wang

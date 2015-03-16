@@ -1,10 +1,10 @@
-package com.changhong.system.web.controller;
+package com.ch.system.web.controller;
 
-import com.changhong.common.web.session.SessionKey;
-import com.changhong.system.service.UserService;
-import com.changhong.system.web.facade.dto.UserDTO;
-import com.changhong.system.web.paging.UserOverviewPaging;
-import com.changhong.common.utils.SecurityUtils;
+import com.ch.common.web.session.SessionKey;
+import com.ch.system.service.UserService;
+import com.ch.system.web.facade.dto.UserDTO;
+import com.ch.system.web.paging.UserOverviewPaging;
+import com.ch.common.utils.SecurityUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.servlet.ModelAndView;

@@ -1,6 +1,6 @@
-package com.changhong.system.web.facade.dto;
+package com.ch.system.web.facade.dto;
 
-import com.changhong.common.utils.CHStringUtils;
+import com.ch.common.utils.CHStringUtils;
 
 import java.io.Serializable;
 import java.util.List;

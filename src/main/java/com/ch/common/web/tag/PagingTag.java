@@ -1,6 +1,6 @@
-package com.changhong.common.web.tag;
+package com.ch.common.web.tag;
 
-import com.changhong.system.web.paging.Paging;
+import com.ch.system.web.paging.Paging;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.jsp.JspException;

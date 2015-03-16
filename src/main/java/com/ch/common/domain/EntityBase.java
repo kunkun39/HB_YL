@@ -1,4 +1,4 @@
-package com.changhong.common.domain;
+package com.ch.common.domain;
 
 import java.io.Serializable;
 import java.util.Date;

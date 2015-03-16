@@ -1,6 +1,6 @@
-package com.changhong.common.web.tag;
+package com.ch.common.web.tag;
 
-import com.changhong.common.utils.JodaUtils;
+import com.ch.common.utils.JodaUtils;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.jsp.JspException;

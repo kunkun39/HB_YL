@@ -1,6 +1,6 @@
-package com.changhong.common.repository;
+package com.ch.common.repository;
 
-import com.changhong.common.domain.EntityBase;
+import com.ch.common.domain.EntityBase;
 
 import java.util.List;
 

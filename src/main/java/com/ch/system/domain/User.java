@@ -1,6 +1,6 @@
-package com.changhong.system.domain;
+package com.ch.system.domain;
 
-import com.changhong.common.domain.EntityBase;
+import com.ch.common.domain.EntityBase;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

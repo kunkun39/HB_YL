@@ -1,4 +1,4 @@
-package com.changhong.common.web.handler;
+package com.ch.common.web.handler;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.HandlerExceptionResolver;

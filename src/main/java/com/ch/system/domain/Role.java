@@ -1,4 +1,4 @@
-package com.changhong.system.domain;
+package com.ch.system.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 

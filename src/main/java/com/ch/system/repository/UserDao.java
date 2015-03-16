@@ -1,7 +1,7 @@
-package com.changhong.system.repository;
+package com.ch.system.repository;
 
-import com.changhong.common.repository.EntityObjectDao;
-import com.changhong.system.domain.User;
+import com.ch.common.repository.EntityObjectDao;
+import com.ch.system.domain.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;

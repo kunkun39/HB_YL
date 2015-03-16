@@ -1,4 +1,4 @@
-package com.changhong.common.web.session;
+package com.ch.common.web.session;
 
 /**
  * User: Jack Wang

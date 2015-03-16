@@ -1,4 +1,4 @@
-package com.changhong.common.web.contorller;
+package com.ch.common.web.contorller;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;

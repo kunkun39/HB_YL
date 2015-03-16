@@ -1,6 +1,6 @@
-package com.changhong.common.utils;
+package com.ch.common.utils;
 
-import com.changhong.system.domain.User;
+import com.ch.system.domain.User;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 

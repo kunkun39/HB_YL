@@ -17,7 +17,7 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     </bean>
 
-    <bean class="com.changhong.common.web.handler.ApplicationExceptionHandler"/>
+    <bean class="com.ch.common.web.handler.ApplicationExceptionHandler"/>
 
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="order" value="0"/>
@@ -37,27 +37,27 @@
         </property>
     </bean>
 
-    <bean id="errorHandleController" class="com.changhong.common.web.contorller.ApplicationExceptionController"/>
+    <bean id="errorHandleController" class="com.ch.common.web.contorller.ApplicationExceptionController"/>
 
-    <bean id="updateLoginController" class="com.changhong.system.web.controller.BackendLoginController"/>
+    <bean id="updateLoginController" class="com.ch.system.web.controller.BackendLoginController"/>
 
-    <bean id="dashboardController" class="com.changhong.system.web.controller.DashboardController"/>
+    <bean id="dashboardController" class="com.ch.system.web.controller.DashboardController"/>
 
     <!--system part-->
 
-    <bean id="userManagementController" class="com.changhong.system.web.controller.UserManagementController">
+    <bean id="userManagementController" class="com.ch.system.web.controller.UserManagementController">
         <property name="userService" ref="userService"/>
     </bean>
 
-    <bean id="userFormController" class="com.changhong.system.web.controller.UserFormController">
+    <bean id="userFormController" class="com.ch.system.web.controller.UserFormController">
         <property name="userService" ref="userService"/>
     </bean>
 
-    <bean id="userChangeEnableController" class="com.changhong.system.web.controller.UserChangeEnableController">
+    <bean id="userChangeEnableController" class="com.ch.system.web.controller.UserChangeEnableController">
         <property name="userService" ref="userService"/>
     </bean>
 
-    <bean id="userChangePasswordController" class="com.changhong.system.web.controller.UserChangePasswordController">
+    <bean id="userChangePasswordController" class="com.ch.system.web.controller.UserChangePasswordController">
         <property name="userService" ref="userService"/>
     </bean>
 

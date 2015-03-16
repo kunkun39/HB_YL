@@ -1,7 +1,7 @@
-package com.changhong.system.web.paging;
+package com.ch.system.web.paging;
 
-import com.changhong.system.web.facade.dto.UserDTO;
-import com.changhong.system.service.UserService;
+import com.ch.system.web.facade.dto.UserDTO;
+import com.ch.system.service.UserService;
 
 import java.util.List;
 

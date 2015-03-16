@@ -1,6 +1,6 @@
-package com.changhong.system.web.controller;
+package com.ch.system.web.controller;
 
-import com.changhong.common.web.session.SessionKey;
+import com.ch.common.web.session.SessionKey;
 import org.joda.time.LocalDate;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,9 +9,8 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import com.changhong.common.utils.*;
+import com.ch.common.utils.*;
 
 /**
  * User: Jack Wang

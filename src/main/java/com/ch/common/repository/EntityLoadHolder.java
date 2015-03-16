@@ -1,7 +1,6 @@
-package com.changhong.common.repository;
+package com.ch.common.repository;
 
-import com.changhong.system.repository.LiveDao;
-import com.changhong.system.repository.UserDao;
+import com.ch.system.repository.UserDao;
 
 /**
  * User: Jack Wang

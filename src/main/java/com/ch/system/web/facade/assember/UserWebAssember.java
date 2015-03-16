@@ -1,9 +1,9 @@
-package com.changhong.system.web.facade.assember;
+package com.ch.system.web.facade.assember;
 
-import com.changhong.common.repository.EntityLoadHolder;
-import com.changhong.system.domain.User;
-import com.changhong.system.web.facade.dto.UserDTO;
-import com.changhong.system.web.facade.dto.UserPasswordDTO;
+import com.ch.common.repository.EntityLoadHolder;
+import com.ch.system.domain.User;
+import com.ch.system.web.facade.dto.UserDTO;
+import com.ch.system.web.facade.dto.UserPasswordDTO;
 
 import java.util.ArrayList;
 import java.util.List;

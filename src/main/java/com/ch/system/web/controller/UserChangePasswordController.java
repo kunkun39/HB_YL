@@ -1,8 +1,8 @@
-package com.changhong.system.web.controller;
+package com.ch.system.web.controller;
 
-import com.changhong.common.utils.SecurityUtils;
-import com.changhong.system.service.UserService;
-import com.changhong.system.web.facade.dto.UserPasswordDTO;
+import com.ch.common.utils.SecurityUtils;
+import com.ch.system.service.UserService;
+import com.ch.system.web.facade.dto.UserPasswordDTO;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.ServletRequestUtils;

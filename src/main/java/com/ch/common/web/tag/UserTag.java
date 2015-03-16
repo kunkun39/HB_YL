@@ -1,6 +1,6 @@
-package com.changhong.common.web.tag;
+package com.ch.common.web.tag;
 
-import com.changhong.common.utils.SecurityUtils;
+import com.ch.common.utils.SecurityUtils;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;

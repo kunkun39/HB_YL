@@ -1,7 +1,7 @@
-package com.changhong.system.service;
+package com.ch.system.service;
 
-import com.changhong.system.web.facade.dto.UserDTO;
-import com.changhong.system.web.facade.dto.UserPasswordDTO;
+import com.ch.system.web.facade.dto.UserDTO;
+import com.ch.system.web.facade.dto.UserPasswordDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

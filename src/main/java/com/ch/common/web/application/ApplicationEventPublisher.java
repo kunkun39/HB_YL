@@ -1,4 +1,4 @@
-package com.changhong.common.web.application;
+package com.ch.common.web.application;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
