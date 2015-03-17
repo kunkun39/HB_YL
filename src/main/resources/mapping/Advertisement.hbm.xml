@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.ch.system.domain.OpenAdvertisement" table="open_advertisement">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="timestamp" column="timestamp" type="java.util.Date"/>
+
+        <property name="index" column="index" insert="true" update="true" type="java.lang.Integer"/>
+        <property name="title" column="title" insert="true" update="true" type="java.lang.String"/>
+        <property name="url" column="url" insert="true" update="true" type="java.lang.String"/>
+    </class>
+</hibernate-mapping>

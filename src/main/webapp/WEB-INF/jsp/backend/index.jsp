@@ -3,6 +3,8 @@
 <html>
 <head>
 	<title>湖北夷陵长虹机顶盒管理系统</title>
+    <link rel="Bookmark" href="${pageContext.request.contextPath}/images/favicon.gif">
+    <link rel="Shortcut Icon" href="${pageContext.request.contextPath}/images/favicon.gif">
     <style>
         td{font-family:Verdana;font-size:10px;color:#000000}
         .cap{font-family:Arial;font-weight:bold;font-size:14px;padding-top:10px;}
