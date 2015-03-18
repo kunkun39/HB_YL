@@ -26,6 +26,8 @@
     <div class="menu">
         <a href="${pageContext.request.contextPath}/backend/dashboard.html" <c:if test="${'DASHBOARD' eq BROSWER_LOCATION}">style="font-weight:bold;background:#5d5c5c;"</c:if>>首页</a>
 
+        <a href="${pageContext.request.contextPath}/backend/openadvertisementoverview.html" <c:if test="${'AD' eq BROSWER_LOCATION}">style="font-weight:bold;background:#5d5c5c;"</c:if>>广告管理</a>
+
         <a href="${pageContext.request.contextPath}/backend/useroverview.html" <c:if test="${'USER' eq BROSWER_LOCATION}">style="font-weight:bold;background:#5d5c5c;"</c:if>>系统设置</a>
     </div>
 

@@ -18,7 +18,7 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
 
     public List<OpenAdvertisement> loadOpenAdvertisements(int startPosition, int pageSize) {
         StringBuilder builder = new StringBuilder();
-        builder.append("from OpenAdvertisement oa order by oa.index asc");
+        builder.append("from OpenAdvertisement oa order by oa.sequence asc");
 
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         Query query = session.createQuery(builder.toString());
@@ -36,10 +36,15 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         return ((Long)list.get(0)).intValue();
     }
 
-    public int getMaxOpenAdvertisement() {
+    public int getMaxOpenAdvertisementSequence() {
         StringBuilder builder = new StringBuilder();
-        builder.append("select max(oa.index) from OpenAdvertisement oa");
+        builder.append("select max(oa.sequence) from OpenAdvertisement oa");
         List list =  getHibernateTemplate().find(builder.toString());
-        return ((Long)list.get(0)).intValue();
+
+        Object value = list.get(0);
+        if (value != null) {
+            return ((Integer) value).intValue();
+        }
+        return 0;
     }
 }

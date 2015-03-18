@@ -1,11 +1,14 @@
 package com.ch.system.service;
 
+import com.ch.system.domain.AdvertisementFile;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.repository.AdvertisementDao;
 import com.ch.system.web.facade.assember.OpenAdvertisementWebAssember;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,6 +19,9 @@ import java.util.List;
  */
 @Service("advertisementService")
 public class AdvertisementServiceImpl implements AdvertisementService {
+
+    @Autowired
+    private FileManageService fileManageService;
 
     @Autowired
     private AdvertisementDao advertisementDao;
@@ -39,11 +45,24 @@ public class AdvertisementServiceImpl implements AdvertisementService {
      */
     public synchronized void changeOpenAdvertisementDetails(OpenAdvertisementDTO dto) {
         OpenAdvertisement openAdvertisement = OpenAdvertisementWebAssember.toOpenAdvertisementDomain(dto);
-        if (openAdvertisement.getId() <= 0) {
-            int maxIndex = advertisementDao.getMaxOpenAdvertisement();
-            openAdvertisement.setIndex(maxIndex + 1);
 
+        if (openAdvertisement.getId() <= 0) {
+            int maxSequence = advertisementDao.getMaxOpenAdvertisementSequence();
+            openAdvertisement.setSequence(maxSequence + 1);
         }
+
+        MultipartFile file = dto.getAdvertisementFile();
+        AdvertisementFile advertisementFile = null;
+        if(file != null && file.getSize() > 0) {
+            advertisementFile = OpenAdvertisementWebAssember.toAdvertisementFileDomain(file);
+        }
+
+        AdvertisementFile oldAdvertisementFile = openAdvertisement.changeAdvertisementFile(advertisementFile);
+        if (oldAdvertisementFile != null) {
+            fileManageService.deleteAdvertisementFile(oldAdvertisementFile);
+        }
+        fileManageService.uploadAdvertisementFile(openAdvertisement.getAdvertisementFile());
+
         advertisementDao.saveOrUpdate(openAdvertisement);
     }
 }

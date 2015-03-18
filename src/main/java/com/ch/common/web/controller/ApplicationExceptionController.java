@@ -1,4 +1,4 @@
-package com.ch.common.web.contorller;
+package com.ch.common.web.controller;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;

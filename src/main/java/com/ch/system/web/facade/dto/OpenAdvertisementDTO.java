@@ -1,5 +1,7 @@
 package com.ch.system.web.facade.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.Serializable;
 
 /**
@@ -8,19 +10,32 @@ import java.io.Serializable;
  * Time: 下午1:48
  */
 public class OpenAdvertisementDTO implements Serializable {
+
     private int id = -1;
-    private int index = -1;
-    private String title;
-    private String url;
+
+    private int sequence = -1;
+
+    private String advertisementTitle;
+
+    private int advertisementFileId;
+
+    private String advertisementUploadFileName;
+
+    private String advertisementActualFileName;
+
+    private MultipartFile advertisementFile;
 
     public OpenAdvertisementDTO() {
     }
 
-    public OpenAdvertisementDTO(int id, int index, String title, String url) {
+    public OpenAdvertisementDTO(int id, int sequence, String advertisementTitle,
+                                int advertisementFileId, String advertisementUploadFileName, String advertisementActualFileName) {
         this.id = id;
-        this.index = index;
-        this.title = title;
-        this.url = url;
+        this.sequence = sequence;
+        this.advertisementTitle = advertisementTitle;
+        this.advertisementFileId = advertisementFileId;
+        this.advertisementUploadFileName = advertisementUploadFileName;
+        this.advertisementActualFileName = advertisementActualFileName;
     }
 
     public int getId() {
@@ -31,27 +46,51 @@ public class OpenAdvertisementDTO implements Serializable {
         this.id = id;
     }
 
-    public int getIndex() {
-        return index;
+    public int getSequence() {
+        return sequence;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
     }
 
-    public String getTitle() {
-        return title;
+    public String getAdvertisementTitle() {
+        return advertisementTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setAdvertisementTitle(String advertisementTitle) {
+        this.advertisementTitle = advertisementTitle;
     }
 
-    public String getUrl() {
-        return url;
+    public int getAdvertisementFileId() {
+        return advertisementFileId;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setAdvertisementFileId(int advertisementFileId) {
+        this.advertisementFileId = advertisementFileId;
+    }
+
+    public String getAdvertisementUploadFileName() {
+        return advertisementUploadFileName;
+    }
+
+    public void setAdvertisementUploadFileName(String advertisementUploadFileName) {
+        this.advertisementUploadFileName = advertisementUploadFileName;
+    }
+
+    public String getAdvertisementActualFileName() {
+        return advertisementActualFileName;
+    }
+
+    public void setAdvertisementActualFileName(String advertisementActualFileName) {
+        this.advertisementActualFileName = advertisementActualFileName;
+    }
+
+    public MultipartFile getAdvertisementFile() {
+        return advertisementFile;
+    }
+
+    public void setAdvertisementFile(MultipartFile advertisementFile) {
+        this.advertisementFile = advertisementFile;
     }
 }

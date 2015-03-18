@@ -3,7 +3,7 @@
 <%@ taglib prefix="ch" uri="http://www.chanhong.com" %>
 <html>
 <head>
-    <title>后台管理平台</title>
+    <title>长虹机顶盒后台管理系统</title>
     <script type="text/javascript">
 
         function userDeleteConfirm() {

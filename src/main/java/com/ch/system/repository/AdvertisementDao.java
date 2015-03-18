@@ -18,5 +18,5 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     int loadOpenAdvertisementSize();
 
-    int getMaxOpenAdvertisement();
+    int getMaxOpenAdvertisementSequence();
 }

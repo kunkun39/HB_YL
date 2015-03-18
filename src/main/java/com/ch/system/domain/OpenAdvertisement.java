@@ -10,42 +10,62 @@ import com.ch.common.domain.EntityBase;
  */
 public class OpenAdvertisement extends EntityBase {
 
-    private int index;
+    private int sequence;
 
-    private String title;
+    private String advertisememtTitle;
 
-    private String url;
+    private AdvertisementFile advertisementFile;
 
-    public OpenAdvertisement(int index, String title, String url) {
-        setId(-1);
-        this.index = index;
-        this.title = title;
-        this.url = url;
+    protected OpenAdvertisement() {
+    }
+
+    public OpenAdvertisement(int sequence, String advertisememtTitle) {
+        this.sequence = sequence;
+        this.advertisememtTitle = advertisememtTitle;
+    }
+
+    public AdvertisementFile changeAdvertisementFile(AdvertisementFile newAdvertisementFile) {
+        AdvertisementFile oldAdvertisementFile = null;
+
+        if (advertisementFile != null) {
+            oldAdvertisementFile = new AdvertisementFile();
+            oldAdvertisementFile.setUploadTime(advertisementFile.getUploadTime());
+            oldAdvertisementFile.setUploadFileName(advertisementFile.getUploadFileName());
+            oldAdvertisementFile.setActualFileName(advertisementFile.getActualFileName());
+
+            advertisementFile.setUploadFileName(newAdvertisementFile.getUploadFileName());
+            advertisementFile.setActualFileName(newAdvertisementFile.getActualFileName());
+            advertisementFile.setUploadTime(newAdvertisementFile.getUploadTime());
+        } else {
+            this.advertisementFile = newAdvertisementFile;
+        }
+
+        return oldAdvertisementFile;
     }
 
     /*************************************************GETTER**********************************************************/
 
-    public int getIndex() {
-        return index;
+    public int getSequence() {
+        return sequence;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
     }
 
-    public String getTitle() {
-        return title;
+    public String getAdvertisememtTitle() {
+        return advertisememtTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setAdvertisememtTitle(String advertisememtTitle) {
+        this.advertisememtTitle = advertisememtTitle;
     }
 
-    public String getUrl() {
-        return url;
+    public AdvertisementFile getAdvertisementFile() {
+        return advertisementFile;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setAdvertisementFile(AdvertisementFile advertisementFile) {
+        this.advertisementFile = advertisementFile;
     }
 }
