@@ -19,7 +19,7 @@ import java.io.PrintWriter;
  */
 public class ClientOpenAdvertisementServlet extends HttpServlet {
 
-    private ClientAdvertisementService clientAdvertisementService;
+    public ClientAdvertisementService clientAdvertisementService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,7 +32,15 @@ public class ClientOpenAdvertisementServlet extends HttpServlet {
             clientAdvertisementService = (ClientAdvertisementService) ApplicationEventPublisher.getCtx().getBean("clientAdvertisementService");
         }
 
-        String responseJSON = clientAdvertisementService.obtainClientOpenAdvertisement();
+        String requestURL = request.getRequestURI();
+        String responseJSON = "";
+
+        if ("/dvbott/client/getopenadcontent".equals(requestURL)) {
+            responseJSON = clientAdvertisementService.obtainClientOpenAdvertisement();
+
+        } else if ("/dvbott/client/getmainmodulecontent".equals(requestURL)) {
+            responseJSON = clientAdvertisementService.obtainClientModuleAdvertisement();
+        }
 
         //返回结果
         response.setContentType("application/json; charset=utf-8");

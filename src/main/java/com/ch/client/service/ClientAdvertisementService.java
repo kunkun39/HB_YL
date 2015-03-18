@@ -8,4 +8,6 @@ package com.ch.client.service;
 public interface ClientAdvertisementService {
 
     String obtainClientOpenAdvertisement();
+
+    String obtainClientModuleAdvertisement();
 }

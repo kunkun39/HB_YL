@@ -1,5 +1,6 @@
 package com.ch.system.service;
 
+import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
 
 import java.util.List;
@@ -22,4 +23,8 @@ public interface AdvertisementService {
     void changeOpenAdvertisementDetails(OpenAdvertisementDTO dto);
 
     void deleteOpenAdvertisement(int openAdvertisementId);
+
+    /*************************八大模块部分******************************/
+
+    List<ModuleAdvertisementDTO> obtainModuleAdvertisements();
 }

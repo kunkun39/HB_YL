@@ -57,7 +57,7 @@
 
     <servlet-mapping>
         <servlet-name>openad</servlet-name>
-        <url-pattern>/openad/getopenadcontent</url-pattern>
+        <url-pattern>/client/*</url-pattern>
     </servlet-mapping>
 
     <filter>

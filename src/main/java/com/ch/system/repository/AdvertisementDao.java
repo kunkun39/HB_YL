@@ -1,6 +1,7 @@
 package com.ch.system.repository;
 
 import com.ch.common.repository.EntityObjectDao;
+import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 
 import java.util.List;
@@ -19,4 +20,8 @@ public interface AdvertisementDao extends EntityObjectDao {
     int loadOpenAdvertisementSize();
 
     int getMaxOpenAdvertisementSequence();
+
+    /*************************八大模块部分******************************/
+
+    List<ModuleAdvertisement> loadModuleAdvertisements();
 }

@@ -1,6 +1,7 @@
 package com.ch.client.repository;
 
 import com.ch.common.repository.HibernateEntityObjectDao;
+import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +17,9 @@ public class ClientAdvertisementDaoImpl extends HibernateEntityObjectDao impleme
 
     public List<OpenAdvertisement> loadAllOpenAdvertisement() {
         return getHibernateTemplate().find("from OpenAdvertisement oa order by oa.sequence asc");
+    }
+
+    public List<ModuleAdvertisement> loadAllModuleAdvertisement() {
+        return getHibernateTemplate().find("from ModuleAdvertisement oa order by oa.sequence asc");
     }
 }

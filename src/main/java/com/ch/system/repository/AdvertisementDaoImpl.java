@@ -1,6 +1,7 @@
 package com.ch.system.repository;
 
 import com.ch.common.repository.HibernateEntityObjectDao;
+import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -46,5 +47,9 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
             return ((Integer) value).intValue();
         }
         return 0;
+    }
+
+    public List<ModuleAdvertisement> loadModuleAdvertisements() {
+        return getHibernateTemplate().find("from ModuleAdvertisement") ;
     }
 }

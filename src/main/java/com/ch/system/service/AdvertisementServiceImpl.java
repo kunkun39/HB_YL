@@ -1,9 +1,12 @@
 package com.ch.system.service;
 
 import com.ch.system.domain.AdvertisementFile;
+import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.repository.AdvertisementDao;
+import com.ch.system.web.facade.assember.ModuleAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.OpenAdvertisementWebAssember;
+import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,8 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
     @Autowired
     private AdvertisementDao advertisementDao;
+
+    /*************************开机广告部分******************************/
 
     public List<OpenAdvertisementDTO> obtainOpenAdvertisements(int startPosition, int pageSize) {
         List<OpenAdvertisement> ads = advertisementDao.loadOpenAdvertisements(startPosition, pageSize);
@@ -77,5 +82,12 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
         fileManageService.deleteAdvertisementFile(file);
         advertisementDao.delete(openAdvertisement);
+    }
+
+    /*************************八大模块部分******************************/
+
+    public List<ModuleAdvertisementDTO> obtainModuleAdvertisements() {
+        List<ModuleAdvertisement> advertisements = advertisementDao.loadModuleAdvertisements();
+        return ModuleAdvertisementWebAssember.toModuleAdvertisementDTOList(advertisements);
     }
 }

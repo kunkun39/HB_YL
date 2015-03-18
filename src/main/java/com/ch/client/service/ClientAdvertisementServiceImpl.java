@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ch.client.repository.ClientAdvertisementDao;
+import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,6 +32,23 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
         JSONObject all = new JSONObject();
         JSONArray ads = new JSONArray();
         for (OpenAdvertisement advertisement : advertisements) {
+            JSONObject ad = new JSONObject();
+            ad.put("index", advertisement.getSequence());
+            ad.put("title", advertisement.getAdvertisememtTitle());
+            ad.put("url", applicationWebAddress + advertisement.getAdvertisementFile().getActualFileName());
+            ads.add(ad);
+        }
+        all.put("openads", ads);
+
+        return all.toJSONString();
+    }
+
+    public String obtainClientModuleAdvertisement() {
+        List<ModuleAdvertisement> advertisements = clientAdvertisementDao.loadAllModuleAdvertisement();
+
+        JSONObject all = new JSONObject();
+        JSONArray ads = new JSONArray();
+        for (ModuleAdvertisement advertisement : advertisements) {
             JSONObject ad = new JSONObject();
             ad.put("index", advertisement.getSequence());
             ad.put("title", advertisement.getAdvertisememtTitle());
