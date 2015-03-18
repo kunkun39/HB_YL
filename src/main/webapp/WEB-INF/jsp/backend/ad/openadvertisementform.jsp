@@ -37,7 +37,7 @@
 
                     <tr>
                         <td width="200px;" valign="top">
-                             选择开机广告图片 <span class="required">*</span><br/>(支持PNG, JEPG, JPG格式上传)
+                             选择开机广告图片 <span class="required">*</span><br/>(支持PNG, JEPG, JPG, BMP格式上传)
                         </td>
                         <td>
                             <input type="file" id="advertisementFile" name="advertisementFile" class="file" style="width:300px;"/>
@@ -71,7 +71,19 @@
 
 <script type="text/javascript">
     function submitOpenAdvertisementForm(form) {
-        form.submit();
+        var advertisementFilename = jQuery("#advertisementFile").val();
+
+        if(advertisementFilename != undefined && advertisementFilename != '') {
+            var endDot = advertisementFilename.lastIndexOf('.');
+            var fileSuffix = advertisementFilename.substring(endDot, advertisementFilename.length).toUpperCase();
+            if(fileSuffix!='.BMP' && fileSuffix!='.PNG' && fileSuffix!='.GIF' && fileSuffix!='.JPG' && fileSuffix!='.JPEG') {
+                alert("请选择正确的图片文件");
+            } else {
+                form.submit();
+            }
+        } else {
+            form.submit();
+        }
     }
 </script>
 </body>

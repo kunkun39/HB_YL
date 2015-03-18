@@ -47,6 +47,19 @@
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
+    <!--前端服务-->
+
+    <servlet>
+        <servlet-name>openad</servlet-name>
+        <servlet-class>com.ch.client.web.servlet.ClientOpenAdvertisementServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>openad</servlet-name>
+        <url-pattern>/openad/getopenadcontent</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

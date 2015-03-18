@@ -28,14 +28,17 @@ public class OpenAdvertisement extends EntityBase {
         AdvertisementFile oldAdvertisementFile = null;
 
         if (advertisementFile != null) {
-            oldAdvertisementFile = new AdvertisementFile();
-            oldAdvertisementFile.setUploadTime(advertisementFile.getUploadTime());
-            oldAdvertisementFile.setUploadFileName(advertisementFile.getUploadFileName());
-            oldAdvertisementFile.setActualFileName(advertisementFile.getActualFileName());
+            if (newAdvertisementFile != null) {
+                oldAdvertisementFile = new AdvertisementFile();
+                oldAdvertisementFile.setUploadTime(advertisementFile.getUploadTime());
+                oldAdvertisementFile.setUploadFileName(advertisementFile.getUploadFileName());
+                oldAdvertisementFile.setActualFileName(advertisementFile.getActualFileName());
 
-            advertisementFile.setUploadFileName(newAdvertisementFile.getUploadFileName());
-            advertisementFile.setActualFileName(newAdvertisementFile.getActualFileName());
-            advertisementFile.setUploadTime(newAdvertisementFile.getUploadTime());
+                advertisementFile.setUploadFileName(newAdvertisementFile.getUploadFileName());
+                advertisementFile.setActualFileName(newAdvertisementFile.getActualFileName());
+                advertisementFile.setUploadTime(newAdvertisementFile.getUploadTime());
+                advertisementFile.setFile(newAdvertisementFile.getFile());
+            }
         } else {
             this.advertisementFile = newAdvertisementFile;
         }

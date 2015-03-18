@@ -44,25 +44,38 @@ public class AdvertisementServiceImpl implements AdvertisementService {
      * synchronized aim is set id is unique in the system
      */
     public synchronized void changeOpenAdvertisementDetails(OpenAdvertisementDTO dto) {
+        //获得开机广告
         OpenAdvertisement openAdvertisement = OpenAdvertisementWebAssember.toOpenAdvertisementDomain(dto);
-
         if (openAdvertisement.getId() <= 0) {
             int maxSequence = advertisementDao.getMaxOpenAdvertisementSequence();
             openAdvertisement.setSequence(maxSequence + 1);
         }
 
+        //获得上传的文件
         MultipartFile file = dto.getAdvertisementFile();
         AdvertisementFile advertisementFile = null;
         if(file != null && file.getSize() > 0) {
             advertisementFile = OpenAdvertisementWebAssember.toAdvertisementFileDomain(file);
         }
 
+        //获得老的上传的文件，如果存在就删除
         AdvertisementFile oldAdvertisementFile = openAdvertisement.changeAdvertisementFile(advertisementFile);
         if (oldAdvertisementFile != null) {
             fileManageService.deleteAdvertisementFile(oldAdvertisementFile);
         }
-        fileManageService.uploadAdvertisementFile(openAdvertisement.getAdvertisementFile());
+        //如果新的文件存在，则从新上传
+        if(file != null && file.getSize() > 0) {
+            fileManageService.uploadAdvertisementFile(openAdvertisement.getAdvertisementFile());
+        }
 
         advertisementDao.saveOrUpdate(openAdvertisement);
+    }
+
+    public void deleteOpenAdvertisement(int openAdvertisementId) {
+        OpenAdvertisement openAdvertisement = (OpenAdvertisement) advertisementDao.findById(openAdvertisementId, OpenAdvertisement.class);
+        AdvertisementFile file = openAdvertisement.getAdvertisementFile();
+
+        fileManageService.deleteAdvertisementFile(file);
+        advertisementDao.delete(openAdvertisement);
     }
 }

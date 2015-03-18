@@ -43,6 +43,7 @@
                  <!--ad part-->
                 <prop key="/backend/openadvertisementoverview.html">openAdvertisementManagementController</prop>
                 <prop key="/backend/openadvertisementform.html">openAdvertisementFormController</prop>
+                <prop key="/backend/openadvertisementdelete.html">openAdvertisementDeleteController</prop>
             </props>
         </property>
     </bean>
@@ -81,6 +82,10 @@
     <bean id="openAdvertisementFormController" class="com.ch.system.web.controller.OpenAdvertisementFormController">
         <property name="advertisementService" ref="advertisementService"/>
         <property name="applicationWebAddress" value="${application.web.url}"/>
+    </bean>
+
+    <bean id="openAdvertisementDeleteController" class="com.ch.system.web.controller.OpenAdvertisementDeleteController">
+        <property name="advertisementService" ref="advertisementService"/>
     </bean>
 
 </beans>

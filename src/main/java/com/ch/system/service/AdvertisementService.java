@@ -20,4 +20,6 @@ public interface AdvertisementService {
     OpenAdvertisementDTO obtainOpenAdvertisementById(int openAdvertisementId);
 
     void changeOpenAdvertisementDetails(OpenAdvertisementDTO dto);
+
+    void deleteOpenAdvertisement(int openAdvertisementId);
 }
