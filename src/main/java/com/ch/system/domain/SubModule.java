@@ -2,18 +2,14 @@ package com.ch.system.domain;
 
 import com.ch.common.domain.EntityBase;
 
-import java.util.List;
-
 /**
  * User: Jack Wang
- * Date: 15-3-18
- * Time: 下午4:25
+ * Date: 15-3-19
+ * Time: 下午3:53
  */
-public class ModuleAdvertisement extends EntityBase {
+public class SubModule extends EntityBase {
 
     private int sequence;
-
-    private boolean includeSub;
 
     private String moduleTitle;
 
@@ -21,14 +17,13 @@ public class ModuleAdvertisement extends EntityBase {
 
     private String moduleDescription;
 
-    private List<SubModule> subModules;
+    private ModuleAdvertisement moduleAdvertisement;
 
-    public ModuleAdvertisement() {
+    public SubModule() {
     }
 
-    public ModuleAdvertisement(int sequence, boolean includeSub, String moduleTitle, String moduleUrl, String moduleDescription) {
+    public SubModule(int sequence, String moduleTitle, String moduleUrl, String moduleDescription) {
         this.sequence = sequence;
-        this.includeSub = includeSub;
         this.moduleTitle = moduleTitle;
         this.moduleUrl = moduleUrl;
         this.moduleDescription = moduleDescription;
@@ -42,14 +37,6 @@ public class ModuleAdvertisement extends EntityBase {
 
     public void setSequence(int sequence) {
         this.sequence = sequence;
-    }
-
-    public boolean isIncludeSub() {
-        return includeSub;
-    }
-
-    public void setIncludeSub(boolean includeSub) {
-        this.includeSub = includeSub;
     }
 
     public String getModuleTitle() {
@@ -76,11 +63,11 @@ public class ModuleAdvertisement extends EntityBase {
         this.moduleDescription = moduleDescription;
     }
 
-    public List<SubModule> getSubModules() {
-        return subModules;
+    public ModuleAdvertisement getModuleAdvertisement() {
+        return moduleAdvertisement;
     }
 
-    public void setSubModules(List<SubModule> subModules) {
-        this.subModules = subModules;
+    public void setModuleAdvertisement(ModuleAdvertisement moduleAdvertisement) {
+        this.moduleAdvertisement = moduleAdvertisement;
     }
 }

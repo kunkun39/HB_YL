@@ -11,3 +11,18 @@ INSERT INTO `module_advertisement` VALUES (6, '2015-07-01 00:00:00', 6, 1, 'MODU
 INSERT INTO `module_advertisement` VALUES (7, '2015-07-01 00:00:00', 7, 1, 'MODULE 7', '', '');
 INSERT INTO `module_advertisement` VALUES (8, '2015-07-01 00:00:00', 8, 1, 'MODULE 8', '', '');
 
+INSERT INTO `submodule_advertisement` VALUES (1, '2015-07-01 00:00:00', 1, 'MODULE 1', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (2, '2015-07-01 00:00:00', 1, 'MODULE 2', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (3, '2015-07-01 00:00:00', 1, 'MODULE 3', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (4, '2015-07-01 00:00:00', 1, 'MODULE 4', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (5, '2015-07-01 00:00:00', 1, 'MODULE 5', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (6, '2015-07-01 00:00:00', 1, 'MODULE 6', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (7, '2015-07-01 00:00:00', 1, 'MODULE 7', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (8, '2015-07-01 00:00:00', 1, 'MODULE 8', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (9, '2015-07-01 00:00:00', 1, 'MODULE 9', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (10, '2015-07-01 00:00:00', 1, 'MODULE 10', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (11, '2015-07-01 00:00:00', 1, 'MODULE 11', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (12, '2015-07-01 00:00:00', 1, 'MODULE 12', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (13, '2015-07-01 00:00:00', 1, 'MODULE 13', 'http://www.baidu.com', '', 1);
+INSERT INTO `submodule_advertisement` VALUES (14, '2015-07-01 00:00:00', 1, 'MODULE 14', 'http://www.baidu.com', '', 1);
+

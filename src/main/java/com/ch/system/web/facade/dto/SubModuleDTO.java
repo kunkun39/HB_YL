@@ -1,19 +1,15 @@
-package com.ch.system.domain;
-
-import com.ch.common.domain.EntityBase;
-
-import java.util.List;
+package com.ch.system.web.facade.dto;
 
 /**
  * User: Jack Wang
- * Date: 15-3-18
- * Time: 下午4:25
+ * Date: 15-3-19
+ * Time: 下午4:03
  */
-public class ModuleAdvertisement extends EntityBase {
+public class SubModuleDTO {
 
-    private int sequence;
+    private int id = -1;
 
-    private boolean includeSub;
+    private int sequence = -1;
 
     private String moduleTitle;
 
@@ -21,20 +17,28 @@ public class ModuleAdvertisement extends EntityBase {
 
     private String moduleDescription;
 
-    private List<SubModule> subModules;
+    private int moduleId;
 
-    public ModuleAdvertisement() {
+    public SubModuleDTO(int moduleId) {
+        this.moduleId = moduleId;
     }
 
-    public ModuleAdvertisement(int sequence, boolean includeSub, String moduleTitle, String moduleUrl, String moduleDescription) {
+    public SubModuleDTO(int id, int sequence, String moduleTitle, String moduleUrl, String moduleDescription, int moduleId) {
+        this.id = id;
         this.sequence = sequence;
-        this.includeSub = includeSub;
         this.moduleTitle = moduleTitle;
         this.moduleUrl = moduleUrl;
         this.moduleDescription = moduleDescription;
+        this.moduleId = moduleId;
     }
 
-    /*************************************************GETTER**********************************************************/
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getSequence() {
         return sequence;
@@ -42,14 +46,6 @@ public class ModuleAdvertisement extends EntityBase {
 
     public void setSequence(int sequence) {
         this.sequence = sequence;
-    }
-
-    public boolean isIncludeSub() {
-        return includeSub;
-    }
-
-    public void setIncludeSub(boolean includeSub) {
-        this.includeSub = includeSub;
     }
 
     public String getModuleTitle() {
@@ -76,11 +72,11 @@ public class ModuleAdvertisement extends EntityBase {
         this.moduleDescription = moduleDescription;
     }
 
-    public List<SubModule> getSubModules() {
-        return subModules;
+    public int getModuleId() {
+        return moduleId;
     }
 
-    public void setSubModules(List<SubModule> subModules) {
-        this.subModules = subModules;
+    public void setModuleId(int moduleId) {
+        this.moduleId = moduleId;
     }
 }

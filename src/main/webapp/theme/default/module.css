@@ -3,7 +3,7 @@ ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style
 
 
 .tv_main_bg { background-color:#ffffff; padding-top: 50px; }
-.tv_header { width:1000px; margin:0 auto; height:50px; margin-top:20px; }
+.tv_header { width:1000px; margin:0 auto; height:50px; }
 .tv_header .title { line-height:50px; font-size:24px; color:#000000; }
 .tv_main { width:1000px; margin:0 auto; }
 .tv_main .preview { width:612px; padding-top:10px; height:410px; float:left; }
@@ -41,15 +41,19 @@ ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style
 .sub_channel li { position:relative; float:left; width:160px; height:180px; margin-left:8px; background-color:#fff; /*background-color:rgba(200,200,200,0.7);*/ }
 .sub_channel li .title { position:absolute; left:0; bottom:0; width:100%; text-align:center; height:40px; font-size:18px; padding-bottom:10px; color:#fff; }
 .sub_channel .bg { width:160px; height:180px; margin-top:-14px; }
-.sub_channel .bg01 { background-color:rgba(227,56,88,0.6); }
-.sub_channel .bg02 { background-color:rgba(136,194,15,0.5); }
-.sub_channel .bg03 { background-color:rgba(203,20,62,0.5); }
-.sub_channel .bg04 { background-color:rgba(228,102,13,0.5); }
-.sub_channel .bg05 { background-color:rgba(52,129,241,0.5); }
-.sub_channel .bg06 { background-color:rgba(138,61,220,0.5); }
-.sub_channel .bg07 { background-color:rgba(207,151,6,0.5); }
-.sub_channel .bg08 { background-color:rgba(255,60,49,0.5); }
-.sub_channel .bg09 { background-color:rgba(227,56,88,0.6); }
+.sub_channel .bg1 { background-color:rgba(227,56,88,0.6); }
+.sub_channel .bg2 { background-color:rgba(136,194,15,0.5); }
+.sub_channel .bg3 { background-color:rgba(203,20,62,0.5); }
+.sub_channel .bg4 { background-color:rgba(228,102,13,0.5); }
+.sub_channel .bg5 { background-color:rgba(52,129,241,0.5); }
+.sub_channel .bg6 { background-color:rgba(138,61,220,0.5); }
+.sub_channel .bg7 { background-color:rgba(207,151,6,0.5); }
+.sub_channel .bg8 { background-color:rgba(255,60,49,0.5); }
+.sub_channel .bg9 { background-color:rgba(156,56,88,0.6); }
 .sub_channel .bg10 { background-color:rgba(136,194,15,0.5); }
 .sub_channel .bg11 { background-color:rgba(203,20,62,0.5); }
 .sub_channel .bg12 { background-color:rgba(228,102,13,0.5); }
+.sub_channel  a.edit { position:absolute; top:8px; right:5px; color:#ffffff; text-decoration:underline; font-size: 12px;}
+.sub_channel  a.edit:hover { color:#fff; }
+.sub_channel  a.edit1 { position:absolute; top:25px; right:5px; color:#ffffff; text-decoration:underline; font-size: 12px;}
+.sub_channel  a.edit1:hover { color:#fff; }

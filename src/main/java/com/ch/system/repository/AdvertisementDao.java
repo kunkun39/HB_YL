@@ -3,6 +3,7 @@ package com.ch.system.repository;
 import com.ch.common.repository.EntityObjectDao;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
+import com.ch.system.domain.SubModule;
 
 import java.util.List;
 
@@ -24,4 +25,8 @@ public interface AdvertisementDao extends EntityObjectDao {
     /*************************八大模块部分******************************/
 
     List<ModuleAdvertisement> loadModuleAdvertisements();
+
+    List<SubModule> loadSubModules(int moduleAdvertisementId, int startPosition, int pageSize);
+
+    int loadSubModuleSize(int moduleAdvertisementId);
 }

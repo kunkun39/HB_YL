@@ -2,6 +2,7 @@ package com.ch.client.web.servlet;
 
 import com.ch.client.service.ClientAdvertisementService;
 import com.ch.common.web.application.ApplicationEventPublisher;
+import org.springframework.web.bind.ServletRequestUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +41,10 @@ public class ClientOpenAdvertisementServlet extends HttpServlet {
 
         } else if ("/dvbott/client/getmainmodulecontent".equals(requestURL)) {
             responseJSON = clientAdvertisementService.obtainClientModuleAdvertisement();
+
+        } else if ("/dvbott/client/getsubmodulecontent.html".equals(requestURL)) {
+            int moduleAdvertisementId = ServletRequestUtils.getIntParameter(request, "moduleAdvertisementId");
+            responseJSON = clientAdvertisementService.obtainClientSubModule(moduleAdvertisementId);
         }
 
         //返回结果

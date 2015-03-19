@@ -3,11 +3,14 @@ package com.ch.system.service;
 import com.ch.system.domain.AdvertisementFile;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
+import com.ch.system.domain.SubModule;
 import com.ch.system.repository.AdvertisementDao;
 import com.ch.system.web.facade.assember.ModuleAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.OpenAdvertisementWebAssember;
+import com.ch.system.web.facade.assember.SubModuleWebAssember;
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
+import com.ch.system.web.facade.dto.SubModuleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -99,5 +102,29 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     public void changeModuleAdvertisementDetails(ModuleAdvertisementDTO dto) {
         ModuleAdvertisement moduleAdvertisement = ModuleAdvertisementWebAssember.toModuleAdvertisementDomain(dto);
         advertisementDao.saveOrUpdate(moduleAdvertisement);
+    }
+
+    public List<SubModuleDTO> obtainSubModules(int moduleAdvertisementId, int startPosition, int pageSize) {
+        List<SubModule> subModules = advertisementDao.loadSubModules(moduleAdvertisementId, startPosition, pageSize);
+        return SubModuleWebAssember.toModuleAdvertisementDTOList(subModules);
+    }
+
+    public int obtainSubModuleSize(int moduleAdvertisementId) {
+        return advertisementDao.loadSubModuleSize(moduleAdvertisementId);
+    }
+
+    public SubModuleDTO obtainSubModuleById(int subModuleId) {
+        SubModule subModule = (SubModule) advertisementDao.findById(subModuleId, SubModule.class);
+        return SubModuleWebAssember.toSubModuleDTO(subModule);
+    }
+
+    public void changeSubModuleDetails(SubModuleDTO dto) {
+        SubModule subModule = SubModuleWebAssember.toSubModuleDomain(dto);
+        advertisementDao.saveOrUpdate(subModule);
+    }
+
+    public void deleteSubModule(int subModuleId) {
+        SubModule subModule = (SubModule) advertisementDao.findById(subModuleId, SubModule.class);
+        advertisementDao.delete(subModule);
     }
 }

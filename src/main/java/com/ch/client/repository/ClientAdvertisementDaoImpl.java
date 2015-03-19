@@ -3,6 +3,7 @@ package com.ch.client.repository;
 import com.ch.common.repository.HibernateEntityObjectDao;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
+import com.ch.system.domain.SubModule;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,5 +22,9 @@ public class ClientAdvertisementDaoImpl extends HibernateEntityObjectDao impleme
 
     public List<ModuleAdvertisement> loadAllModuleAdvertisement() {
         return getHibernateTemplate().find("from ModuleAdvertisement oa order by oa.sequence asc");
+    }
+
+    public List<SubModule> loadSubModules(int moduleAdvertisement) {
+        return getHibernateTemplate().find("from SubModule sm where sm.moduleAdvertisement.id = ?", new Object[]{moduleAdvertisement});
     }
 }

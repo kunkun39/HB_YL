@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <link rel="Bookmark" href="${pageContext.request.contextPath}/images/favicon.gif">
     <link rel="Shortcut Icon" href="${pageContext.request.contextPath}/images/favicon.gif">
-    <title><decorator:title default="后台管理平台"/></title>
+    <title><decorator:title default="长虹机顶盒后台管理系统"/></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/public.css" type="text/css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/main.css" type="text/css"/>
     <decorator:head/>

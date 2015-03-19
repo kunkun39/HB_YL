@@ -2,6 +2,7 @@ package com.ch.system.service;
 
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
+import com.ch.system.web.facade.dto.SubModuleDTO;
 
 import java.util.List;
 
@@ -31,4 +32,14 @@ public interface AdvertisementService {
     ModuleAdvertisementDTO obtainModuleAdvertisementById(int moduleAdvertisementId);
 
     void changeModuleAdvertisementDetails(ModuleAdvertisementDTO dto);
+
+    List<SubModuleDTO> obtainSubModules(int moduleAdvertisementId, int startPosition, int pageSize);
+
+    int obtainSubModuleSize(int moduleAdvertisementId);
+
+    SubModuleDTO obtainSubModuleById(int subModuleId);
+
+    void changeSubModuleDetails(SubModuleDTO dto);
+
+    void deleteSubModule(int subModuleId);
 }

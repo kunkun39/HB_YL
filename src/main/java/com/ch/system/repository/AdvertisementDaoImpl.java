@@ -3,6 +3,7 @@ package com.ch.system.repository;
 import com.ch.common.repository.HibernateEntityObjectDao;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
+import com.ch.system.domain.SubModule;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
@@ -51,5 +52,25 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
 
     public List<ModuleAdvertisement> loadModuleAdvertisements() {
         return getHibernateTemplate().find("from ModuleAdvertisement") ;
+    }
+
+    public List<SubModule> loadSubModules(int moduleAdvertisementId, int startPosition, int pageSize) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("from SubModule sm where sm.moduleAdvertisement.id=" + moduleAdvertisementId + " order by sm.sequence asc");
+
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Query query = session.createQuery(builder.toString());
+        query.setMaxResults(pageSize);
+        query.setFirstResult(startPosition);
+
+        List<SubModule> modules = query.list();
+        return modules;
+    }
+
+    public int loadSubModuleSize(int moduleAdvertisementId) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select count(sm.id) from SubModule sm where sm.moduleAdvertisement.id=" + moduleAdvertisementId + " order by sm.sequence asc");
+        List list =  getHibernateTemplate().find(builder.toString());
+        return ((Long)list.get(0)).intValue();
     }
 }

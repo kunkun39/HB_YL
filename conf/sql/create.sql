@@ -46,4 +46,17 @@ CREATE TABLE `module_advertisement` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+DROP TABLE IF EXISTS `submodule_advertisement`;
+CREATE TABLE `submodule_advertisement` (
+  `id` int(11) NOT NULL auto_increment,
+  `timestamp` timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `sequence` int(11) NOT NULL,
+  `module_title` varchar(120) default NULL,
+  `module_url` varchar(240) default NULL,
+  `module_description` text default NULL,
+  `module_advertisement_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  FOREIGN KEY (`module_advertisement_id`) REFERENCES module_advertisement (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
 SET FOREIGN_KEY_CHECKS=1;

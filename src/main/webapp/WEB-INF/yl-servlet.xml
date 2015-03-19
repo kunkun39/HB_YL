@@ -46,6 +46,9 @@
                 <prop key="/backend/openadvertisementdelete.html">openAdvertisementDeleteController</prop>
                 <prop key="/backend/moduleadvertisementoverview.html">moduleAdvertisementManagementController</prop>
                 <prop key="/backend/moduleadvertisementform.html">moduleAdvertisementFormController</prop>
+                <prop key="/backend/submoduleoverview.html">subModuleManagementController</prop>
+                <prop key="/backend/submoduleform.html">subModuleFormController</prop>
+                <prop key="/backend/submoduledelete.html">subModuleDeleteController</prop>
             </props>
         </property>
     </bean>
@@ -95,6 +98,18 @@
     </bean>
 
     <bean id="moduleAdvertisementFormController" class="com.ch.system.web.controller.ModuleAdvertisementFormController">
+        <property name="advertisementService" ref="advertisementService"/>
+    </bean>
+
+    <bean id="subModuleManagementController" class="com.ch.system.web.controller.SubModuleManagementController">
+        <property name="advertisementService" ref="advertisementService"/>
+    </bean>
+
+    <bean id="subModuleFormController" class="com.ch.system.web.controller.SubModuleFormController">
+        <property name="advertisementService" ref="advertisementService"/>
+    </bean>
+
+    <bean id="subModuleDeleteController" class="com.ch.system.web.controller.SubModuleDeleteController">
         <property name="advertisementService" ref="advertisementService"/>
     </bean>
 

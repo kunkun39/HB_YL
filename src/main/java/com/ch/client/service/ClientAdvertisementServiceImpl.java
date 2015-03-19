@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ch.client.repository.ClientAdvertisementDao;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
+import com.ch.system.domain.SubModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,23 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
             ads.add(ad);
         }
         all.put("modules", ads);
+
+        return all.toJSONString();
+    }
+
+    public String obtainClientSubModule(int moduleAdvertisement) {
+        List<SubModule> subModules = clientAdvertisementDao.loadSubModules(moduleAdvertisement);
+
+        JSONObject all = new JSONObject();
+        JSONArray ads = new JSONArray();
+        for (SubModule subModule : subModules) {
+            JSONObject ad = new JSONObject();
+            ad.put("subindex", subModule.getSequence());
+            ad.put("title", subModule.getModuleTitle());
+            ad.put("address", subModule.getModuleUrl());
+            ads.add(ad);
+        }
+        all.put("submodules", ads);
 
         return all.toJSONString();
     }
