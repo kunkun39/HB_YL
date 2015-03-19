@@ -1,0 +1,54 @@
+html, body { margin:0; padding:0; font-size:12px; }
+ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style:0 none; }
+
+
+.tv_main_bg { background-color:#ffffff; padding-top: 50px; }
+.tv_header { width:1000px; margin:0 auto; height:50px; margin-top:20px; }
+.tv_header .title { line-height:50px; font-size:24px; color:#000000; }
+.tv_main { width:1000px; margin:0 auto; }
+.tv_main .preview { width:612px; padding-top:10px; height:410px; float:left; }
+.tv_main .preview .wrap { height:390px; background:#000; padding:10px; }
+.tv_main .preview .wrap img { width:100%; height:100%; }
+.tv_main .channel { width:388px; float:left; }
+.tv_main .channel .list { overflow:hidden; _zoom:1; }
+.tv_main .channel .list li { position:relative; float:left; width:184px; height:95px; margin-left:10px; margin-top:10px; _display:inline; }
+.tv_main .channel .list li.c1 { background-color:#cf9706; }
+.tv_main .channel .list li.c2 { background-color:#88c20f; }
+.tv_main .channel .list li.c3 { background-color:#cb143e; }
+.tv_main .channel .list li.c4 { background-color:#e4660d; }
+.tv_main .channel .list li.c5 { background-color:#3481f1; }
+.tv_main .channel .list li.c6 { background-color:#8a3ddc; }
+.tv_main .channel .list li.c7 { background-color:#cf9706; }
+.tv_main .channel .list li.c8 { background-color:#ff3c31; }
+.tv_main .channel .list li a.edit { position:absolute; top:8px; right:17px; color:#ffffff; text-decoration:underline; font-size: 12px;}
+.tv_main .channel .list li a.edit:hover { color:#fff; }
+.tv_main .channel .list li a.edit1 { position:absolute; top:25px; right:5px; color:#ffffff; text-decoration:underline; font-size: 12px;}
+.tv_main .channel .list li a.edit1:hover { color:#fff; }
+.tv_main .channel .list li a.c { display:block; text-decoration:none; }
+.tv_main .channel .list li p.icon { height:55px; margin-top:5px; background-repeat:no-repeat; background-position:center center; }
+.tv_main .channel .list li p.name { height:30px; line-height:30px; padding-bottom:5px; text-align:center; color:#fff; font-size:16px; }
+.tv_main .channel .list li p.ico1 { background-image:url(module/zwgk.png); }
+.tv_main .channel .list li p.ico2 { background-image:url(module/ylzx.png); }
+.tv_main .channel .list li p.ico3 { background-image:url(module/dsyd.png); }
+.tv_main .channel .list li p.ico4 { background-image:url(module/djpt.png); }
+.tv_main .channel .list li p.ico5 { background-image:url(module/zcxc.png); }
+.tv_main .channel .list li p.ico6 { background-image:url(module/nykj.png); }
+.tv_main .channel .list li p.ico7 { background-image:url(module/bmfw.png); }
+.tv_main .channel .list li p.ico8 { background-image:url(module/gdsc.png); }
+
+.sub_channel { margin-top:10px !important; overflow:hidden; _zoom:1; height:180px; }
+.sub_channel li { position:relative; float:left; width:160px; height:180px; margin-left:8px; background-color:#fff; /*background-color:rgba(200,200,200,0.7);*/ }
+.sub_channel li .title { position:absolute; left:0; bottom:0; width:100%; text-align:center; height:40px; font-size:18px; padding-bottom:10px; color:#fff; }
+.sub_channel .bg { width:160px; height:180px; margin-top:-14px; }
+.sub_channel .bg01 { background-color:rgba(227,56,88,0.6); }
+.sub_channel .bg02 { background-color:rgba(136,194,15,0.5); }
+.sub_channel .bg03 { background-color:rgba(203,20,62,0.5); }
+.sub_channel .bg04 { background-color:rgba(228,102,13,0.5); }
+.sub_channel .bg05 { background-color:rgba(52,129,241,0.5); }
+.sub_channel .bg06 { background-color:rgba(138,61,220,0.5); }
+.sub_channel .bg07 { background-color:rgba(207,151,6,0.5); }
+.sub_channel .bg08 { background-color:rgba(255,60,49,0.5); }
+.sub_channel .bg09 { background-color:rgba(227,56,88,0.6); }
+.sub_channel .bg10 { background-color:rgba(136,194,15,0.5); }
+.sub_channel .bg11 { background-color:rgba(203,20,62,0.5); }
+.sub_channel .bg12 { background-color:rgba(228,102,13,0.5); }

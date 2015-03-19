@@ -35,8 +35,7 @@
         <property name="timestamp" column="timestamp" type="java.util.Date"/>
 
         <property name="sequence" column="sequence" insert="true" update="true" type="java.lang.Integer"/>
-        <property name="advertisememtTitle" column="advertisememt_title" insert="true" update="true" type="java.lang.String"/>
-
-        <many-to-one name="advertisementFile" column="ad_update_file_id" class="com.ch.system.domain.AdvertisementFile" lazy="proxy" cascade="all" insert="true" update="true"/>
+        <property name="moduleTitle" column="module_title" insert="true" update="true" type="java.lang.String"/>
+        <property name="moduleUrl" column="module_url" insert="true" update="true" type="java.lang.String"/>
     </class>
 </hibernate-mapping>

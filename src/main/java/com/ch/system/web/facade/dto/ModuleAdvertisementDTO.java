@@ -15,27 +15,18 @@ public class ModuleAdvertisementDTO implements Serializable {
 
     private int sequence = -1;
 
-    private String advertisementTitle;
+    private String moduleTitle;
 
-    private int advertisementFileId;
-
-    private String advertisementUploadFileName;
-
-    private String advertisementActualFileName;
-
-    private MultipartFile advertisementFile;
+    private String moduleUrl;
 
     public ModuleAdvertisementDTO() {
     }
 
-    public ModuleAdvertisementDTO(int id, int sequence, String advertisementTitle,
-                                int advertisementFileId, String advertisementUploadFileName, String advertisementActualFileName) {
+    public ModuleAdvertisementDTO(int id, int sequence, String moduleTitle, String moduleUrl) {
         this.id = id;
         this.sequence = sequence;
-        this.advertisementTitle = advertisementTitle;
-        this.advertisementFileId = advertisementFileId;
-        this.advertisementUploadFileName = advertisementUploadFileName;
-        this.advertisementActualFileName = advertisementActualFileName;
+        this.moduleTitle = moduleTitle;
+        this.moduleUrl = moduleUrl;
     }
 
     public int getId() {
@@ -54,44 +45,20 @@ public class ModuleAdvertisementDTO implements Serializable {
         this.sequence = sequence;
     }
 
-    public String getAdvertisementTitle() {
-        return advertisementTitle;
+    public String getModuleTitle() {
+        return moduleTitle;
     }
 
-    public void setAdvertisementTitle(String advertisementTitle) {
-        this.advertisementTitle = advertisementTitle;
+    public void setModuleTitle(String moduleTitle) {
+        this.moduleTitle = moduleTitle;
     }
 
-    public int getAdvertisementFileId() {
-        return advertisementFileId;
+    public String getModuleUrl() {
+        return moduleUrl;
     }
 
-    public void setAdvertisementFileId(int advertisementFileId) {
-        this.advertisementFileId = advertisementFileId;
-    }
-
-    public String getAdvertisementUploadFileName() {
-        return advertisementUploadFileName;
-    }
-
-    public void setAdvertisementUploadFileName(String advertisementUploadFileName) {
-        this.advertisementUploadFileName = advertisementUploadFileName;
-    }
-
-    public String getAdvertisementActualFileName() {
-        return advertisementActualFileName;
-    }
-
-    public void setAdvertisementActualFileName(String advertisementActualFileName) {
-        this.advertisementActualFileName = advertisementActualFileName;
-    }
-
-    public MultipartFile getAdvertisementFile() {
-        return advertisementFile;
-    }
-
-    public void setAdvertisementFile(MultipartFile advertisementFile) {
-        this.advertisementFile = advertisementFile;
+    public void setModuleUrl(String moduleUrl) {
+        this.moduleUrl = moduleUrl;
     }
 }
 

@@ -27,4 +27,8 @@ public interface AdvertisementService {
     /*************************八大模块部分******************************/
 
     List<ModuleAdvertisementDTO> obtainModuleAdvertisements();
+
+    ModuleAdvertisementDTO obtainModuleAdvertisementById(int moduleAdvertisementId);
+
+    void changeModuleAdvertisementDetails(ModuleAdvertisementDTO dto);
 }

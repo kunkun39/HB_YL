@@ -23,7 +23,7 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
     @Autowired
     private ClientAdvertisementDao clientAdvertisementDao;
 
-    @Value("${application.web.url}")
+    @Value("${application.image.url}")
     private String applicationWebAddress;
 
     public String obtainClientOpenAdvertisement() {
@@ -51,11 +51,11 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
         for (ModuleAdvertisement advertisement : advertisements) {
             JSONObject ad = new JSONObject();
             ad.put("index", advertisement.getSequence());
-            ad.put("title", advertisement.getAdvertisememtTitle());
-            ad.put("url", applicationWebAddress + advertisement.getAdvertisementFile().getActualFileName());
+            ad.put("title", advertisement.getModuleTitle());
+            ad.put("url", advertisement.getModuleUrl());
             ads.add(ad);
         }
-        all.put("openads", ads);
+        all.put("modules", ads);
 
         return all.toJSONString();
     }

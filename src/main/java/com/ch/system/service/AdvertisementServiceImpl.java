@@ -90,4 +90,13 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         List<ModuleAdvertisement> advertisements = advertisementDao.loadModuleAdvertisements();
         return ModuleAdvertisementWebAssember.toModuleAdvertisementDTOList(advertisements);
     }
+
+    public ModuleAdvertisementDTO obtainModuleAdvertisementById(int moduleAdvertisementId) {
+        ModuleAdvertisement moduleAdvertisement = (ModuleAdvertisement) advertisementDao.findById(moduleAdvertisementId, ModuleAdvertisement.class);
+        return ModuleAdvertisementWebAssember.toModuleAdvertisementDTO(moduleAdvertisement);
+    }
+
+    public void changeModuleAdvertisementDetails(ModuleAdvertisementDTO dto) {
+
+    }
 }

@@ -24,9 +24,10 @@ public class ModuleAdvertisementWebAssember {
             moduleAdvertisement = (ModuleAdvertisement) EntityLoadHolder.getUserDao().findById(dto.getId(), ModuleAdvertisement.class);
             moduleAdvertisement.setId(dto.getId());
             moduleAdvertisement.setSequence(dto.getSequence());
-            moduleAdvertisement.setAdvertisememtTitle(dto.getAdvertisementTitle());
+            moduleAdvertisement.setModuleTitle(dto.getModuleTitle());
+            moduleAdvertisement.setModuleUrl(dto.getModuleUrl());
         } else {
-            moduleAdvertisement = new ModuleAdvertisement(dto.getSequence(), dto.getAdvertisementTitle());
+            moduleAdvertisement = new ModuleAdvertisement(dto.getSequence(), dto.getModuleTitle(), dto.getModuleUrl());
         }
         return moduleAdvertisement;
     }
@@ -34,15 +35,10 @@ public class ModuleAdvertisementWebAssember {
     public static ModuleAdvertisementDTO toModuleAdvertisementDTO(ModuleAdvertisement moduleAdvertisement) {
         final int id = moduleAdvertisement.getId();
         final int sequence = moduleAdvertisement.getSequence();
-        final String advertisementTitle = moduleAdvertisement.getAdvertisememtTitle();
+        final String moduleTitle = moduleAdvertisement.getModuleTitle();
+        final String moduleUrl = moduleAdvertisement.getModuleUrl();
 
-        AdvertisementFile file = moduleAdvertisement.getAdvertisementFile();
-        final int advertisementFileId = file != null ? file.getId() : -1;
-        final String advertisementUploadFileName = file != null ? file.getUploadFileName() : "";
-        final String advertisementActualFileName = file != null ? file.getActualFileName() : "";
-
-        ModuleAdvertisementDTO dto =  new ModuleAdvertisementDTO(id, sequence, advertisementTitle,
-                advertisementFileId, advertisementUploadFileName, advertisementActualFileName);
+        ModuleAdvertisementDTO dto =  new ModuleAdvertisementDTO(id, sequence, moduleTitle, moduleUrl);
         return dto;
     }
 
