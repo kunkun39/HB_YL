@@ -37,5 +37,7 @@
         <property name="sequence" column="sequence" insert="true" update="true" type="java.lang.Integer"/>
         <property name="moduleTitle" column="module_title" insert="true" update="true" type="java.lang.String"/>
         <property name="moduleUrl" column="module_url" insert="true" update="true" type="java.lang.String"/>
+        <property name="moduleDescription" column="module_description" insert="true" update="true" type="java.lang.String"/>
+        <property name="includeSub" column="include_sub" insert="true" update="true" type="java.lang.Boolean"/>
     </class>
 </hibernate-mapping>

@@ -25,17 +25,17 @@
                     <input type="hidden" name="id" value="${openAdvertisement.id}"/>
                     <input type="hidden" name="advertisementFileId" value="${openAdvertisement.advertisementFileId}"/>
 
-                    <tr>
+                    <tr valign="top">
                         <td width="200px;">
                              开机广告描述 <span class="required">*</span>
                         </td>
                         <td>
-                            <spring-form:input id="advertisementTitle" path="advertisementTitle" maxlength="30" cssStyle="width:300px;"/>&nbsp;
+                            <spring-form:input id="advertisementTitle" path="advertisementTitle" maxlength="100" cssStyle="width:300px;"/>&nbsp;
                             <spring-form:errors path="advertisementTitle" cssClass="required"/>
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr valign="top">
                         <td width="200px;" valign="top">
                              选择开机广告图片 <span class="required">*</span><br/>(支持PNG, JEPG, JPG, BMP格式上传)
                         </td>

@@ -39,8 +39,10 @@ CREATE TABLE `module_advertisement` (
   `id` int(11) NOT NULL auto_increment,
   `timestamp` timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `sequence` int(11) NOT NULL,
+  `include_sub` tinyint(1) default '0' COMMENT '1 for YES or 0 for NO',
   `module_title` varchar(120) default NULL,
   `module_url` varchar(240) default NULL,
+  `module_description` text default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 

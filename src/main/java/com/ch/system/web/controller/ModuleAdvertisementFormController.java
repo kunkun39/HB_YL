@@ -1,5 +1,6 @@
 package com.ch.system.web.controller;
 
+import com.ch.common.utils.ValidateUtils;
 import com.ch.system.service.AdvertisementService;
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import org.springframework.util.StringUtils;
@@ -23,7 +24,7 @@ public class ModuleAdvertisementFormController extends SimpleFormController {
 
     public ModuleAdvertisementFormController() {
         setCommandClass(ModuleAdvertisementDTO.class);
-        setCommandName("ModuleAdvertisement");
+        setCommandName("moduleAdvertisement");
         setFormView("/backend/ad/moduleadvertisementform");
     }
 
@@ -44,9 +45,22 @@ public class ModuleAdvertisementFormController extends SimpleFormController {
             errors.rejectValue("moduleTitle", "module.ad.title.empty");
         }
 
+        boolean includeSub = ServletRequestUtils.getBooleanParameter(request, "includeSub", false);
         String moduleUrl = ServletRequestUtils.getStringParameter(request, "moduleUrl", "");
-        if (!StringUtils.hasText(moduleUrl)) {
-            errors.rejectValue("moduleUrl", "module.ad.url.empty");
+        if (includeSub) {
+            if (StringUtils.hasText(moduleUrl)) {
+                if (!ValidateUtils.isValidateURL(moduleUrl)) {
+                    errors.rejectValue("moduleUrl", "module.ad.url.validate");
+                }
+            }
+        } else {
+            if (StringUtils.hasText(moduleUrl)) {
+                if (!ValidateUtils.isValidateURL(moduleUrl)) {
+                    errors.rejectValue("moduleUrl", "module.ad.url.validate");
+                }
+            } else {
+                errors.rejectValue("moduleUrl", "module.ad.url.empty");
+            }
         }
     }
 

@@ -45,6 +45,7 @@
                 <prop key="/backend/openadvertisementform.html">openAdvertisementFormController</prop>
                 <prop key="/backend/openadvertisementdelete.html">openAdvertisementDeleteController</prop>
                 <prop key="/backend/moduleadvertisementoverview.html">moduleAdvertisementManagementController</prop>
+                <prop key="/backend/moduleadvertisementform.html">moduleAdvertisementFormController</prop>
             </props>
         </property>
     </bean>
@@ -90,6 +91,10 @@
     </bean>
 
     <bean id="moduleAdvertisementManagementController" class="com.ch.system.web.controller.ModuleAdvertisementManagementController">
+        <property name="advertisementService" ref="advertisementService"/>
+    </bean>
+
+    <bean id="moduleAdvertisementFormController" class="com.ch.system.web.controller.ModuleAdvertisementFormController">
         <property name="advertisementService" ref="advertisementService"/>
     </bean>
 

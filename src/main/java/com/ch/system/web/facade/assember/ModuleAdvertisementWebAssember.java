@@ -24,10 +24,12 @@ public class ModuleAdvertisementWebAssember {
             moduleAdvertisement = (ModuleAdvertisement) EntityLoadHolder.getUserDao().findById(dto.getId(), ModuleAdvertisement.class);
             moduleAdvertisement.setId(dto.getId());
             moduleAdvertisement.setSequence(dto.getSequence());
+            moduleAdvertisement.setIncludeSub(dto.isIncludeSub());
             moduleAdvertisement.setModuleTitle(dto.getModuleTitle());
             moduleAdvertisement.setModuleUrl(dto.getModuleUrl());
+            moduleAdvertisement.setModuleDescription(dto.getModuleDescription());
         } else {
-            moduleAdvertisement = new ModuleAdvertisement(dto.getSequence(), dto.getModuleTitle(), dto.getModuleUrl());
+            moduleAdvertisement = new ModuleAdvertisement(dto.getSequence(), dto.isIncludeSub(), dto.getModuleTitle(), dto.getModuleUrl(), dto.getModuleDescription());
         }
         return moduleAdvertisement;
     }
@@ -35,10 +37,12 @@ public class ModuleAdvertisementWebAssember {
     public static ModuleAdvertisementDTO toModuleAdvertisementDTO(ModuleAdvertisement moduleAdvertisement) {
         final int id = moduleAdvertisement.getId();
         final int sequence = moduleAdvertisement.getSequence();
+        final boolean includeSub = moduleAdvertisement.isIncludeSub();
         final String moduleTitle = moduleAdvertisement.getModuleTitle();
         final String moduleUrl = moduleAdvertisement.getModuleUrl();
+        final String moduleDescription = moduleAdvertisement.getModuleDescription();
 
-        ModuleAdvertisementDTO dto =  new ModuleAdvertisementDTO(id, sequence, moduleTitle, moduleUrl);
+        ModuleAdvertisementDTO dto =  new ModuleAdvertisementDTO(id, sequence, includeSub, moduleTitle, moduleUrl, moduleDescription);
         return dto;
     }
 

@@ -97,6 +97,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     }
 
     public void changeModuleAdvertisementDetails(ModuleAdvertisementDTO dto) {
-
+        ModuleAdvertisement moduleAdvertisement = ModuleAdvertisementWebAssember.toModuleAdvertisementDomain(dto);
+        advertisementDao.saveOrUpdate(moduleAdvertisement);
     }
 }
