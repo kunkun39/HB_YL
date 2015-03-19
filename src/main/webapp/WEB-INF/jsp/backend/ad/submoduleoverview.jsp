@@ -38,11 +38,15 @@
                         </ul>
                         <ul class="sub_channel">
                     </c:if>
+
                     <li class="bg${counter.count}" <c:if test="${counter.count == 1 || counter.count == 7}">style="margin-left:0;"</c:if>>
                         <a class="edit" href="${pageContext.request.contextPath}/backend/submoduleform.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}">编辑</a>
                         <a class="edit1" href="${pageContext.request.contextPath}/backend/submoduledelete.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}" onclick="return moduleDeleteConfirm();">删除</a>
-                        <p class="title">${module.moduleTitle}</p>
+                        <a href="${module.moduleUrl}" target="_blank">
+                            <p class="title">${module.moduleTitle}</p>
+                        </a>
                     </li>
+
                     <c:if test="${counter.count == 12}">
                         </ul>
                     </c:if>
