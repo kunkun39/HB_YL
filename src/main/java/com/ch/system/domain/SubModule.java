@@ -22,8 +22,7 @@ public class SubModule extends EntityBase {
     public SubModule() {
     }
 
-    public SubModule(int sequence, String moduleTitle, String moduleUrl, String moduleDescription) {
-        this.sequence = sequence;
+    public SubModule(String moduleTitle, String moduleUrl, String moduleDescription) {
         this.moduleTitle = moduleTitle;
         this.moduleUrl = moduleUrl;
         this.moduleDescription = moduleDescription;

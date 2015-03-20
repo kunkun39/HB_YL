@@ -22,6 +22,8 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     int getMaxOpenAdvertisementSequence();
 
+    void deleteAndjustAfterOpenAdvertisementSequence(int position, int openAdvertisementId);
+
     /*************************八大模块部分******************************/
 
     List<ModuleAdvertisement> loadModuleAdvertisements();
@@ -29,4 +31,8 @@ public interface AdvertisementDao extends EntityObjectDao {
     List<SubModule> loadSubModules(int moduleAdvertisementId, int startPosition, int pageSize);
 
     int loadSubModuleSize(int moduleAdvertisementId);
+
+    int getMaxSubModuleSequence(int moduleAdvertisementId);
+
+    void deleteAndjustAfterSubModuleSequence(int subModuleId, int position, int moduleAdvertisementId);
 }

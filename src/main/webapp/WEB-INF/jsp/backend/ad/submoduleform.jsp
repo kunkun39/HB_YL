@@ -31,7 +31,12 @@
                              子模块编号 <span class="required">*</span>
                         </td>
                         <td>
-                            <spring-form:input id="sequence" path="sequence" maxlength="10" cssStyle="width:300px;" readonly="true"/>&nbsp;
+                            <c:if test="${subModule.sequence > 0}">
+                                编号${subModule.sequence}
+                            </c:if>
+                            <c:if test="${subModule.sequence <= 0}">
+                                新建子模块
+                            </c:if>
                         </td>
                     </tr>
 

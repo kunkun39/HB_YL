@@ -84,7 +84,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         AdvertisementFile file = openAdvertisement.getAdvertisementFile();
 
         fileManageService.deleteAdvertisementFile(file);
-        advertisementDao.delete(openAdvertisement);
+        advertisementDao.deleteAndjustAfterOpenAdvertisementSequence(openAdvertisement.getSequence(), openAdvertisementId);
     }
 
     /*************************八大模块部分******************************/
@@ -120,11 +120,16 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
     public void changeSubModuleDetails(SubModuleDTO dto) {
         SubModule subModule = SubModuleWebAssember.toSubModuleDomain(dto);
+        if (subModule.getId() <= 0) {
+            int maxSequence = advertisementDao.getMaxSubModuleSequence(dto.getModuleId());
+            subModule.setSequence(maxSequence + 1);
+        }
         advertisementDao.saveOrUpdate(subModule);
     }
 
-    public void deleteSubModule(int subModuleId) {
+    public void deleteSubModule(int subModuleId, int moduleAdvertisementId) {
         SubModule subModule = (SubModule) advertisementDao.findById(subModuleId, SubModule.class);
-        advertisementDao.delete(subModule);
+
+        advertisementDao.deleteAndjustAfterSubModuleSequence(subModule.getId(), subModule.getSequence(), moduleAdvertisementId);
     }
 }

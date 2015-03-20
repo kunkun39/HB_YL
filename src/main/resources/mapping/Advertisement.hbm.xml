@@ -25,7 +25,7 @@
         <property name="sequence" column="sequence" insert="true" update="true" type="java.lang.Integer"/>
         <property name="advertisememtTitle" column="advertisememt_title" insert="true" update="true" type="java.lang.String"/>
 
-        <many-to-one name="advertisementFile" column="ad_update_file_id" class="com.ch.system.domain.AdvertisementFile" lazy="proxy" cascade="none" insert="true" update="true"/>
+        <many-to-one name="advertisementFile" column="ad_update_file_id" class="com.ch.system.domain.AdvertisementFile" lazy="proxy" cascade="all" insert="true" update="true"/>
     </class>
 
     <class name="com.ch.system.domain.ModuleAdvertisement" table="module_advertisement">

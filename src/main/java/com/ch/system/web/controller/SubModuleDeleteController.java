@@ -24,7 +24,7 @@ public class SubModuleDeleteController extends AbstractController {
         int moduleAdvertisementId = ServletRequestUtils.getIntParameter(request, "moduleAdvertisementId", -1);
         int current = ServletRequestUtils.getIntParameter(request, "current", 1);
 
-        advertisementService.deleteSubModule(subModuleId);
+        advertisementService.deleteSubModule(subModuleId, moduleAdvertisementId);
 
         return new ModelAndView(new RedirectView("submoduleoverview.html?current="+current+"&moduleAdvertisementId="+moduleAdvertisementId));
     }

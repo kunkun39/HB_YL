@@ -41,5 +41,5 @@ public interface AdvertisementService {
 
     void changeSubModuleDetails(SubModuleDTO dto);
 
-    void deleteSubModule(int subModuleId);
+    void deleteSubModule(int subModuleId, int moduleAdvertisementId);
 }

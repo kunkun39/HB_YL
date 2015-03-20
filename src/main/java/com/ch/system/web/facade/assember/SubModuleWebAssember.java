@@ -28,7 +28,7 @@ public class SubModuleWebAssember {
             subModule.setModuleUrl(dto.getModuleUrl());
             subModule.setModuleDescription(dto.getModuleDescription());
         } else {
-            subModule = new SubModule(dto.getSequence(), dto.getModuleTitle(), dto.getModuleUrl(), dto.getModuleDescription());
+            subModule = new SubModule(dto.getModuleTitle(), dto.getModuleUrl(), dto.getModuleDescription());
             ModuleAdvertisement moduleAdvertisement = new ModuleAdvertisement();
             moduleAdvertisement.setId(dto.getModuleId());
             subModule.setModuleAdvertisement(moduleAdvertisement);
