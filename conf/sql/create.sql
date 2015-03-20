@@ -18,7 +18,7 @@ CREATE TABLE `ad_update_file` (
   `id` int(11) NOT NULL auto_increment,
   `timestamp` timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `upload_filename` varchar(240) default '',
-  `actual_filename` varchar(12) default '',
+  `actual_filename` varchar(20) default '',
   `upload_time` datetime default NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

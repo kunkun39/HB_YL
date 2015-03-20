@@ -4,6 +4,7 @@ import com.ch.common.domain.EntityBase;
 import com.ch.common.utils.CHStringUtils;
 import com.ch.common.utils.JodaUtils;
 import org.joda.time.DateTime;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -29,9 +30,12 @@ public class AdvertisementFile extends EntityBase {
 
     public AdvertisementFile(MultipartFile file) {
         this.uploadFileName = file != null ? file.getOriginalFilename() : "";
-        this.actualFileName = CHStringUtils.getRandomString(FAKE_FILENAME_LENGTH);
         this.uploadTime = JodaUtils.currentTime();
         this.file = file;
+
+        int lastDot = uploadFileName.lastIndexOf(".");
+        String fileNameSuffix = uploadFileName.substring(lastDot);
+        this.actualFileName = CHStringUtils.getRandomString(FAKE_FILENAME_LENGTH) + fileNameSuffix;
     }
 
     /***********************************************GET/SET******************************************************/
