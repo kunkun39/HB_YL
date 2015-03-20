@@ -4,14 +4,44 @@
 <html>
 <head>
     <title>长虹机顶盒后台管理系统</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-ui/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/jquery-ui-1.8.22.custom.css" type="text/css"/>
     <script type="text/javascript">
 
-        function userDeleteConfirm() {
-            return confirm('确定要停用该用户吗?');
+        function userDeleteConfirm(userId, filername, current) {
+            jQuery("#userenable-dialog-confirm").dialog({
+                    resizable: false,
+                    height:140,
+                    modal: true,
+                    buttons: {
+                        "确  认": function() {
+                            jQuery(this).dialog("close");
+
+                            window.location.href = '${pageContext.request.contextPath}/backend/userchangeenable.html?userId=' + userId + '&filername=' + filername + '&current=' + current;
+                        },
+                        "取  消": function() {
+                            jQuery(this).dialog("close");
+                        }
+                    }
+                });
         }
 
-        function userEnableConfirm() {
-            return confirm('确定要激活该用户吗?');
+        function userEnableConfirm(userId, filername, current) {
+            jQuery("#userdisable-dialog-confirm").dialog({
+                    resizable: false,
+                    height:140,
+                    modal: true,
+                    buttons: {
+                        "确  认": function() {
+                            jQuery(this).dialog("close");
+                            window.location.href = '${pageContext.request.contextPath}/backend/userchangeenable.html?userId=' + userId + '&filername=' + filername + '&current=' + current;
+                        },
+                        "取  消": function() {
+                            jQuery(this).dialog("close");
+                        }
+                    }
+                });
         }
     </script>
 </head>
@@ -65,12 +95,12 @@
                         <td>
                             <a href="${pageContext.request.contextPath}/backend/userform.html?userId=${user.id}&filername=${filername}&current=${current}"><button class="thoughtbot">编辑</button></a>
 
-                            <c:if test="${user.username != 'qsadmin'}">
+                            <c:if test="${user.username != 'hbyladmin'}">
                                 <c:if test="${user.enabled}">
-                                    <a href="${pageContext.request.contextPath}/backend/userchangeenable.html?userId=${user.id}&filername=${filername}&current=${current}" onclick="return userDeleteConfirm();"><button class="thoughtbot">停用</button></a>
+                                    <a href="#" onclick="return userDeleteConfirm('${user.id}', '${filername}', '${current}');"><button class="thoughtbot">停用</button></a>
                                 </c:if>
                                 <c:if test="${!user.enabled}">
-                                    <a href="${pageContext.request.contextPath}/backend/userchangeenable.html?userId=${user.id}&filername=${filername}&current=${current}" onclick="return userEnableConfirm();"><button class="thoughtbot">激活</button></a>
+                                    <a href="#" onclick="return userEnableConfirm('${user.id}', '${filername}', '${current}');"><button class="thoughtbot">激活</button></a>
                                 </c:if>
                             </c:if>
                         </td>
@@ -85,5 +115,20 @@
         </td>
     </tr>
 </table>
+
+<div id="userenable-dialog-confirm" title="确认对话框?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        请确认你是否要停止该用户使用本系统？
+    </p>
+</div>
+
+<div id="userdisable-dialog-confirm" title="确认对话框?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        请确认你是否要激活该用户使用本系统？
+    </p>
+</div>
+
 </body>
 </html>

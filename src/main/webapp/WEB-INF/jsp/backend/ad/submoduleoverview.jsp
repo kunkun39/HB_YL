@@ -4,10 +4,28 @@
 <html>
 <head>
     <title>长虹机顶盒后台管理系统</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-ui/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/jquery-ui-1.8.22.custom.css" type="text/css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/module.css" type="text/css"/>
+
     <script type="text/javascript">
-        function moduleDeleteConfirm() {
-            return confirm('确定要删除该子连接吗?');
+        function moduleDeleteConfirm(subModuleId, moduleId, current) {
+            jQuery("#submodule-dialog-confirm").dialog({
+                    resizable: false,
+                    height:140,
+                    modal: true,
+                    buttons: {
+                        "确  认": function() {
+                            jQuery(this).dialog("close");
+
+                            window.location.href = '${pageContext.request.contextPath}/backend/submoduledelete.html?subModuleId=' + subModuleId + '&moduleAdvertisementId=' + moduleId + '&current=' + current;
+                        },
+                        "取  消": function() {
+                            jQuery(this).dialog("close");
+                        }
+                    }
+                });
         }
     </script>
 </head>
@@ -41,7 +59,7 @@
 
                     <li class="bg${counter.count}" <c:if test="${counter.count == 1 || counter.count == 7}">style="margin-left:0;"</c:if>>
                         <a class="edit" href="${pageContext.request.contextPath}/backend/submoduleform.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}">编辑</a>
-                        <a class="edit1" href="${pageContext.request.contextPath}/backend/submoduledelete.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}" onclick="return moduleDeleteConfirm();">删除</a>
+                        <a class="edit1" href="#" onclick="return moduleDeleteConfirm('${module.id}','${moduleAdvertisement.id}','${current}');">删除</a>
                         <a href="${module.moduleUrl}" target="_blank">
                             <p class="title">${module.moduleTitle}</p>
                         </a>
@@ -59,5 +77,13 @@
         </td>
     </tr>
 </table>
+
+<div id="submodule-dialog-confirm" title="确认对话框?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        请确认你是否要删除该子连接吗？
+    </p>
+</div>
+
 </body>
 </html>

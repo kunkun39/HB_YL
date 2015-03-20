@@ -53,7 +53,8 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
             JSONObject ad = new JSONObject();
             ad.put("index", advertisement.getSequence());
             ad.put("title", advertisement.getModuleTitle());
-            ad.put("description", advertisement.getModuleDescription());
+            ad.put("includesub", advertisement.isIncludeSub());
+            ad.put("address", advertisement.getModuleUrl());
             ads.add(ad);
         }
         all.put("modules", ads);

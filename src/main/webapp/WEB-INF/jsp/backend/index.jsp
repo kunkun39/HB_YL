@@ -5,69 +5,38 @@
 	<title>湖北夷陵长虹机顶盒管理系统</title>
     <link rel="Bookmark" href="${pageContext.request.contextPath}/images/favicon.gif">
     <link rel="Shortcut Icon" href="${pageContext.request.contextPath}/images/favicon.gif">
-    <style>
-        td{font-family:Verdana;font-size:10px;color:#000000}
-        .cap{font-family:Arial;font-weight:bold;font-size:14px;padding-top:10px;}
-        .title_bg{
-            background-image: url("${pageContext.request.contextPath}/images/index_title.png");
-            height: 30px;
-            width: 458px;
-            font-size:20px;
-            font-weight: bold;
-            padding-top:5px;
-            padding-left:10px;
-        }
-        .content_bg{
-            background-image: url("${pageContext.request.contextPath}/images/index_title_bg.png");
-            height: 210px;
-            padding-left: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/login/style/base.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/login/style/login.css" />
 </head>
 
-<body topmargin="120px" leftmargin="0" bottommargin="0" rightmargin="0" bgcolor="#f0f8ff">
-    <form id="reportForm" action="${pageContext.request.contextPath}/j_spring_security_check" method="post" name="form">
-        <table cellpadding="0" cellspacing="0" border="0" align="center">
-            <tr>
-                <td>
-                    <div class="title_bg">
-                    湖北夷陵长虹机顶盒管理系统
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="content_bg" valign="top">
-                    <div class="cap" style="height: 50px; float: left; padding-top: 25px" >
-                        <img src="${pageContext.request.contextPath}/images/index_icon.png">
-                    </div>
-                    <div class="cap" style="height: 50px; float: left; padding-top: 40px; padding-left: 10px" >
-                        用户名:
-                        <input name="j_username" id="user_name" type="text" style="width: 200px">
-                        <br/>
-                        <br/>
-                        <br/>
-                        密 &nbsp;&nbsp;&nbsp;码:
-                        <input name="j_password" id="user_password" type="password" style="width: 200px">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <button type="submit" class="positive" name="Submit">
-                            <img src="${pageContext.request.contextPath}/images/key.png" alt="Announcement">
-                            登&nbsp;&nbsp;录
-                        </button>
-                        <c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
-                            <br/>
-                            <div class="error">
-                                 <span style="color:red;font-size:12px;" class="error">
-                                    对不起, 用户名或者密码不正确!
-                                 </span>
-                            </div>
-                        </c:if>
-                    </div>
-                </td>
-		    </tr>
-        </table>
-    </form>
+<body>
+    <form id="reportForm" action="${pageContext.request.contextPath}/j_spring_security_check" method="post" name="form" runat="server">
+        <div class="login-box" >
+    	    <div class="login-form">
 
+            	<dl>
+                	<dt>用户名：</dt>
+                    <dd><input id="txtUserName" name="j_username" runat="server" type="text" class="login-textbox" /></dd>
+                </dl>
+                <dl>
+                	<dt>密&nbsp;&nbsp;码：</dt>
+                    <dd><input id="txtUserPass" name="j_password" runat="server" type="password" class="login-textbox" /></dd>
+                </dl>
+                <dl>
+                	<dt></dt>
+                </dl>
+                建议使用火狐浏览器(FireFox)
+                <div class="login-action">
+                    <input type="button" ID="btnLogin" runat="server" Text="" class="login-button" onclick="this.form.submit();" />
+                    <c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+                        <br/>
+                        <br/>
+                        <label ID="lblErrMsg" class="login-tip" >对不起, 用户名或者密码不正确!</label>
+                    </c:if>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
+
 </html>

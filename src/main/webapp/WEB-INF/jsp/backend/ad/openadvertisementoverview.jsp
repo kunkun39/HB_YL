@@ -4,10 +4,27 @@
 <html>
 <head>
     <title>长虹机顶盒后台管理系统</title>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-ui/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/jquery-ui-1.8.22.custom.css" type="text/css"/>
     <script type="text/javascript">
 
-        function openAdvertisementDeleteConfirm() {
-            return confirm('确定要删除该开机广告吗?');
+        function openAdvertisementDeleteConfirm(adId, current) {
+            jQuery("#openadvertisement-dialog-confirm").dialog({
+                    resizable: false,
+                    height:140,
+                    modal: true,
+                    buttons: {
+                        "确  认": function() {
+                            jQuery(this).dialog("close");
+
+                            window.location.href = '${pageContext.request.contextPath}/backend/openadvertisementdelete.html?openAdvertisementId=' + adId + '&current=' + current;
+                        },
+                        "取  消": function() {
+                            jQuery(this).dialog("close");
+                        }
+                    }
+                });
         }
     </script>
 </head>
@@ -48,7 +65,7 @@
                         <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
                         <td>
                             <a href="${pageContext.request.contextPath}/backend/openadvertisementform.html?openAdvertisementId=${ad.id}&current=${current}"><button class="thoughtbot">编辑</button></a>
-                            <a href="${pageContext.request.contextPath}/backend/openadvertisementdelete.html?openAdvertisementId=${ad.id}&current=${current}" onclick="return openAdvertisementDeleteConfirm();"><button class="thoughtbot">删除</button></a>
+                            <a href="#" onclick="return openAdvertisementDeleteConfirm('${ad.id}', '${current}');"><button class="thoughtbot">删除</button></a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -61,5 +78,13 @@
         </td>
     </tr>
 </table>
+
+<div id="openadvertisement-dialog-confirm" title="确认对话框?">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+        请确认你是否要删除该开机广告？
+    </p>
+</div>
+
 </body>
 </html>
