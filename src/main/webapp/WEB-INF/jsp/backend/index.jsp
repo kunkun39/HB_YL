@@ -25,7 +25,6 @@
                 <dl>
                 	<dt></dt>
                 </dl>
-                建议使用火狐浏览器(FireFox)
                 <div class="login-action">
                     <input type="button" ID="btnLogin" runat="server" Text="" class="login-button" onclick="this.form.submit();" />
                     <c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null}">
