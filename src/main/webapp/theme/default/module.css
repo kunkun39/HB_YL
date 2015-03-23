@@ -20,11 +20,13 @@ ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style
 .tv_main .channel .list li.c6 { background-color:#8a3ddc; }
 .tv_main .channel .list li.c7 { background-color:#cf9706; }
 .tv_main .channel .list li.c8 { background-color:#ff3c31; }
-.tv_main .channel .list li a.flag { background: url("./images/day.png") no-repeat; width: 65px; height: 25px; position:absolute; top:8px; left:5px; color:#ffffff;font-size: 14px;}
+.tv_main .channel .list li a.flag { width: 65px; height: 25px; position:absolute; top:8px; left:5px; color:#000000;font-size: 14px;}
 .tv_main .channel .list li a.edit { position:absolute; top:8px; right:17px; color:#ffffff; text-decoration:underline; font-size: 12px;}
 .tv_main .channel .list li a.edit:hover { color:#fff; }
 .tv_main .channel .list li a.edit1 { position:absolute; top:25px; right:5px; color:#ffffff; text-decoration:underline; font-size: 12px;}
 .tv_main .channel .list li a.edit1:hover { color:#fff; }
+.tv_main .channel .list li a.edit2 { position:absolute; top:25px; right:17px; color:#ffffff; text-decoration:underline; font-size: 12px;}
+.tv_main .channel .list li a.edit2:hover { color:#fff; }
 .tv_main .channel .list li a.c { display:block; text-decoration:none; }
 .tv_main .channel .list li p.icon { height:55px; margin-top:5px; background-repeat:no-repeat; background-position:center center; }
 .tv_main .channel .list li p.name { height:30px; line-height:30px; padding-bottom:5px; text-align:center; color:#fff; font-size:16px; }
@@ -53,7 +55,7 @@ ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style
 .sub_channel .bg10 { background-color:rgba(136,194,15,0.5); }
 .sub_channel .bg11 { background-color:rgba(203,20,62,0.5); }
 .sub_channel .bg12 { background-color:rgba(228,102,13,0.5); }
-.sub_channel  a.flag { background: url("./images/day.png") repeat-x; width: 60px; height: 25px; position:absolute; top:8px; left:5px; color:#ffffff;font-size: 14px;}
+.sub_channel  a.flag {width: 60px; height: 25px; position:absolute; top:8px; left:5px; color:#000000;font-size: 14px;}
 .sub_channel  a.edit:hover { color:#fff; }
 .sub_channel  a.edit { position:absolute; top:8px; right:5px; color:#ffffff; text-decoration:underline; font-size: 12px;}
 .sub_channel  a.edit:hover { color:#fff; }

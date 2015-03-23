@@ -187,15 +187,9 @@
     background: url("./images/links.png") no-repeat left center;
 }
 
-.type div.other1 a {
-    background: url("./images/report.png") no-repeat left center;
-}
-
 .type div.comment a {
     background: url("./images/Star.png") no-repeat left center;
 }
-
-
 
 .type div.reservedasset a {
     background: url("./images/off.png") no-repeat left center;
