@@ -61,9 +61,8 @@
                         <a class="flag" href="#">子模块${module.sequence}</a>
                         <a class="edit" href="${pageContext.request.contextPath}/backend/submoduleform.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}">编辑</a>
                         <a class="edit1" href="#" onclick="return moduleDeleteConfirm('${module.id}','${moduleAdvertisement.id}','${current}');">删除</a>
-                        <a href="${module.moduleUrl}" target="_blank">
-                            <p class="title">${module.moduleTitle}</p>
-                        </a>
+                        <a class="edit2" href="${module.moduleUrl}" target="_blank">连接</a>
+                        <p class="title">${module.moduleTitle}</p>
                     </li>
 
                     <c:if test="${counter.count == 12}">
