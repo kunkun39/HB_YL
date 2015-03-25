@@ -1,5 +1,7 @@
 package com.ch.system.service;
 
+import com.ch.system.domain.BannerAdvertisement;
+import com.ch.system.web.facade.dto.BannerAdvertisementDTO;
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
 import com.ch.system.web.facade.dto.SubModuleDTO;
@@ -12,6 +14,24 @@ import java.util.List;
  * Time: 下午1:45
  */
 public interface AdvertisementService {
+    /*************************Banner广告部分******************************/
+    void insertBannerAdvertisement(BannerAdvertisement bannerAdvertisement);
+
+    int obtainBannerAdvertisementSizeByServiceId(int serviceId);
+
+    List<BannerAdvertisementDTO> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize);
+
+    List<BannerAdvertisementDTO> obtainBannerAdvertisements(int startPosition, int pageSize);
+
+    int obtainBannerAdvertisementSize();
+
+    BannerAdvertisementDTO obtainBannerAdvertisementById(int bannerAdvertisementId);
+
+    void changeBannerAdvertisementDetails(BannerAdvertisementDTO dto);
+
+    void deleteBannerAdvertisement(int bannerAdvertisementId);
+
+
 
     /*************************开机广告部分******************************/
 
@@ -42,4 +62,6 @@ public interface AdvertisementService {
     void changeSubModuleDetails(SubModuleDTO dto);
 
     void deleteSubModule(int subModuleId, int moduleAdvertisementId);
+
+
 }

@@ -8,7 +8,7 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <import resource="architecture/core.xml"/>
-    
+
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
         <property name="defaultLocale" value="en"/>
     </bean>
@@ -40,7 +40,13 @@
                 <prop key="/backend/userchangeenable.html">userChangeEnableController</prop>
                 <prop key="/backend/userchangepassword.html">userChangePasswordController</prop>
 
-                 <!--ad part-->
+                <!--ad part-->
+                <prop key="/backend/banneradvertisementquerybyserviceid.html">
+                    bannerAdvertisementQueryByServiceIdController
+                </prop>
+                <prop key="/backend/banneradvertisementdelete.html">bannerAdvertisementDeleteController</prop>
+                <prop key="/backend/banneradvertisementform.html">bannerAdvertisementFormController</prop>
+                <prop key="/backend/banneradvertisementoverview.html">bannerAdvertisementOverViewController</prop>
                 <prop key="/backend/openadvertisementoverview.html">openAdvertisementManagementController</prop>
                 <prop key="/backend/openadvertisementform.html">openAdvertisementFormController</prop>
                 <prop key="/backend/openadvertisementdelete.html">openAdvertisementDeleteController</prop>
@@ -78,6 +84,18 @@
     </bean>
 
     <!--ad part-->
+    <bean id="bannerAdvertisementQueryByServiceIdController" class="com.ch.system.web.controller.BannerAdvertisementQueryByServiceId">
+        <property name="applicationWebAddress" value="${application.image.url}"/>
+    </bean>
+    <bean id="bannerAdvertisementDeleteController" class="com.ch.system.web.controller.BannerAdvertisementDeleteController">
+
+    </bean>
+    <bean id="bannerAdvertisementFormController" class="com.ch.system.web.controller.BannerAdvertisementFormController">
+        <property name="applicationWebAddress" value="${application.image.url}"/>
+    </bean>
+    <bean id="bannerAdvertisementOverViewController" class="com.ch.system.web.controller.BannerAdvertisementOverViewController">
+        <property name="applicationWebAddress" value="${application.image.url}"/>
+    </bean>
 
     <bean id="openAdvertisementManagementController" class="com.ch.system.web.controller.OpenAdvertisementManagementController">
         <property name="advertisementService" ref="advertisementService"/>

@@ -16,6 +16,19 @@
         <property name="uploadTime" column="upload_time" insert="true" update="true" type="org.joda.time.contrib.hibernate.PersistentDateTime"/>
     </class>
 
+    <class name="com.ch.system.domain.BannerAdvertisement" table="banner_advertisement">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+        <property name="timestamp" column="timestamp" type="java.util.Date"/>
+
+        <property name="sequence" column="sequence" insert="true" update="true" type="java.lang.Integer"/>
+        <property name="serviceId" column="service_id" insert="true" update="true" type="java.lang.Integer"/>
+        <property name="advertisememtTitle" column="advertisememt_title" insert="true" update="true" type="java.lang.String"/>
+
+        <many-to-one name="advertisementFile" column="ad_update_file_id" class="com.ch.system.domain.AdvertisementFile" lazy="false" cascade="all" insert="true" update="true"/>
+    </class>
+
     <class name="com.ch.system.domain.OpenAdvertisement" table="open_advertisement">
         <id name="id" column="id">
             <generator class="increment"/>

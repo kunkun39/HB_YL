@@ -9,5 +9,8 @@
     <div class="site">
         <a href="${pageContext.request.contextPath}/backend/openadvertisementoverview.html">开机广告管理</a>
     </div>
+    <div class="report">
+        <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html">Banner广告管理</a>
+    </div>
 
 </div>

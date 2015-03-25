@@ -14,6 +14,7 @@ public abstract class AbstractPaging<T> implements Paging<T> {
     protected int totalItemSize = -1;
 
     protected AbstractPaging() {
+
     }
 
     public AbstractPaging(int currentPageNumber) {
