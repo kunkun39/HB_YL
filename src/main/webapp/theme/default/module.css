@@ -45,16 +45,16 @@ ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style
 .sub_channel .bg { width:160px; height:180px; margin-top:-14px; }
 .sub_channel .bg1 { background-color:rgba(227,56,88,0.6); }
 .sub_channel .bg2 { background-color:rgba(136,194,15,0.5); }
-.sub_channel .bg3 { background-color:rgba(203,20,62,0.5); }
+.sub_channel .bg3 { background-color:rgba(253,2,4,0.5); }
 .sub_channel .bg4 { background-color:rgba(228,102,13,0.5); }
 .sub_channel .bg5 { background-color:rgba(52,129,241,0.5); }
 .sub_channel .bg6 { background-color:rgba(138,61,220,0.5); }
 .sub_channel .bg7 { background-color:rgba(207,151,6,0.5); }
 .sub_channel .bg8 { background-color:rgba(255,60,49,0.5); }
 .sub_channel .bg9 { background-color:rgba(156,56,88,0.6); }
-.sub_channel .bg10 { background-color:rgba(136,194,15,0.5); }
+.sub_channel .bg10 { background-color:rgba(13,194,15,0.5); }
 .sub_channel .bg11 { background-color:rgba(203,20,62,0.5); }
-.sub_channel .bg12 { background-color:rgba(228,102,13,0.5); }
+.sub_channel .bg12 { background-color:#8b0000; }
 .sub_channel  a.flag {width: 60px; height: 25px; position:absolute; top:8px; left:5px; color:#000000;font-size: 14px;}
 .sub_channel  a.edit:hover { color:#fff; }
 .sub_channel  a.edit { position:absolute; top:8px; right:5px; color:#ffffff; text-decoration:underline; font-size: 12px;}

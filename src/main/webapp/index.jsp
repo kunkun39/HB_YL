@@ -5,6 +5,6 @@
     <title>URL</title>
 </head>
 <body>
-<c:redirect url="/backend/index.html"/>
+<c:redirect url="backend/index.html"/>
 </body>
 </html>

@@ -66,7 +66,7 @@
                              子模块描述
                         </td>
                         <td>
-                            <spring-form:textarea id="moduleDescription" path="moduleDescription" cols="80" rows="8"/>&nbsp;
+                            <spring-form:textarea id="moduleDescription" path="moduleDescription" cols="105" rows="8"/>&nbsp;
                             <spring-form:errors path="moduleDescription" cssClass="required"/>
                         </td>
                     </tr>
