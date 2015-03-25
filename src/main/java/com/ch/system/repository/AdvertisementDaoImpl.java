@@ -1,6 +1,7 @@
 package com.ch.system.repository;
 
 import com.ch.common.repository.HibernateEntityObjectDao;
+import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.domain.SubModule;
@@ -19,7 +20,63 @@ import java.util.List;
 @Repository("advertisementDao")
 public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements AdvertisementDao {
 
+    /*************************Banner广告部分******************************/
+
+    public List<BannerAdvertisement> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("from BannerAdvertisement as ba  where ba.serviceId = " + serviceId);
+
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Query query = session.createQuery(builder.toString());
+        query.setMaxResults(pageSize);
+        query.setFirstResult(startPosition);
+        List<BannerAdvertisement> bannerAds = query.list();
+        return bannerAds;
+
+    }
+
+    public List<BannerAdvertisement> loadBannerAdvertisements(int startPosition, int pageSize) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("from BannerAdvertisement ba order by ba.sequence asc");
+
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Query query = session.createQuery(builder.toString());
+        query.setMaxResults(pageSize);
+        query.setFirstResult(startPosition);
+        List<BannerAdvertisement> bannerAds = query.list();
+        return bannerAds;
+    }
+
+    public int loadBannerAdvertisementSizeByServiceId(int serviceId) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select count(ba.id) from BannerAdvertisement ba where ba.serviceId = " + serviceId);
+        List list =  getHibernateTemplate().find(builder.toString());
+        Long i=(Long)list.get(0);
+        int sum=((Long)list.get(0)).intValue();
+        return sum;
+    }
+
+    public int loadBannerAdvertisementSize() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select count(ba.id) from BannerAdvertisement ba");
+        List list =  getHibernateTemplate().find(builder.toString());
+        return ((Long)list.get(0)).intValue();
+    }
+
+    public int getMaxBannerAdvertisementSequence() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select max(ba.sequence) from BannerAdvertisement ba");
+        List list =  getHibernateTemplate().find(builder.toString());
+        Object value = list.get(0);
+        if (value != null) {
+            return ((Integer) value).intValue();
+        }
+        return 0;
+    }
+
+
     /*************************开机广告部分******************************/
+
 
     public List<OpenAdvertisement> loadOpenAdvertisements(int startPosition, int pageSize) {
         StringBuilder builder = new StringBuilder();
