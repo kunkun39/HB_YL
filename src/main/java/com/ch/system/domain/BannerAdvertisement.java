@@ -5,22 +5,23 @@ import com.ch.common.domain.EntityBase;
 /**
  * Created by maren on 2015/3/20.
  */
-public class BannerAdvertisement extends EntityBase{
+public class BannerAdvertisement extends EntityBase {
 
     private int sequence;
 
     private String advertisememtTitle;
 
+    private String serviceId;
+
     private AdvertisementFile advertisementFile;
-    private int serviceId;
 
     public BannerAdvertisement() {
     }
 
-    public BannerAdvertisement(int sequence, String advertisememtTitle,int serviceId) {
+    public BannerAdvertisement(int sequence, String advertisememtTitle, String serviceId) {
         this.sequence = sequence;
         this.advertisememtTitle = advertisememtTitle;
-        this.serviceId=serviceId;
+        this.serviceId = serviceId;
 
     }
 
@@ -46,7 +47,9 @@ public class BannerAdvertisement extends EntityBase{
         return oldAdvertisementFile;
     }
 
-    /*************************************************GETTER**********************************************************/
+    /**
+     * **********************************************GETTER*********************************************************
+     */
 
     public int getSequence() {
         return sequence;
@@ -71,11 +74,12 @@ public class BannerAdvertisement extends EntityBase{
     public void setAdvertisementFile(AdvertisementFile advertisementFile) {
         this.advertisementFile = advertisementFile;
     }
-    public int getServiceId() {
+
+    public String getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(int serviceId) {
+    public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
 }

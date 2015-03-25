@@ -39,14 +39,11 @@ CREATE TABLE `banner_advertisement` (
   `id` int(32) NOT NULL AUTO_INCREMENT,
   `timestamp` datetime DEFAULT NULL,
   `sequence` int(32) DEFAULT NULL,
-  `advertisement_title` varchar(112) DEFAULT NULL,
-  `service_id` int(32) DEFAULT NULL,
-  `ad_update_file_id` int(32) DEFAULT NULL,
+  `service_id` varchar(8) DEFAULT NULL,
   `advertisememt_title` varchar(255) DEFAULT NULL,
+  `ad_update_file_id` int(32) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK851D2632D0AB8C1E` (`ad_update_file_id`),
-  CONSTRAINT `banner_advertisement_ibfk_1` FOREIGN KEY (`ad_update_file_id`) REFERENCES `ad_update_file` (`id`),
-  CONSTRAINT `FK851D2632D0AB8C1E` FOREIGN KEY (`ad_update_file_id`) REFERENCES `ad_update_file` (`id`)
+  FOREIGN KEY (`ad_update_file_id`) REFERENCES ad_update_file (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `module_advertisement`;

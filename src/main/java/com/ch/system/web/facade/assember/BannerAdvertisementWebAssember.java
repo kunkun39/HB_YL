@@ -24,7 +24,7 @@ public class BannerAdvertisementWebAssember {
 
     public static BannerAdvertisement toBannerAdvertisementDomain(BannerAdvertisementDTO dto) {
         BannerAdvertisement bannerAdvertisement = null;
-        if(dto == null) {
+        if (dto == null) {
             return null;
         }
         if (dto.getId() > 0) {
@@ -34,7 +34,7 @@ public class BannerAdvertisementWebAssember {
             bannerAdvertisement.setServiceId(dto.getServiceId());
             bannerAdvertisement.setAdvertisememtTitle(dto.getAdvertisementTitle());
         } else {
-            bannerAdvertisement = new BannerAdvertisement(dto.getSequence(), dto.getAdvertisementTitle(),dto.getServiceId());
+            bannerAdvertisement = new BannerAdvertisement(dto.getSequence(), dto.getAdvertisementTitle(), dto.getServiceId());
         }
         return bannerAdvertisement;
     }
@@ -42,7 +42,7 @@ public class BannerAdvertisementWebAssember {
     public static BannerAdvertisementDTO toBannerAdvertisementDTO(BannerAdvertisement bannerAdvertisement) {
         final int id = bannerAdvertisement.getId();
         final int sequence = bannerAdvertisement.getSequence();
-        final int serviceId=bannerAdvertisement.getServiceId();
+        final String serviceId = bannerAdvertisement.getServiceId();
         final String advertisementTitle = bannerAdvertisement.getAdvertisememtTitle();
 
         AdvertisementFile file = bannerAdvertisement.getAdvertisementFile();
@@ -50,8 +50,8 @@ public class BannerAdvertisementWebAssember {
         final String advertisementUploadFileName = file != null ? file.getUploadFileName() : "";
         final String advertisementActualFileName = file != null ? file.getActualFileName() : "";
 
-        BannerAdvertisementDTO dto =  new BannerAdvertisementDTO(id, sequence, advertisementTitle,
-                advertisementFileId,serviceId, advertisementUploadFileName, advertisementActualFileName);
+        BannerAdvertisementDTO dto = new BannerAdvertisementDTO(id, sequence, advertisementTitle,
+                advertisementFileId, serviceId, advertisementUploadFileName, advertisementActualFileName);
         return dto;
     }
 

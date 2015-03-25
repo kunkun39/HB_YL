@@ -9,7 +9,6 @@ import java.io.Serializable;
  */
 public class BannerAdvertisementDTO implements Serializable {
 
-
     private int id = -1;
 
     private int sequence = -1;
@@ -18,7 +17,7 @@ public class BannerAdvertisementDTO implements Serializable {
 
     private int advertisementFileId;
 
-    private int serviceId;
+    private String serviceId;
 
     private String advertisementUploadFileName;
 
@@ -26,20 +25,18 @@ public class BannerAdvertisementDTO implements Serializable {
 
     private MultipartFile advertisementFile;
 
-
     public BannerAdvertisementDTO() {
     }
 
     public BannerAdvertisementDTO(int id, int sequence, String advertisementTitle,
-                                  int advertisementFileId, int serviceId,String advertisementUploadFileName, String advertisementActualFileName) {
+                                  int advertisementFileId, String serviceId, String advertisementUploadFileName, String advertisementActualFileName) {
         this.id = id;
         this.sequence = sequence;
         this.advertisementTitle = advertisementTitle;
         this.advertisementFileId = advertisementFileId;
-        this.serviceId=serviceId;
+        this.serviceId = serviceId;
         this.advertisementUploadFileName = advertisementUploadFileName;
         this.advertisementActualFileName = advertisementActualFileName;
-
     }
 
     public int getId() {
@@ -90,11 +87,11 @@ public class BannerAdvertisementDTO implements Serializable {
         this.advertisementActualFileName = advertisementActualFileName;
     }
 
-    public int getServiceId() {
+    public String getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(int serviceId) {
+    public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
 

@@ -14,7 +14,9 @@ import java.util.List;
  * Time: 下午1:45
  */
 public interface AdvertisementService {
+
     /*************************Banner广告部分******************************/
+
     void insertBannerAdvertisement(BannerAdvertisement bannerAdvertisement);
 
     int obtainBannerAdvertisementSizeByServiceId(int serviceId);
@@ -30,8 +32,6 @@ public interface AdvertisementService {
     void changeBannerAdvertisementDetails(BannerAdvertisementDTO dto);
 
     void deleteBannerAdvertisement(int bannerAdvertisementId);
-
-
 
     /*************************开机广告部分******************************/
 
@@ -62,6 +62,4 @@ public interface AdvertisementService {
     void changeSubModuleDetails(SubModuleDTO dto);
 
     void deleteSubModule(int subModuleId, int moduleAdvertisementId);
-
-
 }
