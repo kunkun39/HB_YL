@@ -1,5 +1,6 @@
 package com.ch.system.service;
 
+import com.ch.client.service.ClientCacheService;
 import com.ch.system.domain.AdvertisementFile;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
@@ -25,6 +26,9 @@ import java.util.List;
  */
 @Service("advertisementService")
 public class AdvertisementServiceImpl implements AdvertisementService {
+
+    @Autowired
+    private ClientCacheService clientCacheService;
 
     @Autowired
     private FileManageService fileManageService;
@@ -77,6 +81,9 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         }
 
         advertisementDao.saveOrUpdate(openAdvertisement);
+
+        //更改后清除缓存
+        clientCacheService.cleanCachedOpenAdvertisement();
     }
 
     public void deleteOpenAdvertisement(int openAdvertisementId) {
@@ -85,6 +92,9 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
         fileManageService.deleteAdvertisementFile(file);
         advertisementDao.deleteAndjustAfterOpenAdvertisementSequence(openAdvertisement.getSequence(), openAdvertisementId);
+
+        //更改后清除缓存
+        clientCacheService.cleanCachedOpenAdvertisement();
     }
 
     /*************************八大模块部分******************************/
@@ -102,6 +112,9 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     public void changeModuleAdvertisementDetails(ModuleAdvertisementDTO dto) {
         ModuleAdvertisement moduleAdvertisement = ModuleAdvertisementWebAssember.toModuleAdvertisementDomain(dto);
         advertisementDao.saveOrUpdate(moduleAdvertisement);
+
+        //更改后清除缓存
+        clientCacheService.cleanCachedModuleAdvertisement();
     }
 
     public List<SubModuleDTO> obtainSubModules(int moduleAdvertisementId, int startPosition, int pageSize) {
@@ -125,11 +138,17 @@ public class AdvertisementServiceImpl implements AdvertisementService {
             subModule.setSequence(maxSequence + 1);
         }
         advertisementDao.saveOrUpdate(subModule);
+
+        //更改后清除缓存
+        clientCacheService.cleanCachedSubModule(dto.getModuleId());
     }
 
     public void deleteSubModule(int subModuleId, int moduleAdvertisementId) {
         SubModule subModule = (SubModule) advertisementDao.findById(subModuleId, SubModule.class);
 
         advertisementDao.deleteAndjustAfterSubModuleSequence(subModule.getId(), subModule.getSequence(), moduleAdvertisementId);
+
+        //更改后清除缓存
+        clientCacheService.cleanCachedSubModule(moduleAdvertisementId);
     }
 }
