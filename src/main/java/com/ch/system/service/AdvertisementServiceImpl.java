@@ -1,20 +1,25 @@
 package com.ch.system.service;
 
+
+import com.ch.system.domain.*;
+
 import com.ch.client.service.ClientCacheService;
 import com.ch.system.domain.AdvertisementFile;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.domain.SubModule;
+
 import com.ch.system.repository.AdvertisementDao;
+import com.ch.system.web.facade.assember.BannerAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.ModuleAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.OpenAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.SubModuleWebAssember;
+import com.ch.system.web.facade.dto.BannerAdvertisementDTO;
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
 import com.ch.system.web.facade.dto.SubModuleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -35,6 +40,76 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
     @Autowired
     private AdvertisementDao advertisementDao;
+
+
+    /*************************Banner广告部分******************************/
+
+    public void insertBannerAdvertisement(BannerAdvertisement bannerAdvertisement) {
+        advertisementDao.saveOrUpdate(bannerAdvertisement);
+
+    }
+
+    public int obtainBannerAdvertisementSizeByServiceId(int serviceId) {
+        return advertisementDao.loadBannerAdvertisementSizeByServiceId(serviceId);
+
+    }
+
+    public List<BannerAdvertisementDTO> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize) {
+        List<BannerAdvertisement> ads=advertisementDao.obtainBannerAdvertisementsByServiceId(serviceId, startPosition, pageSize);
+        return BannerAdvertisementWebAssember.toBannerAdvertisementDTOList(ads);
+    }
+
+    public List<BannerAdvertisementDTO> obtainBannerAdvertisements(int startPosition, int pageSize) {
+        List<BannerAdvertisement> ads = advertisementDao.loadBannerAdvertisements(startPosition, pageSize);
+        return BannerAdvertisementWebAssember.toBannerAdvertisementDTOList(ads);
+    }
+
+    public int obtainBannerAdvertisementSize() {
+        return advertisementDao.loadBannerAdvertisementSize();
+    }
+
+    public BannerAdvertisementDTO obtainBannerAdvertisementById(int bannerAdvertisementId) {
+        BannerAdvertisement bannerAdvertisement = (BannerAdvertisement) advertisementDao.findById(bannerAdvertisementId, BannerAdvertisement.class);
+        return BannerAdvertisementWebAssember.toBannerAdvertisementDTO(bannerAdvertisement);
+    }
+
+    public void changeBannerAdvertisementDetails(BannerAdvertisementDTO dto) {
+        //获得开机广告
+        BannerAdvertisement bannerAdvertisement = BannerAdvertisementWebAssember.toBannerAdvertisementDomain(dto);
+        if (bannerAdvertisement.getId() <= 0) {
+            int maxSequence = advertisementDao.getMaxBannerAdvertisementSequence();
+            bannerAdvertisement.setSequence(maxSequence + 1);
+        }
+
+        //获得上传的文件
+        MultipartFile file = dto.getAdvertisementFile();
+        AdvertisementFile advertisementFile = null;
+        if(file != null && file.getSize() > 0) {
+            advertisementFile = BannerAdvertisementWebAssember.toAdvertisementFileDomain(file);
+        }
+
+        //获得老的上传的文件，如果存在就删除
+        AdvertisementFile oldAdvertisementFile = bannerAdvertisement.changeAdvertisementFile(advertisementFile);
+        if (oldAdvertisementFile != null) {
+            fileManageService.deleteAdvertisementFile(oldAdvertisementFile);
+        }
+        //如果新的文件存在，则从新上传
+        if(file != null && file.getSize() > 0) {
+            fileManageService.uploadAdvertisementFile(bannerAdvertisement.getAdvertisementFile());
+        }
+
+        advertisementDao.saveOrUpdate(bannerAdvertisement);
+
+    }
+
+    public void deleteBannerAdvertisement(int bannerAdvertisementId) {
+        BannerAdvertisement bannerAdvertisement = (BannerAdvertisement) advertisementDao.findById(bannerAdvertisementId, BannerAdvertisement.class);
+        AdvertisementFile file = bannerAdvertisement.getAdvertisementFile();
+
+        fileManageService.deleteAdvertisementFile(file);
+        advertisementDao.delete(bannerAdvertisement);
+
+    }
 
     /*************************开机广告部分******************************/
 
