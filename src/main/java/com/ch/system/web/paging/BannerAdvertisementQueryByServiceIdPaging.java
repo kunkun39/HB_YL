@@ -19,12 +19,19 @@ public class BannerAdvertisementQueryByServiceIdPaging extends AbstractPaging<Ba
     }
 
     public List<BannerAdvertisementDTO> getItems() {
+        if(serviceId==0){
+            return  advertisementService.obtainBannerAdvertisements(getStartPosition(),getPageSize());
+
+        }
         return advertisementService.obtainBannerAdvertisementsByServiceId(serviceId, getStartPosition(), getPageSize());
     }
 
     public long getTotalItemSize() {
         if (totalItemSize >= 0) {
             return totalItemSize;
+        }
+        if(serviceId==0){
+            totalItemSize=advertisementService.obtainBannerAdvertisementSize();
         }
         totalItemSize = advertisementService.obtainBannerAdvertisementSizeByServiceId(serviceId);
         return totalItemSize;
