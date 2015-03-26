@@ -74,6 +74,14 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         return 0;
     }
 
+    public void deleteAndjustAfterBannerAdvertisementSequence(int sequence, int bannerAdvertisementId) {
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        SQLQuery update = session.createSQLQuery("update banner_advertisement s set s.sequence = s.sequence - 1 where s.sequence>" + sequence);
+        update.executeUpdate();
+
+        SQLQuery delete = session.createSQLQuery("delete from banner_advertisement where id = " + bannerAdvertisementId);
+        delete.executeUpdate();
+    }
 
     /*************************开机广告部分******************************/
 

@@ -45,17 +45,18 @@
 
       <form action="#" class="search_form" method="POST">
         <div class="search" style="height: 20px;">
-          &nbsp;&nbsp;输入频道号码查询：<input type="text" id="serviceId" name="serviceId">&nbsp;&nbsp;
-          <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html"><button class="thoughtbot">查询</button></a>
+          &nbsp;&nbsp;<label>频道号：</label><input type="text" id="serviceId" name="serviceId" class="text" value="${serviceId}"/>&nbsp;&nbsp;
+          <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html"><button class="thoughtbot">查询</button></a> &nbsp;<span style="color: #FF0000">${errormsg}</span>
         </div>
+
       </form>
 
       <table width="100%" cellpadding="0" cellspacing="0" class="list">
         <thead>
         <td width="5%">&nbsp;&nbsp;编号</td>
         <td width="25%">描述</td>
-        <td width="10%">广告对应频道</td>
-        <td width="35%">广告地址</td>
+        <td width="5%">频道号</td>
+        <td width="40%">广告地址</td>
         <td width="15">操作</td>
         </thead>
         <tbody>

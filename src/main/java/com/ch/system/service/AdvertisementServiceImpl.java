@@ -108,8 +108,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         AdvertisementFile file = bannerAdvertisement.getAdvertisementFile();
 
         fileManageService.deleteAdvertisementFile(file);
-        advertisementDao.delete(bannerAdvertisement);
-
+        advertisementDao.deleteAndjustAfterBannerAdvertisementSequence(bannerAdvertisement.getSequence(), bannerAdvertisementId);
         clientCacheService.cleanCacheBannerAdvertisement();
     }
 

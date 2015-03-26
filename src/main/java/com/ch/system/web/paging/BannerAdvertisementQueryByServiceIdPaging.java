@@ -32,6 +32,7 @@ public class BannerAdvertisementQueryByServiceIdPaging extends AbstractPaging<Ba
         }
         if(serviceId==0){
             totalItemSize=advertisementService.obtainBannerAdvertisementSize();
+            return totalItemSize;
         }
         totalItemSize = advertisementService.obtainBannerAdvertisementSizeByServiceId(serviceId);
         return totalItemSize;

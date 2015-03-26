@@ -23,17 +23,25 @@ public class BannerAdvertisementManagementController extends AbstractController 
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         int current=ServletRequestUtils.getIntParameter(httpServletRequest,"current",1);
-        String  serviceId= ServletRequestUtils.getStringParameter(httpServletRequest, "serviceId", "");
+        String  serviceId= StringUtils.trimWhitespace(ServletRequestUtils.getStringParameter(httpServletRequest, "serviceId", ""));
+        ModelAndView mv=new ModelAndView();
         int serviceNum=0;
+        String errorMsg="";
         if(StringUtils.hasText(serviceId)){
-            serviceNum=Integer.valueOf(serviceId);
+            try{
+                serviceNum=Integer.valueOf(serviceId);
+            }
+            catch (Exception e){
+                errorMsg=errorMsg+"频道输入不合法";
+                mv.addObject("errormsg",errorMsg);
+            }
+
         }
         httpServletRequest.setAttribute("current",current);
         httpServletRequest.setAttribute("serviceId",serviceId);
         BannerAdvertisementQueryByServiceIdPaging paging=new BannerAdvertisementQueryByServiceIdPaging(advertisementService,serviceNum);
         constructPaging(paging,current);
         List<BannerAdvertisementDTO> bannerAdvertisementDTOs=paging.getItems();
-        ModelAndView mv=new ModelAndView();
         mv.addObject("bas",bannerAdvertisementDTOs);
         mv.addObject("paging",paging);
         mv.addObject("applicationWebAddress",applicationWebAddress);

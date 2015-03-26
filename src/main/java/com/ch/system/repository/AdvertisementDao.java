@@ -26,6 +26,8 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     int getMaxBannerAdvertisementSequence();
 
+    void deleteAndjustAfterBannerAdvertisementSequence(int sequence,int bannerAdvertisementId);
+
     /*************************开机广告部分******************************/
 
     List<OpenAdvertisement> loadOpenAdvertisements(int startPosition, int pageSize);
