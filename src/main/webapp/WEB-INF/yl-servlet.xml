@@ -41,12 +41,9 @@
                 <prop key="/backend/userchangepassword.html">userChangePasswordController</prop>
 
                 <!--ad part-->
-                <prop key="/backend/banneradvertisementquerybyserviceid.html">
-                    bannerAdvertisementQueryByServiceIdController
-                </prop>
+                <prop key="/backend/banneradvertisementoverview.html">bannerAdvertisementManagementController</prop>
                 <prop key="/backend/banneradvertisementdelete.html">bannerAdvertisementDeleteController</prop>
                 <prop key="/backend/banneradvertisementform.html">bannerAdvertisementFormController</prop>
-                <prop key="/backend/banneradvertisementoverview.html">bannerAdvertisementOverViewController</prop>
                 <prop key="/backend/openadvertisementoverview.html">openAdvertisementManagementController</prop>
                 <prop key="/backend/openadvertisementform.html">openAdvertisementFormController</prop>
                 <prop key="/backend/openadvertisementdelete.html">openAdvertisementDeleteController</prop>
@@ -84,16 +81,13 @@
     </bean>
 
     <!--ad part-->
-    <bean id="bannerAdvertisementQueryByServiceIdController" class="com.ch.system.web.controller.BannerAdvertisementQueryByServiceId">
+    <bean id="bannerAdvertisementManagementController" class="com.ch.system.web.controller.BannerAdvertisementManagementController">
         <property name="applicationWebAddress" value="${application.image.url}"/>
     </bean>
     <bean id="bannerAdvertisementDeleteController" class="com.ch.system.web.controller.BannerAdvertisementDeleteController">
 
     </bean>
     <bean id="bannerAdvertisementFormController" class="com.ch.system.web.controller.BannerAdvertisementFormController">
-        <property name="applicationWebAddress" value="${application.image.url}"/>
-    </bean>
-    <bean id="bannerAdvertisementOverViewController" class="com.ch.system.web.controller.BannerAdvertisementOverViewController">
         <property name="applicationWebAddress" value="${application.image.url}"/>
     </bean>
 
