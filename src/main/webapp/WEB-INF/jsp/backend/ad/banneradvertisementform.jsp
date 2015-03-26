@@ -30,7 +30,7 @@
 
                     <tr valign="top">
                         <td width="200px;">
-                            广告描述<br/> (请输入数字)
+                            广告描述 <span class="required">*</span>
                         </td>
                         <td>
                             <spring-form:input id="advertisementTitle" path="advertisementTitle" maxlength="100"
@@ -41,7 +41,8 @@
 
                     <tr valign="top">
                         <td width="200px;">
-                            广告对应频道 <span class="required">*</span>
+                            广告对应频道 <br/>
+                            (请输入数字)
                         </td>
 
                         <td>
@@ -50,7 +51,6 @@
                         </td>
                     </tr>
 
-
                     <tr valign="top">
                         <td width="200px;" valign="top">
                             选择广告图片 <span class="required">*</span><br/>(支持PNG, JEPG, JPG, BMP格式上传)
@@ -58,13 +58,13 @@
                         <td>
                             <input type="file" id="advertisementFile" name="advertisementFile" class="file"
                                    style="width:300px;"/>
-                            <c:if test="${openAdvertisement.advertisementFileId > 0}">
+                            <c:if test="${bannerAdvertisement.advertisementFileId > 0}">
                                 <br/>
                                 <br/>
-                                已上传文件:${openAdvertisement.advertisementUploadFileName}
+                                已上传文件:${bannerAdvertisement.advertisementUploadFileName}
                                 <br/>
                                 <br/>
-                                <img src="${applicationWebAddress}${openAdvertisement.advertisementActualFileName}"
+                                <img src="${applicationWebAddress}${bannerAdvertisement.advertisementActualFileName}"
                                      style="width: 600px;"/>
                             </c:if>
                             <spring-form:errors path="advertisementFile" cssClass="required"/>
