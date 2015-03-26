@@ -171,6 +171,21 @@ button.thoughtbot {
     padding: 3px 0 10px;
     text-align: center;
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
+    width: 80px;
+    height: 21px;
+}
+
+button.thoughtbot_null {
+    background-color: #EE432E;
+    background-image: -moz-linear-gradient(center top , #EE432E 0%, #C63929 50%, #B51700 50%, #891100 100%);
+    border: 1px solid #951100;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(255, 115, 100, 0.4) inset, 0 1px 3px #333333;
+    color: #FFFFFF;
+    font: bold 11px/1 "helvetica neue",helvetica,arial,sans-serif;
+    padding: 3px 0 10px;
+    text-align: center;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
     width: 100px;
     height: 21px;
 }
