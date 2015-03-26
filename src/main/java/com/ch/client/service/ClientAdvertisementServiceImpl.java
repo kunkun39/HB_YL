@@ -35,13 +35,13 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
     @Value("${application.image.url}")
     private String applicationWebAddress;
 
-    public String obtainClientBannerAdvertisement(int serviceId) {
-        String chcheValue = clientCacheService.getBannerAdvertisementByServiceId(serviceId);
+    public String obtainClientBannerAdvertisement() {
+        String chcheValue = clientCacheService.getBannerAdvertisement();
 
         if (StringUtils.hasText(chcheValue)) {
             return chcheValue;
         } else {
-            List<BannerAdvertisement> bannerAdvertisementList = clientAdvertisementDao.loadBannerAdvertisementByServiceId(serviceId);
+            List<BannerAdvertisement> bannerAdvertisementList = clientAdvertisementDao.loadAllBannerAdvertisementByServiceId();
             JSONObject all = new JSONObject();
             JSONArray bas = new JSONArray();
             for (BannerAdvertisement bannerAdvertisement : bannerAdvertisementList) {
@@ -54,7 +54,7 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
             }
             all.put("bannersads", bas);
             String returnValue = all.toJSONString();
-            clientCacheService.cacheBannerAdvertisement(returnValue, serviceId);
+            clientCacheService.cacheBannerAdvertisement(returnValue);
             return returnValue;
         }
     }

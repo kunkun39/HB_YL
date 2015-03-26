@@ -11,9 +11,9 @@ public interface ClientCacheService {
     /**
      * 获得Banner广告缓存
      */
-    String getBannerAdvertisementByServiceId(int serviceId);
+    String getBannerAdvertisement();
 
-    void cacheBannerAdvertisement(String value, int serviceId);
+    void cacheBannerAdvertisement(String value);
 
     void cleanCacheBannerAdvertisement();
 

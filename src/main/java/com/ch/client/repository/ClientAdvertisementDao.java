@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface ClientAdvertisementDao extends EntityObjectDao {
 
-    List<BannerAdvertisement> loadBannerAdvertisementByServiceId(int serviceId);
+    List<BannerAdvertisement> loadAllBannerAdvertisementByServiceId();
 
     List<OpenAdvertisement> loadAllOpenAdvertisement();
 

@@ -7,7 +7,7 @@ package com.ch.client.service;
  */
 public interface ClientAdvertisementService {
 
-    String obtainClientBannerAdvertisement(int serviceId);
+    String obtainClientBannerAdvertisement();
 
     String obtainClientOpenAdvertisement();
 

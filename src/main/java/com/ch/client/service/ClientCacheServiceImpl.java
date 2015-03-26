@@ -14,14 +14,15 @@ import java.util.Map;
 @Service("clientCacheService")
 public class ClientCacheServiceImpl implements ClientCacheService {
     /***********************************************Banner广告****************************************************/
-    private Map<Integer, String> bannerAdvertisementCache=new HashMap<Integer, String>();
+    private final static String BANNER_ADVERTISEMENT_KEY = "BANNER_ADVERTISEMENT_KEY";
+    private Map<String, String> bannerAdvertisementCache=new HashMap<String, String>();
 
-    public String getBannerAdvertisementByServiceId(int serviceId) {
-        return bannerAdvertisementCache.get(serviceId);
+    public String getBannerAdvertisement() {
+        return bannerAdvertisementCache.get(BANNER_ADVERTISEMENT_KEY);
     }
 
-    public void cacheBannerAdvertisement(String value ,int serviceId) {
-      bannerAdvertisementCache.put(serviceId,value);
+    public void cacheBannerAdvertisement(String value ) {
+      bannerAdvertisementCache.put(BANNER_ADVERTISEMENT_KEY,value);
     }
 
     public void cleanCacheBannerAdvertisement(){
