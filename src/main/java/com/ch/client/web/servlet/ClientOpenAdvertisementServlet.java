@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  * User: Jack Wang
  * Date: 15-3-18
  * Time: 下午3:20
- *
+ * <p/>
  * Servlet just init once
  */
 public class ClientOpenAdvertisementServlet extends HttpServlet {
@@ -45,9 +45,10 @@ public class ClientOpenAdvertisementServlet extends HttpServlet {
         } else if ("/dvbott/client/getsubmodulecontent".equals(requestURL)) {
             int moduleAdvertisementId = ServletRequestUtils.getIntParameter(request, "index");
             responseJSON = clientAdvertisementService.obtainClientSubModule(moduleAdvertisementId);
-        }else if ("/dvbott/client/getbanneradcontent".equals(requestURL)){
-            int serviceId=ServletRequestUtils.getIntParameter(request,"serviceId");
-            responseJSON=clientAdvertisementService.obtainClientBannerAdvertisement(serviceId);
+        } else if ("/dvbott/client/getbanneradcontent".equals(requestURL)) {
+
+            int serviceId = ServletRequestUtils.getIntParameter(request, "serviceId");
+            responseJSON = clientAdvertisementService.obtainClientBannerAdvertisement(serviceId);
         }
 
         //返回结果

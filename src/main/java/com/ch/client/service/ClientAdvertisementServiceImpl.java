@@ -35,31 +35,28 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
     @Value("${application.image.url}")
     private String applicationWebAddress;
 
-
-
-
     public String obtainClientBannerAdvertisement(int serviceId) {
-        String chcheValue=clientCacheService.getBannerAdvertisementByServiceId(serviceId);
-        if (StringUtils.hasText(chcheValue)){
+        String chcheValue = clientCacheService.getBannerAdvertisementByServiceId(serviceId);
+
+        if (StringUtils.hasText(chcheValue)) {
             return chcheValue;
-        }else {
-            List<BannerAdvertisement> bannerAdvertisementList=clientAdvertisementDao.loadBannerAdvertisementByServiceId(serviceId);
-            JSONObject all=new JSONObject();
-            JSONArray bas=new JSONArray();
-            for(BannerAdvertisement bannerAdvertisement:bannerAdvertisementList){
-                JSONObject ba=new JSONObject();
-                ba.put("index",bannerAdvertisement.getSequence());
-                ba.put("title",bannerAdvertisement.getAdvertisememtTitle());
-                ba.put("url",applicationWebAddress + bannerAdvertisement.getAdvertisementFile().getActualFileName());
-                ba.put("serviceId",bannerAdvertisement.getServiceId());
+        } else {
+            List<BannerAdvertisement> bannerAdvertisementList = clientAdvertisementDao.loadBannerAdvertisementByServiceId(serviceId);
+            JSONObject all = new JSONObject();
+            JSONArray bas = new JSONArray();
+            for (BannerAdvertisement bannerAdvertisement : bannerAdvertisementList) {
+                JSONObject ba = new JSONObject();
+                ba.put("index", bannerAdvertisement.getSequence());
+                ba.put("title", bannerAdvertisement.getAdvertisememtTitle());
+                ba.put("url", applicationWebAddress + bannerAdvertisement.getAdvertisementFile().getActualFileName());
+                ba.put("serviceId", bannerAdvertisement.getServiceId());
                 bas.add(ba);
             }
-            all.put("bannersads",bas);
+            all.put("bannersads", bas);
             String returnValue = all.toJSONString();
-            clientCacheService.cacheBannerAdvertisement(returnValue,serviceId);
+            clientCacheService.cacheBannerAdvertisement(returnValue, serviceId);
             return returnValue;
         }
-
     }
 
     public String obtainClientOpenAdvertisement() {
@@ -73,7 +70,7 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
         } else {
             /**
              * 没有缓存，从数据库中拿数据，然后缓存起来
-              */
+             */
             List<OpenAdvertisement> advertisements = clientAdvertisementDao.loadAllOpenAdvertisement();
             JSONObject all = new JSONObject();
             JSONArray ads = new JSONArray();
@@ -102,7 +99,7 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
         } else {
             /**
              * 没有缓存，从数据库中拿数据，然后缓存起来
-              */
+             */
             List<ModuleAdvertisement> advertisements = clientAdvertisementDao.loadAllModuleAdvertisement();
             JSONObject all = new JSONObject();
             JSONArray ads = new JSONArray();
@@ -125,14 +122,14 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
         String cachedValue = clientCacheService.getSubModule(moduleAdvertisement);
 
         if (StringUtils.hasText(cachedValue)) {
-             /**
+            /**
              * 发现有缓存，直接返回用户数据
              */
             return cachedValue;
         } else {
             /**
              * 没有缓存，从数据库中拿数据，然后缓存起来
-              */
+             */
             List<SubModule> subModules = clientAdvertisementDao.loadSubModules(moduleAdvertisement);
 
             JSONObject all = new JSONObject();
