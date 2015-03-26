@@ -13,7 +13,9 @@ import java.util.Map;
  */
 @Service("clientCacheService")
 public class ClientCacheServiceImpl implements ClientCacheService {
+
     /***********************************************Banner广告****************************************************/
+
     private final static String BANNER_ADVERTISEMENT_KEY = "BANNER_ADVERTISEMENT_KEY";
     private Map<String, String> bannerAdvertisementCache=new HashMap<String, String>();
 
@@ -33,6 +35,7 @@ public class ClientCacheServiceImpl implements ClientCacheService {
 
     private final static String OPEN_ADVERTISEMENT_KEY = "OPEN_ADVERTISEMENT_KEY";
     private Map<String, String> openAdvertisementeCache = new HashMap<String, String>();
+
     public String getOpenAdvertisement() {
         return openAdvertisementeCache.get(OPEN_ADVERTISEMENT_KEY);
     }

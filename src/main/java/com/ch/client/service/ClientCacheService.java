@@ -13,8 +13,14 @@ public interface ClientCacheService {
      */
     String getBannerAdvertisement();
 
+    /**
+     * 缓存Banner广告
+     */
     void cacheBannerAdvertisement(String value);
 
+    /**
+     * 清除Banner广告
+     */
     void cleanCacheBannerAdvertisement();
 
     /***********************************************开机广告*******************************************************/

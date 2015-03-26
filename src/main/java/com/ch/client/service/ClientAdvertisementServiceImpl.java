@@ -36,12 +36,18 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
     private String applicationWebAddress;
 
     public String obtainClientBannerAdvertisement() {
-        String chcheValue = clientCacheService.getBannerAdvertisement();
+        String cachedValue = clientCacheService.getBannerAdvertisement();
 
-        if (StringUtils.hasText(chcheValue)) {
-            return chcheValue;
+        if (StringUtils.hasText(cachedValue)) {
+            /**
+             * 发现有缓存，直接返回用户数据
+             */
+            return cachedValue;
         } else {
-            List<BannerAdvertisement> bannerAdvertisementList = clientAdvertisementDao.loadAllBannerAdvertisementByServiceId();
+            /**
+             * 没有缓存，从数据库中拿数据，然后缓存起来
+             */
+            List<BannerAdvertisement> bannerAdvertisementList = clientAdvertisementDao.loadAllBannerAdvertisement();
             JSONObject all = new JSONObject();
             JSONArray bas = new JSONArray();
             for (BannerAdvertisement bannerAdvertisement : bannerAdvertisementList) {

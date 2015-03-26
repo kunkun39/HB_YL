@@ -17,7 +17,7 @@ import java.util.List;
 @Repository("clientAdvertisementDao")
 public class ClientAdvertisementDaoImpl extends HibernateEntityObjectDao implements ClientAdvertisementDao {
 
-    public List<BannerAdvertisement> loadAllBannerAdvertisementByServiceId() {
+    public List<BannerAdvertisement> loadAllBannerAdvertisement() {
         return getHibernateTemplate().find("from BannerAdvertisement ba order by ba.sequence asc ");
     }
 
