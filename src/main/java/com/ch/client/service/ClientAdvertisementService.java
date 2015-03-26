@@ -6,7 +6,7 @@ package com.ch.client.service;
  * Time: 下午3:34
  */
 public interface ClientAdvertisementService {
-
+    String obtainClientBannerAdvertisement(int serviceId);
     String obtainClientOpenAdvertisement();
 
     String obtainClientModuleAdvertisement();

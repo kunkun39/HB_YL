@@ -99,6 +99,8 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         }
 
         advertisementDao.saveOrUpdate(bannerAdvertisement);
+
+        clientCacheService.cleanCacheBannerAdvertisement();
     }
 
     public void deleteBannerAdvertisement(int bannerAdvertisementId) {
@@ -107,6 +109,8 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
         fileManageService.deleteAdvertisementFile(file);
         advertisementDao.delete(bannerAdvertisement);
+
+        clientCacheService.cleanCacheBannerAdvertisement();
     }
 
     /*************************开机广告部分******************************/

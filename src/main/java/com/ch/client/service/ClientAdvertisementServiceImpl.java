@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ch.client.repository.ClientAdvertisementDao;
+import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.domain.SubModule;
@@ -34,6 +35,32 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
     @Value("${application.image.url}")
     private String applicationWebAddress;
 
+
+
+
+    public String obtainClientBannerAdvertisement(int serviceId) {
+        String chcheValue=clientCacheService.getBannerAdvertisementByServiceId(serviceId);
+        if (StringUtils.hasText(chcheValue)){
+            return chcheValue;
+        }else {
+            List<BannerAdvertisement> bannerAdvertisementList=clientAdvertisementDao.loadBannerAdvertisementByServiceId(serviceId);
+            JSONObject all=new JSONObject();
+            JSONArray bas=new JSONArray();
+            for(BannerAdvertisement bannerAdvertisement:bannerAdvertisementList){
+                JSONObject ba=new JSONObject();
+                ba.put("index",bannerAdvertisement.getSequence());
+                ba.put("title",bannerAdvertisement.getAdvertisememtTitle());
+                ba.put("url",applicationWebAddress + bannerAdvertisement.getAdvertisementFile().getActualFileName());
+                ba.put("serviceId",bannerAdvertisement.getServiceId());
+                bas.add(ba);
+            }
+            all.put("bannersads",bas);
+            String returnValue = all.toJSONString();
+            clientCacheService.cacheBannerAdvertisement(returnValue,serviceId);
+            return returnValue;
+        }
+
+    }
 
     public String obtainClientOpenAdvertisement() {
         String cachedValue = clientCacheService.getOpenAdvertisement();

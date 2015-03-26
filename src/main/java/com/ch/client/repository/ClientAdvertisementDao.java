@@ -1,6 +1,7 @@
 package com.ch.client.repository;
 
 import com.ch.common.repository.EntityObjectDao;
+import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.domain.SubModule;
@@ -13,6 +14,8 @@ import java.util.List;
  * Time: 下午3:38
  */
 public interface ClientAdvertisementDao extends EntityObjectDao {
+
+    List<BannerAdvertisement> loadBannerAdvertisementByServiceId(int serviceId);
 
     List<OpenAdvertisement> loadAllOpenAdvertisement();
 

@@ -45,6 +45,9 @@ public class ClientOpenAdvertisementServlet extends HttpServlet {
         } else if ("/dvbott/client/getsubmodulecontent".equals(requestURL)) {
             int moduleAdvertisementId = ServletRequestUtils.getIntParameter(request, "index");
             responseJSON = clientAdvertisementService.obtainClientSubModule(moduleAdvertisementId);
+        }else if ("/dvbott/client/getbanneradcontent".equals(requestURL)){
+            int serviceId=ServletRequestUtils.getIntParameter(request,"serviceId");
+            responseJSON=clientAdvertisementService.obtainClientBannerAdvertisement(serviceId);
         }
 
         //返回结果

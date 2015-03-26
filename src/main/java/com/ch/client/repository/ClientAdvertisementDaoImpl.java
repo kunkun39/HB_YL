@@ -1,6 +1,7 @@
 package com.ch.client.repository;
 
 import com.ch.common.repository.HibernateEntityObjectDao;
+import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
 import com.ch.system.domain.SubModule;
@@ -16,9 +17,15 @@ import java.util.List;
 @Repository("clientAdvertisementDao")
 public class ClientAdvertisementDaoImpl extends HibernateEntityObjectDao implements ClientAdvertisementDao {
 
+    public List<BannerAdvertisement> loadBannerAdvertisementByServiceId(int serviceId) {
+        return getHibernateTemplate().find("from BannerAdvertisement ba where ba.serviceId = "+serviceId);
+    }
+
+
     public List<OpenAdvertisement> loadAllOpenAdvertisement() {
         return getHibernateTemplate().find("from OpenAdvertisement oa order by oa.sequence asc");
     }
+
 
     public List<ModuleAdvertisement> loadAllModuleAdvertisement() {
         return getHibernateTemplate().find("from ModuleAdvertisement oa order by oa.sequence asc");

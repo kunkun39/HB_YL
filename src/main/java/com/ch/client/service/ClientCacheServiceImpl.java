@@ -1,5 +1,6 @@
 package com.ch.client.service;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,12 +13,25 @@ import java.util.Map;
  */
 @Service("clientCacheService")
 public class ClientCacheServiceImpl implements ClientCacheService {
+    /***********************************************Banner广告****************************************************/
+    private Map<Integer, String> bannerAdvertisementCache=new HashMap<Integer, String>();
+
+    public String getBannerAdvertisementByServiceId(int serviceId) {
+        return bannerAdvertisementCache.get(serviceId);
+    }
+
+    public void cacheBannerAdvertisement(String value ,int serviceId) {
+      bannerAdvertisementCache.put(serviceId,value);
+    }
+
+    public void cleanCacheBannerAdvertisement(){
+        bannerAdvertisementCache.clear();
+    }
 
     /***********************************************开机广告*******************************************************/
 
     private final static String OPEN_ADVERTISEMENT_KEY = "OPEN_ADVERTISEMENT_KEY";
     private Map<String, String> openAdvertisementeCache = new HashMap<String, String>();
-
     public String getOpenAdvertisement() {
         return openAdvertisementeCache.get(OPEN_ADVERTISEMENT_KEY);
     }

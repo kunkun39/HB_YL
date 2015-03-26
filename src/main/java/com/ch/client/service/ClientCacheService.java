@@ -6,6 +6,17 @@ package com.ch.client.service;
  * Time: 下午4:33
  */
 public interface ClientCacheService {
+    /***********************************************Banner广告*******************************************************/
+
+
+    /**
+     * 获得Banner广告缓存
+     */
+    String getBannerAdvertisementByServiceId(int serviceId);
+
+    void cacheBannerAdvertisement(String value,int serviceId);
+
+    void cleanCacheBannerAdvertisement();
 
     /***********************************************开机广告*******************************************************/
 
