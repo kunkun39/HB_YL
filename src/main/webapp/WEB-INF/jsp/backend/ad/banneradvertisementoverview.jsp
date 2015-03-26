@@ -43,10 +43,10 @@
       </div>
 
 
-      <form action="${pageContext.request.contextPath}/backend/banneradvertisementquerybyserviceid.html" class="search_form" method="POST">
-        <div class="search">
-          <span><label> 输入频道号码查询:</label><input type="text" name="serviceId" class="text" value="${serviceId}"/></span>
-          <input type="button" value="查询" onclick="this.form.submit();"/>
+      <form action="#" class="search_form" method="POST">
+        <div class="search" style="height: 20px;">
+          输入频道号码查询：<input type="text" id="serviceId" name="serviceId">
+          <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html"><button class="thoughtbot">查询</button></a>
         </div>
       </form>
 
@@ -54,8 +54,8 @@
         <thead>
         <td width="5%">&nbsp;&nbsp;编号</td>
         <td width="25%">描述</td>
+        <td width="10%">广告对应频道</td>
         <td width="35%">广告地址</td>
-        <td width="20">广告对应频道</td>
         <td width="15">操作</td>
         </thead>
         <tbody>
@@ -66,8 +66,8 @@
             <c:set var="turns" value="${!turns}"/>
             <td>&nbsp;&nbsp;${ad.sequence}</td>
             <td>${ad.advertisementTitle} </td>
-            <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
             <td>${ad.serviceId}</td>
+            <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
             <td>
               <a href="${pageContext.request.contextPath}/backend/banneradvertisementform.html?bannerAdvertisementId=${ad.id}&current=${current}"><button class="thoughtbot">编辑</button></a>
               <a href="#" onclick="return bannerAdvertisementDeleteConfirm('${ad.id}', '${current}');"><button class="thoughtbot">删除</button></a>
@@ -78,7 +78,7 @@
       </table>
 
       <div class="paging">
-        <ch:paging urlMapping="${pageContext.request.contextPath}/backend/openadvertisementoverview.html" showGoTo="false" paging="${paging}"/>
+        <ch:paging urlMapping="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html" showGoTo="false" paging="${paging}"/>
       </div>
     </td>
   </tr>
