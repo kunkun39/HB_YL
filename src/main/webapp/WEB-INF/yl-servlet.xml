@@ -82,12 +82,14 @@
 
     <!--ad part-->
     <bean id="bannerAdvertisementManagementController" class="com.ch.system.web.controller.BannerAdvertisementManagementController">
+        <property name="advertisementService" ref="advertisementService"/>
         <property name="applicationWebAddress" value="${application.image.url}"/>
     </bean>
     <bean id="bannerAdvertisementDeleteController" class="com.ch.system.web.controller.BannerAdvertisementDeleteController">
-
+        <property name="advertisementService" ref="advertisementService"/>
     </bean>
     <bean id="bannerAdvertisementFormController" class="com.ch.system.web.controller.BannerAdvertisementFormController">
+        <property name="advertisementService" ref="advertisementService"/>
         <property name="applicationWebAddress" value="${application.image.url}"/>
     </bean>
 

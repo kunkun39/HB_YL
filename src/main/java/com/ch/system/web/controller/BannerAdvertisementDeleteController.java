@@ -1,5 +1,6 @@
 package com.ch.system.web.controller;
 
+import com.ch.system.service.AdvertisementService;
 import com.ch.system.service.AdvertisementServiceImpl;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,11 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by maren on 2015/3/23.
  */
 public class BannerAdvertisementDeleteController extends AbstractController {
-
-    @Resource
-    private AdvertisementServiceImpl advertisementService;
-
-
+    private AdvertisementService advertisementService;
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         int bannerAdvertisementId = ServletRequestUtils.getIntParameter(httpServletRequest, "bannerAdvertisementId", -1);
@@ -27,6 +24,10 @@ public class BannerAdvertisementDeleteController extends AbstractController {
         advertisementService.deleteBannerAdvertisement(bannerAdvertisementId);
 
         return new ModelAndView(new RedirectView("banneradvertisementoverview.html?current=" + current));
+    }
+
+    public void setAdvertisementService(AdvertisementService advertisementService) {
+        this.advertisementService = advertisementService;
     }
 
 }

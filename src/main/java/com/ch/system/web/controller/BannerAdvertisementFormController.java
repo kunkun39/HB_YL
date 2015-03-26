@@ -1,5 +1,6 @@
 package com.ch.system.web.controller;
 
+import com.ch.system.service.AdvertisementService;
 import com.ch.system.service.AdvertisementServiceImpl;
 import com.ch.system.web.facade.dto.BannerAdvertisementDTO;
 import org.springframework.util.StringUtils;
@@ -19,8 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by maren on 2015/3/20.
  */
 public class BannerAdvertisementFormController extends SimpleFormController {
-    @Resource
-    private AdvertisementServiceImpl advertisementService;
+    private AdvertisementService advertisementService;
     private String applicationWebAddress;
 
     public BannerAdvertisementFormController() {
@@ -84,6 +84,10 @@ public class BannerAdvertisementFormController extends SimpleFormController {
 
     public void setApplicationWebAddress(String applicationWebAddress) {
         this.applicationWebAddress = applicationWebAddress;
+    }
+
+    public void setAdvertisementService(AdvertisementService advertisementService) {
+        this.advertisementService = advertisementService;
     }
 
 }

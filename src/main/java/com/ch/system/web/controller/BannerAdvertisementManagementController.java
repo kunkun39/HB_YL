@@ -1,5 +1,6 @@
 package com.ch.system.web.controller;
 
+import com.ch.system.service.AdvertisementService;
 import com.ch.system.service.AdvertisementServiceImpl;
 import com.ch.system.web.facade.dto.BannerAdvertisementDTO;
 import com.ch.system.web.paging.BannerAdvertisementQueryByServiceIdPaging;
@@ -17,8 +18,7 @@ import java.util.List;
  * Created by maren on 2015/3/23.
  */
 public class BannerAdvertisementManagementController extends AbstractController {
-    @Resource
-    AdvertisementServiceImpl advertisementService;
+    private AdvertisementService advertisementService;
     private String applicationWebAddress;
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
@@ -47,6 +47,10 @@ public class BannerAdvertisementManagementController extends AbstractController 
     }
     public void setApplicationWebAddress(String applicationWebAddress) {
         this.applicationWebAddress = applicationWebAddress;
+    }
+
+    public void setAdvertisementService(AdvertisementService advertisementService) {
+        this.advertisementService = advertisementService;
     }
 
 }

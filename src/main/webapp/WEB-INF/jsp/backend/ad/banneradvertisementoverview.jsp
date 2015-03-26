@@ -39,13 +39,13 @@
     </td>
     <td valign="top">
       <div style="float: left; padding-right: 5px; padding-top: 5px; padding-left: 5px;">
-        <a href="${pageContext.request.contextPath}/backend/banneradvertisementform.html"><button class="thoughtbot">添加Banner广告</button></a>
+        <a href="${pageContext.request.contextPath}/backend/banneradvertisementform.html"><button class="thoughtbot_null">添加Banner广告</button></a>
       </div>
 
 
       <form action="#" class="search_form" method="POST">
         <div class="search" style="height: 20px;">
-          输入频道号码查询：<input type="text" id="serviceId" name="serviceId">
+          &nbsp;&nbsp;输入频道号码查询：<input type="text" id="serviceId" name="serviceId">&nbsp;&nbsp;
           <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html"><button class="thoughtbot">查询</button></a>
         </div>
       </form>
