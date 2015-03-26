@@ -44,8 +44,8 @@
 
 
       <form action="#" class="search_form" method="POST">
-        <div class="search" style="height: 20px;">
-          &nbsp;&nbsp;<label>频道号：</label><input type="text" id="serviceId" name="serviceId" class="text" value="${serviceId}"/>&nbsp;&nbsp;
+        <div class="search" >
+          &nbsp;&nbsp;<span><label>频道号：</label><input type="text" id="serviceId" name="serviceId" class="text" value="${serviceId}"/></span>&nbsp;&nbsp;
           <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html"><button class="thoughtbot">查询</button></a> &nbsp;<span style="color: #FF0000">${errormsg}</span>
         </div>
 
