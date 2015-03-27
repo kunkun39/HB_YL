@@ -57,7 +57,7 @@
         <td width="25%">描述</td>
         <td width="5%">频道号</td>
         <td width="40%">广告地址</td>
-        <td width="15">&nbsp;&nbsp;&nbsp;操作</td>
+        <td width="15%">&nbsp;&nbsp;&nbsp;操作</td>
         </thead>
         <tbody>
         <c:set var="turns" value="true"/>

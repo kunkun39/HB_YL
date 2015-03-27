@@ -61,7 +61,7 @@
             <form action="${pageContext.request.contextPath}/backend/useroverview.html" class="search_form" method="POST">
                 <div class="search">
                     <span><label>姓名:</label><input type="text" name="filername" class="text" value="${paging.name}"/></span>
-                    <input type="button" value="查询" onclick="this.form.submit();"/>
+                    <input type="button" class="thoughtbot" value="查询" onclick="this.form.submit();"/>
                 </div>
             </form>
 
