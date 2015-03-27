@@ -27,7 +27,7 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     int getMaxBannerAdvertisementSequence();
 
-    void deleteAndjustAfterBannerAdvertisementSequence(int sequence,int bannerAdvertisementId);
+    void deleteAndjustAfterBannerAdvertisementSequence(int sequence,int bannerAdvertisementId, int uploadFileId);
 
     /*************************开机广告部分******************************/
 
@@ -37,7 +37,7 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     int getMaxOpenAdvertisementSequence();
 
-    void deleteAndjustAfterOpenAdvertisementSequence(int position, int openAdvertisementId);
+    void deleteAndjustAfterOpenAdvertisementSequence(int position, int openAdvertisementId, int uploadFileId);
 
     /*************************频道列表广告部分******************************/
 
@@ -47,7 +47,7 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     int getMaxChannelAdvertisementSequence();
 
-    void deleteAndjustAfterChannelAdvertisementSequence(int position, int channelAdvertisementId);
+    void deleteAndjustAfterChannelAdvertisementSequence(int position, int channelAdvertisementId, int uploadFileId);
 
     /*************************八大模块部分******************************/
 

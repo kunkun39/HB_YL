@@ -103,6 +103,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
         advertisementDao.saveOrUpdate(bannerAdvertisement);
 
+        //更改后清除缓存
         clientCacheService.cleanCacheBannerAdvertisement();
     }
 
@@ -111,7 +112,9 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         AdvertisementFile file = bannerAdvertisement.getAdvertisementFile();
 
         fileManageService.deleteAdvertisementFile(file);
-        advertisementDao.deleteAndjustAfterBannerAdvertisementSequence(bannerAdvertisement.getSequence(), bannerAdvertisementId);
+        advertisementDao.deleteAndjustAfterBannerAdvertisementSequence(bannerAdvertisement.getSequence(), bannerAdvertisementId, file.getId());
+
+        //更改后清除缓存
         clientCacheService.cleanCacheBannerAdvertisement();
     }
 
@@ -170,7 +173,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         AdvertisementFile file = openAdvertisement.getAdvertisementFile();
 
         fileManageService.deleteAdvertisementFile(file);
-        advertisementDao.deleteAndjustAfterOpenAdvertisementSequence(openAdvertisement.getSequence(), openAdvertisementId);
+        advertisementDao.deleteAndjustAfterOpenAdvertisementSequence(openAdvertisement.getSequence(), openAdvertisementId, file.getId());
 
         //更改后清除缓存
         clientCacheService.cleanCachedOpenAdvertisement();
@@ -229,7 +232,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         AdvertisementFile file = channelAdvertisement.getAdvertisementFile();
 
         fileManageService.deleteAdvertisementFile(file);
-        advertisementDao.deleteAndjustAfterChannelAdvertisementSequence(channelAdvertisement.getSequence(), channelAdvertisementId);
+        advertisementDao.deleteAndjustAfterChannelAdvertisementSequence(channelAdvertisement.getSequence(), channelAdvertisementId, file.getId());
     }
 
     /*************************八大模块部分******************************/

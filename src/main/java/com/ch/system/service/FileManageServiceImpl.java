@@ -55,11 +55,13 @@ public class FileManageServiceImpl implements FileManageService, InitializingBea
     }
 
     public void deleteAdvertisementFile(AdvertisementFile file) {
-        File deleteFile = new File(baseStorePath + File.separatorChar + file.getActualFileName());
-        if (deleteFile.exists()) {
-            deleteFile.delete();
+        try {
+            File deleteFile = new File(baseStorePath + File.separatorChar + file.getActualFileName());
+            if (deleteFile.exists()) {
+                deleteFile.delete();
+            }
+        } catch (Exception e) {
+            logger.error("file not delete OK", e);
         }
     }
-
-
 }

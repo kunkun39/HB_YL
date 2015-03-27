@@ -74,12 +74,15 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         return 0;
     }
 
-    public void deleteAndjustAfterBannerAdvertisementSequence(int sequence, int bannerAdvertisementId) {
+    public void deleteAndjustAfterBannerAdvertisementSequence(int sequence, int bannerAdvertisementId, int uploadFileId) {
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         SQLQuery update = session.createSQLQuery("update banner_advertisement s set s.sequence = s.sequence - 1 where s.sequence>" + sequence);
         update.executeUpdate();
 
         SQLQuery delete = session.createSQLQuery("delete from banner_advertisement where id = " + bannerAdvertisementId);
+        delete.executeUpdate();
+
+        delete = session.createSQLQuery("delete from  ad_update_file where id = " + uploadFileId);
         delete.executeUpdate();
     }
 
@@ -117,12 +120,15 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         return 0;
     }
 
-    public void deleteAndjustAfterOpenAdvertisementSequence(int position, int openAdvertisementId) {
+    public void deleteAndjustAfterOpenAdvertisementSequence(int position, int openAdvertisementId, int uploadFileId) {
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         SQLQuery update = session.createSQLQuery("update open_advertisement s set s.sequence = s.sequence - 1 where s.sequence>" + position);
         update.executeUpdate();
 
         SQLQuery delete = session.createSQLQuery("delete from open_advertisement where id = " + openAdvertisementId);
+        delete.executeUpdate();
+
+        delete = session.createSQLQuery("delete from  ad_update_file where id = " + uploadFileId);
         delete.executeUpdate();
     }
 
@@ -160,12 +166,15 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         return 0;
     }
 
-    public void deleteAndjustAfterChannelAdvertisementSequence(int position, int channelAdvertisementId) {
+    public void deleteAndjustAfterChannelAdvertisementSequence(int position, int channelAdvertisementId, int uploadFileId) {
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         SQLQuery update = session.createSQLQuery("update channel_advertisement s set s.sequence = s.sequence - 1 where s.sequence>" + position);
         update.executeUpdate();
 
         SQLQuery delete = session.createSQLQuery("delete from channel_advertisement where id = " + channelAdvertisementId);
+        delete.executeUpdate();
+
+        delete = session.createSQLQuery("delete from  ad_update_file where id = " + uploadFileId);
         delete.executeUpdate();
     }
 
