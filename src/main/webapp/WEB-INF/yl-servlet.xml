@@ -52,6 +52,9 @@
                 <prop key="/backend/submoduleoverview.html">subModuleManagementController</prop>
                 <prop key="/backend/submoduleform.html">subModuleFormController</prop>
                 <prop key="/backend/submoduledelete.html">subModuleDeleteController</prop>
+                <prop key="/backend/channeladvertisementoverview.html">channelAdvertisementManagementController</prop>
+                <prop key="/backend/channeladvertisementform.html">channelAdvertisementFormController</prop>
+                <prop key="/backend/channeladvertisementdelete.html">channelAdvertisementDeleteController</prop>
             </props>
         </property>
     </bean>
@@ -124,6 +127,20 @@
     </bean>
 
     <bean id="subModuleDeleteController" class="com.ch.system.web.controller.SubModuleDeleteController">
+        <property name="advertisementService" ref="advertisementService"/>
+    </bean>
+
+    <bean id="channelAdvertisementManagementController" class="com.ch.system.web.controller.ChannelAdvertisementManagementController">
+        <property name="advertisementService" ref="advertisementService"/>
+        <property name="applicationWebAddress" value="${application.image.url}"/>
+    </bean>
+
+    <bean id="channelAdvertisementFormController" class="com.ch.system.web.controller.ChannelAdvertisementFormController">
+        <property name="advertisementService" ref="advertisementService"/>
+        <property name="applicationWebAddress" value="${application.image.url}"/>
+    </bean>
+
+    <bean id="channelAdvertisementDeleteController" class="com.ch.system.web.controller.ChannelAdvertisementDeleteController">
         <property name="advertisementService" ref="advertisementService"/>
     </bean>
 
