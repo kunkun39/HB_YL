@@ -20,9 +20,9 @@ public interface AdvertisementService {
 
     void insertBannerAdvertisement(BannerAdvertisement bannerAdvertisement);
 
-    int obtainBannerAdvertisementSizeByServiceId(int serviceId);
+    int obtainBannerAdvertisementSizeByServiceId(String serviceId);
 
-    List<BannerAdvertisementDTO> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize);
+    List<BannerAdvertisementDTO> obtainBannerAdvertisementsByServiceId(String serviceId, int startPosition, int pageSize);
 
     List<BannerAdvertisementDTO> obtainBannerAdvertisements(int startPosition, int pageSize);
 

@@ -19,11 +19,11 @@ public interface AdvertisementDao extends EntityObjectDao {
     /*************************Banner广告部分******************************/
 
     List<BannerAdvertisement> loadBannerAdvertisements(int startPosition, int pageSize);
-    List<BannerAdvertisement> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize);
+    List<BannerAdvertisement> obtainBannerAdvertisementsByServiceId(String serviceId, int startPosition, int pageSize);
 
     int loadBannerAdvertisementSize();
 
-    int loadBannerAdvertisementSizeByServiceId(int serviceId);
+    int loadBannerAdvertisementSizeByServiceId(String serviceId);
 
     int getMaxBannerAdvertisementSequence();
 

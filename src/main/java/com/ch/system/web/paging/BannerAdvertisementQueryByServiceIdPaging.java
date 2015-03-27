@@ -10,16 +10,16 @@ import java.util.List;
  */
 public class BannerAdvertisementQueryByServiceIdPaging extends AbstractPaging<BannerAdvertisementDTO> {
     private AdvertisementService advertisementService;
-    private int serviceId;
+    private String serviceId;
 
-    public BannerAdvertisementQueryByServiceIdPaging(AdvertisementService advertisementService,int serviceId) {
+    public BannerAdvertisementQueryByServiceIdPaging(AdvertisementService advertisementService,String serviceId) {
         this.advertisementService = advertisementService;
         this.serviceId=serviceId;
 
     }
 
     public List<BannerAdvertisementDTO> getItems() {
-        if(serviceId==0){
+        if(serviceId.trim().equals("")){
             return  advertisementService.obtainBannerAdvertisements(getStartPosition(),getPageSize());
 
         }
@@ -30,7 +30,7 @@ public class BannerAdvertisementQueryByServiceIdPaging extends AbstractPaging<Ba
         if (totalItemSize >= 0) {
             return totalItemSize;
         }
-        if(serviceId==0){
+        if(serviceId.trim().equals("")){
             totalItemSize=advertisementService.obtainBannerAdvertisementSize();
             return totalItemSize;
         }

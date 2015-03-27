@@ -23,9 +23,9 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
 
     /*************************Banner广告部分******************************/
 
-    public List<BannerAdvertisement> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize) {
+    public List<BannerAdvertisement> obtainBannerAdvertisementsByServiceId(String serviceId, int startPosition, int pageSize) {
         StringBuilder builder = new StringBuilder();
-        builder.append("from BannerAdvertisement as ba  where ba.serviceId = " + serviceId);
+        builder.append("from BannerAdvertisement as ba  where ba.serviceId = "+ "'" +serviceId + "'");
 
         Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
         Query query = session.createQuery(builder.toString());
@@ -47,9 +47,9 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         return bannerAds;
     }
 
-    public int loadBannerAdvertisementSizeByServiceId(int serviceId) {
+    public int loadBannerAdvertisementSizeByServiceId(String serviceId) {
         StringBuilder builder = new StringBuilder();
-        builder.append("select count(ba.id) from BannerAdvertisement ba where ba.serviceId = " + serviceId);
+        builder.append("select count(ba.id) from BannerAdvertisement ba where ba.serviceId = " + "'" +serviceId + "'");
         List list =  getHibernateTemplate().find(builder.toString());
         Long i=(Long)list.get(0);
         int sum=((Long)list.get(0)).intValue();

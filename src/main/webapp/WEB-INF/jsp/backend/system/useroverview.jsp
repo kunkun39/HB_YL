@@ -56,7 +56,7 @@
         </td>
         <td valign="top">
             <div style="float: left; padding-right: 5px; padding-top: 5px; padding-left: 5px;">
-                <a href="${pageContext.request.contextPath}/backend/userform.html"><button class="thoughtbot">添加用户</button></a>
+                <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/userform.html'"><button class="thoughtbot">添加用户</button></a>
             </div>
             <form action="${pageContext.request.contextPath}/backend/useroverview.html" class="search_form" method="POST">
                 <div class="search">
@@ -93,7 +93,7 @@
                             </c:if>
                         </td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/backend/userform.html?userId=${user.id}&filername=${filername}&current=${current}"><button class="thoughtbot">编辑</button></a>
+                            <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/userform.html?userId=${user.id}&filername=${filername}&current=${current}'"><button class="thoughtbot">编辑</button></a>
 
                             <c:if test="${user.username != 'hbyladmin'}">
                                 <c:if test="${user.enabled}">

@@ -52,12 +52,12 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
     }
 
-    public int obtainBannerAdvertisementSizeByServiceId(int serviceId) {
+    public int obtainBannerAdvertisementSizeByServiceId(String serviceId) {
         return advertisementDao.loadBannerAdvertisementSizeByServiceId(serviceId);
 
     }
 
-    public List<BannerAdvertisementDTO> obtainBannerAdvertisementsByServiceId(int serviceId, int startPosition, int pageSize) {
+    public List<BannerAdvertisementDTO> obtainBannerAdvertisementsByServiceId(String serviceId, int startPosition, int pageSize) {
         List<BannerAdvertisement> ads=advertisementDao.obtainBannerAdvertisementsByServiceId(serviceId, startPosition, pageSize);
         return BannerAdvertisementWebAssember.toBannerAdvertisementDTOList(ads);
     }

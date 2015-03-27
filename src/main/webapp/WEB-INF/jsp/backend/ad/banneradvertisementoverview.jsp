@@ -39,14 +39,14 @@
     </td>
     <td valign="top">
       <div style="float: left; padding-right: 5px; padding-top: 5px; padding-left: 5px;">
-        <a href="${pageContext.request.contextPath}/backend/banneradvertisementform.html"><button class="thoughtbot_null">添加Banner广告</button></a>
+        <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/banneradvertisementform.html'"><button class="thoughtbot_null">添加Banner广告</button></a>
       </div>
 
 
       <form action="#" class="search_form" method="POST">
         <div class="search" >
           &nbsp;&nbsp;<span><label>频道号：</label><input type="text" id="serviceId" name="serviceId" class="text" value="${serviceId}"/></span>&nbsp;&nbsp;
-          <a href="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html"><button class="thoughtbot">查询</button></a> &nbsp;<span style="color: #FF0000">${errormsg}</span>
+          <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/banneradvertisementoverview.html'"><button class="thoughtbot">查询</button></a>
         </div>
 
       </form>
@@ -70,7 +70,7 @@
             <td>${ad.serviceId}</td>
             <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
             <td>
-              <a href="${pageContext.request.contextPath}/backend/banneradvertisementform.html?bannerAdvertisementId=${ad.id}&current=${current}"><button class="thoughtbot">编辑</button></a>
+              <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/banneradvertisementform.html?bannerAdvertisementId=${ad.id}&current=${current}'" ><button class="thoughtbot">编辑</button></a>
               <a href="#" onclick="return bannerAdvertisementDeleteConfirm('${ad.id}', '${current}');"><button class="thoughtbot">删除</button></a>
             </td>
           </tr>

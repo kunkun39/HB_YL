@@ -44,7 +44,7 @@
             <div class="tv_header">
                 <p class="title">
                     ${moduleAdvertisement.moduleTitle}
-                    <a href="${pageContext.request.contextPath}/backend/submoduleform.html?moduleAdvertisementId=${moduleAdvertisement.id}"><button class="thoughtbot">添加子模块</button></a>
+                    <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/submoduleform.html?moduleAdvertisementId=${moduleAdvertisement.id}'"><button class="thoughtbot">添加子模块</button></a>
                 </p>
             </div>
             <div class="tv_main">
@@ -59,7 +59,7 @@
 
                     <li class="bg${counter.count}" <c:if test="${counter.count == 1 || counter.count == 7}">style="margin-left:0;"</c:if>>
                         <a class="flag" href="#">子模块${module.sequence}</a>
-                        <a class="edit" href="${pageContext.request.contextPath}/backend/submoduleform.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}">编辑</a>
+                        <a class="edit" href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/submoduleform.html?subModuleId=${module.id}&moduleAdvertisementId=${moduleAdvertisement.id}&current=${current}'">编辑</a>
                         <a class="edit1" href="#" onclick="return moduleDeleteConfirm('${module.id}','${moduleAdvertisement.id}','${current}');">删除</a>
                         <a class="edit2" href="${module.moduleUrl}" target="_blank">连接</a>
                         <p class="title">${module.moduleTitle}</p>
