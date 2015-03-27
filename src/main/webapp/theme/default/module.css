@@ -43,17 +43,17 @@ ul, li, ol, li, dl, dt, dd, p { padding:0; margin:0; overflow:hidden; list-style
 .sub_channel li { position:relative; float:left; width:160px; height:180px; margin-left:8px; background-color:#fff; /*background-color:rgba(200,200,200,0.7);*/ }
 .sub_channel li .title { position:absolute; left:0; bottom:0; width:100%; text-align:center; height:40px; font-size:18px; padding-bottom:10px; color:#fff; }
 .sub_channel .bg { width:160px; height:180px; margin-top:-14px; }
-.sub_channel .bg1 { background-color:rgba(227,56,88,0.6); }
-.sub_channel .bg2 { background-color:rgba(136,194,15,0.5); }
-.sub_channel .bg3 { background-color:rgba(253,2,4,0.5); }
-.sub_channel .bg4 { background-color:rgba(228,102,13,0.5); }
-.sub_channel .bg5 { background-color:rgba(52,129,241,0.5); }
-.sub_channel .bg6 { background-color:rgba(138,61,220,0.5); }
-.sub_channel .bg7 { background-color:rgba(207,151,6,0.5); }
-.sub_channel .bg8 { background-color:rgba(255,60,49,0.5); }
-.sub_channel .bg9 { background-color:rgba(156,56,88,0.6); }
-.sub_channel .bg10 { background-color:rgba(13,194,15,0.5); }
-.sub_channel .bg11 { background-color:rgba(203,20,62,0.5); }
+.sub_channel .bg1 { background-color:#ff6347; }
+.sub_channel .bg2 { background-color:#31940c; }
+.sub_channel .bg3 { background-color:#f4a460; }
+.sub_channel .bg4 { background-color:#bc6f6b; }
+.sub_channel .bg5 { background-color:#63bad8; }
+.sub_channel .bg6 { background-color:#8a3ddc; }
+.sub_channel .bg7 { background-color:#c77405; }
+.sub_channel .bg8 { background-color:#008b8b; }
+.sub_channel .bg9 { background-color:#88c20f; }
+.sub_channel .bg10 { background-color:#fa8072; }
+.sub_channel .bg11 { background-color:#cb143e; }
 .sub_channel .bg12 { background-color:#ffc14c; }
 .sub_channel  a.flag {width: 60px; height: 25px; position:absolute; top:8px; left:5px; color:#000000;font-size: 14px;}
 .sub_channel  a.edit:hover { color:#fff; }
