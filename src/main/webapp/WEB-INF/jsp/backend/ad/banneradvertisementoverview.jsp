@@ -57,7 +57,7 @@
         <td width="25%">描述</td>
         <td width="5%">频道号</td>
         <td width="40%">广告地址</td>
-        <td width="15">操作</td>
+        <td width="15">&nbsp;&nbsp;&nbsp;操作</td>
         </thead>
         <tbody>
         <c:set var="turns" value="true"/>
@@ -67,7 +67,7 @@
             <c:set var="turns" value="${!turns}"/>
             <td>&nbsp;&nbsp;${ad.sequence}</td>
             <td>${ad.advertisementTitle} </td>
-            <td>${ad.serviceId}</td>
+            <td>&nbsp;&nbsp;${ad.serviceId}</td>
             <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
             <td>
               <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/banneradvertisementform.html?bannerAdvertisementId=${ad.id}&current=${current}'" ><button class="thoughtbot">编辑</button></a>

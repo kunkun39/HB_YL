@@ -40,7 +40,7 @@
     </td>
     <td valign="top">
       <div style="float: left; padding-right: 5px; padding-top: 5px; padding-left: 5px;">
-        <a href="${pageContext.request.contextPath}/backend/channeladvertisementform.html"><button class="thoughtbot">添加频道广告</button></a>
+        <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/channeladvertisementform.html'"><button class="thoughtbot">添加频道广告</button></a>
       </div>
 
       <form action="#" class="search_form" method="POST">
@@ -66,7 +66,7 @@
             <td>${ad.advertisementTitle} </td>
             <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
             <td>
-              <a href="${pageContext.request.contextPath}/backend/channeladvertisementform.html?channelAdvertisementId=${ad.id}&current=${current}"><button class="thoughtbot">编辑</button></a>
+              <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/channeladvertisementform.html?channelAdvertisementId=${ad.id}&current=${current}'"><button class="thoughtbot">编辑</button></a>
               <a href="#" onclick="return channelAdvertisementDeleteConfirm('${ad.id}', '${current}');"><button class="thoughtbot">删除</button></a>
             </td>
           </tr>
