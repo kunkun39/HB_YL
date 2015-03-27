@@ -7,16 +7,19 @@ import com.ch.client.service.ClientCacheService;
 import com.ch.system.domain.AdvertisementFile;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
+import com.ch.system.domain.ChannelAdvertisement;
 import com.ch.system.domain.SubModule;
 
 import com.ch.system.repository.AdvertisementDao;
 import com.ch.system.web.facade.assember.BannerAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.ModuleAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.OpenAdvertisementWebAssember;
+import com.ch.system.web.facade.assember.ChannelAdvertisementWebAssember;
 import com.ch.system.web.facade.assember.SubModuleWebAssember;
 import com.ch.system.web.facade.dto.BannerAdvertisementDTO;
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
 import com.ch.system.web.facade.dto.OpenAdvertisementDTO;
+import com.ch.system.web.facade.dto.ChannelAdvertisementDTO;
 import com.ch.system.web.facade.dto.SubModuleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -171,6 +174,62 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
         //更改后清除缓存
         clientCacheService.cleanCachedOpenAdvertisement();
+    }
+
+    /*************************频道列表广告部分******************************/
+
+    public List<ChannelAdvertisementDTO> obtainChannelAdvertisements(int startPosition, int pageSize) {
+        List<ChannelAdvertisement> ads = advertisementDao.loadChannelAdvertisements(startPosition, pageSize);
+        return ChannelAdvertisementWebAssember.toChannelAdvertisementDTOList(ads);
+    }
+
+    public int obtainChannelAdvertisementSize() {
+        return advertisementDao.loadChannelAdvertisementSize();
+    }
+
+    public ChannelAdvertisementDTO obtainChannelAdvertisementById(int channelAdvertisementId) {
+        ChannelAdvertisement channelAdvertisement = (ChannelAdvertisement) advertisementDao.findById(channelAdvertisementId, ChannelAdvertisement.class);
+        return ChannelAdvertisementWebAssember.toChannelAdvertisementDTO(channelAdvertisement);
+    }
+
+    /**
+     * synchronized aim is set id is unique in the system
+     */
+    public synchronized void changeChannelAdvertisementDetails(ChannelAdvertisementDTO dto) {
+        //获得频道列表广告
+        ChannelAdvertisement channelAdvertisement = ChannelAdvertisementWebAssember.toChannelAdvertisementDomain(dto);
+        if (channelAdvertisement.getId() <= 0) {
+            int maxSequence = advertisementDao.getMaxChannelAdvertisementSequence();
+            channelAdvertisement.setSequence(maxSequence + 1);
+        }
+
+        //获得上传的文件
+        MultipartFile file = dto.getAdvertisementFile();
+        AdvertisementFile advertisementFile = null;
+        if(file != null && file.getSize() > 0) {
+            advertisementFile = ChannelAdvertisementWebAssember.toAdvertisementFileDomain(file);
+        }
+
+        //获得老的上传的文件，如果存在就删除
+        AdvertisementFile oldAdvertisementFile = channelAdvertisement.changeAdvertisementFile(advertisementFile);
+        if (oldAdvertisementFile != null) {
+            fileManageService.deleteAdvertisementFile(oldAdvertisementFile);
+        }
+        //如果新的文件存在，则从新上传
+        if(file != null && file.getSize() > 0) {
+            fileManageService.uploadAdvertisementFile(channelAdvertisement.getAdvertisementFile());
+        }
+
+        advertisementDao.saveOrUpdate(channelAdvertisement);
+    }
+
+    public void deleteChannelAdvertisement(int channelAdvertisementId) {
+        ChannelAdvertisement channelAdvertisement = (ChannelAdvertisement) advertisementDao.findById(channelAdvertisementId, ChannelAdvertisement.class);
+
+        AdvertisementFile file = channelAdvertisement.getAdvertisementFile();
+
+        fileManageService.deleteAdvertisementFile(file);
+        advertisementDao.deleteAndjustAfterChannelAdvertisementSequence(channelAdvertisement.getSequence(), channelAdvertisementId);
     }
 
     /*************************八大模块部分******************************/

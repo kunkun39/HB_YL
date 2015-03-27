@@ -39,6 +39,9 @@ public class ClientOpenAdvertisementServlet extends HttpServlet {
         if ("/dvbott/client/getopenadcontent".equals(requestURL)) {
             responseJSON = clientAdvertisementService.obtainClientOpenAdvertisement();
 
+        }else if ("/dvbott/client/getchanneladcontent".equals(requestURL)) {
+            responseJSON = clientAdvertisementService.obtainClientChannelAdvertisement();
+
         } else if ("/dvbott/client/getmainmodulecontent".equals(requestURL)) {
             responseJSON = clientAdvertisementService.obtainClientModuleAdvertisement();
 

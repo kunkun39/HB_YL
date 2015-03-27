@@ -41,6 +41,7 @@ public class UserFormController extends SimpleFormController {
         return new UserDTO();
     }
 
+
     @Override
     protected void onBindAndValidate(HttpServletRequest request, Object command, BindException errors) throws Exception {
         int userId = ServletRequestUtils.getIntParameter(request, "userId", -1);
@@ -59,6 +60,7 @@ public class UserFormController extends SimpleFormController {
             }
         }
     }
+
 
     @Override
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {

@@ -59,6 +59,22 @@
         </bag>
     </class>
 
+
+    <class name="com.ch.system.domain.ChannelAdvertisement" table="channel_advertisement">
+        <id name="id" column="id">
+            <generator class="increment"/>
+        </id>
+
+        <property name="timestamp" column="timestamp" type="java.util.Date"/>
+
+        <property name="sequence" column="sequence" insert="true" update="true" type="java.lang.Integer"/>
+        <property name="advertisememtTitle" column="advertisememt_title" insert="true" update="true" type="java.lang.String"/>
+
+        <many-to-one name="advertisementFile" column="ad_update_file_id" class="com.ch.system.domain.AdvertisementFile" lazy="proxy"  cascade="all" insert="true" update="true"/>
+    </class>
+
+
+
     <class name="com.ch.system.domain.SubModule" table="submodule_advertisement">
         <id name="id" column="id">
             <generator class="increment"/>
@@ -72,4 +88,5 @@
 
         <many-to-one name="moduleAdvertisement" column="module_advertisement_id" class="com.ch.system.domain.ModuleAdvertisement" lazy="proxy" cascade="none" insert="true" update="true"/>
     </class>
+
 </hibernate-mapping>

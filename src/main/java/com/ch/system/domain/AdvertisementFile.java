@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
  * User: Jack Wang
  * Date: 15-3-17
  * Time: 下午3:14
+ org.joda.time.contrib.hibernate.PersistentDateTime
  */
 public class AdvertisementFile extends EntityBase {
 

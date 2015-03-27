@@ -1,6 +1,7 @@
 package com.ch.client.repository;
 
 import com.ch.common.repository.EntityObjectDao;
+import com.ch.system.domain.ChannelAdvertisement;
 import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
@@ -18,6 +19,8 @@ public interface ClientAdvertisementDao extends EntityObjectDao {
     List<BannerAdvertisement> loadAllBannerAdvertisement();
 
     List<OpenAdvertisement> loadAllOpenAdvertisement();
+
+    List<ChannelAdvertisement> loadAllChannelAdvertisement();
 
     List<ModuleAdvertisement> loadAllModuleAdvertisement();
 

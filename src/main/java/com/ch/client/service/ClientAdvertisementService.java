@@ -11,6 +11,8 @@ public interface ClientAdvertisementService {
 
     String obtainClientOpenAdvertisement();
 
+    String obtainClientChannelAdvertisement();
+
     String obtainClientModuleAdvertisement();
 
     String obtainClientSubModule(int moduleAdvertisementId);

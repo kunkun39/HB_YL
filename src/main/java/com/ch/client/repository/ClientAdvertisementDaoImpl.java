@@ -1,6 +1,7 @@
 package com.ch.client.repository;
 
 import com.ch.common.repository.HibernateEntityObjectDao;
+import com.ch.system.domain.ChannelAdvertisement;
 import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
@@ -25,6 +26,9 @@ public class ClientAdvertisementDaoImpl extends HibernateEntityObjectDao impleme
         return getHibernateTemplate().find("from OpenAdvertisement oa order by oa.sequence asc");
     }
 
+    public List<ChannelAdvertisement> loadAllChannelAdvertisement() {
+        return getHibernateTemplate().find("from ChannelAdvertisement oa order by oa.sequence asc");
+    }
 
     public List<ModuleAdvertisement> loadAllModuleAdvertisement() {
         return getHibernateTemplate().find("from ModuleAdvertisement oa order by oa.sequence asc");

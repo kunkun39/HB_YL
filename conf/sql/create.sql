@@ -6,6 +6,7 @@ CREATE TABLE `system_user` (
   `timestamp` timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   `name` varchar(120) default NULL,
   `contactway` varchar(255) default '',
+
   `username` varchar(48) default '',
   `password` varchar(48) default '',
   `enabled` tinyint(1) default '0' COMMENT '1 for YES or 0 for NO',
@@ -69,6 +70,17 @@ CREATE TABLE `submodule_advertisement` (
   `module_advertisement_id` int(11) default NULL,
   PRIMARY KEY  (`id`),
   FOREIGN KEY (`module_advertisement_id`) REFERENCES module_advertisement (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+DROP TABLE IF EXISTS `channel_advertisement`;
+CREATE TABLE `channel_advertisement` (
+  `id` int(11) NOT NULL auto_increment,
+  `timestamp` timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `sequence` int(11) NOT NULL,
+  `advertisememt_title` varchar(120) default NULL,
+  `ad_update_file_id` int(11) default NULL,
+  PRIMARY KEY  (`id`),
+  FOREIGN KEY (`ad_update_file_id`) REFERENCES ad_update_file (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 SET FOREIGN_KEY_CHECKS=1;

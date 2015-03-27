@@ -1,10 +1,10 @@
 package com.ch.client.service;
 
-import IceUtilInternal.StringUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ch.client.repository.ClientAdvertisementDao;
+import com.ch.system.domain.ChannelAdvertisement;
 import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
@@ -14,9 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * User: Jack Wang
@@ -92,6 +90,23 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
             clientCacheService.cacheOpenAdvertisement(returnValue);
             return returnValue;
         }
+    }
+
+    public String obtainClientChannelAdvertisement() {
+        List<ChannelAdvertisement> advertisements = clientAdvertisementDao.loadAllChannelAdvertisement();
+
+        JSONObject all = new JSONObject();
+        JSONArray ads = new JSONArray();
+        for (ChannelAdvertisement advertisement : advertisements) {
+            JSONObject ad = new JSONObject();
+            ad.put("index", advertisement.getSequence());
+            ad.put("title", advertisement.getAdvertisememtTitle());
+            ad.put("url", applicationWebAddress + advertisement.getAdvertisementFile().getActualFileName());
+            ads.add(ad);
+        }
+        all.put("channelads", ads);
+
+        return all.toJSONString();
     }
 
     public String obtainClientModuleAdvertisement() {

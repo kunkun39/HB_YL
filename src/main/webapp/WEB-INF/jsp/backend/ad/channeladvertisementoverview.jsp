@@ -1,0 +1,92 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="ch" uri="http://www.chanhong.com" %>
+<html>
+<head>
+  <title>长虹机顶盒后台管理系统</title>
+  <script src="${pageContext.request.contextPath}/js/jquery-1.7.2.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery-ui/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/default/jquery-ui-1.8.22.custom.css" type="text/css"/>
+  <script type="text/javascript">
+
+    function channelAdvertisementDeleteConfirm(adId, current) {
+
+      jQuery("#channeladvertisement-dialog-confirm").dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+          "确  认": function() {
+            jQuery(this).dialog("close");
+
+            window.location.href = '${pageContext.request.contextPath}/backend/channeladvertisementdelete.html?channelAdvertisementId=' + adId + '&current=' + current;
+          },
+          "取  消": function() {
+            jQuery(this).dialog("close");
+          }
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+<div class="action">
+  &nbsp;
+</div>
+<table cellpadding="0" cellspacing="0" width="100%" class="box">
+  <tr>
+    <td width="200" valign="top" style="background: #e8e8e8;border-right: 1px solid #CCC;">
+      <jsp:include page="../adtype.jsp"/>
+    </td>
+    <td valign="top">
+      <div style="float: left; padding-right: 5px; padding-top: 5px; padding-left: 5px;">
+        <a href="${pageContext.request.contextPath}/backend/channeladvertisementform.html"><button class="thoughtbot">添加频道广告</button></a>
+      </div>
+
+      <form action="#" class="search_form" method="POST">
+        <div class="search" style="height: 20px;">
+
+        </div>
+      </form>
+
+      <table width="100%" cellpadding="0" cellspacing="0" class="list">
+        <thead>
+        <td width="5%">&nbsp;&nbsp;编号</td>
+        <td width="25%">描述</td>
+        <td width="45%">广告地址</td>
+        <td>操作</td>
+        </thead>
+        <tbody>
+        <c:set var="turns" value="true"/>
+        <c:forEach items="${ads}" var="ad">
+          <c:set var="color" value="${turns ? 'r1' :'r2'}"/>
+          <tr class="${color}" onmouseover="this.className='over'" onmouseout="this.className='${color}'">
+            <c:set var="turns" value="${!turns}"/>
+            <td>&nbsp;&nbsp;${ad.sequence}</td>
+            <td>${ad.advertisementTitle} </td>
+            <td><a href="${applicationWebAddress}${ad.advertisementActualFileName}" target="_blank">${applicationWebAddress}${ad.advertisementActualFileName}</a></td>
+            <td>
+              <a href="${pageContext.request.contextPath}/backend/channeladvertisementform.html?channelAdvertisementId=${ad.id}&current=${current}"><button class="thoughtbot">编辑</button></a>
+              <a href="#" onclick="return channelAdvertisementDeleteConfirm('${ad.id}', '${current}');"><button class="thoughtbot">删除</button></a>
+            </td>
+          </tr>
+        </c:forEach>
+        </tbody>
+      </table>
+
+      <div class="paging">
+        <ch:paging urlMapping="${pageContext.request.contextPath}/backend/channeladvertisementoverview.html" showGoTo="false" paging="${paging}"/>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div id="channeladvertisement-dialog-confirm" title="确认对话框?">
+  <p>
+    <span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+    请确认你是否要删除该频道列表广告？
+  </p>
+</div>
+
+</body>
+</html>

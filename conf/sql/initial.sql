@@ -25,4 +25,3 @@ INSERT INTO `submodule_advertisement` VALUES (11, '2015-07-01 00:00:00', 11, 'MO
 INSERT INTO `submodule_advertisement` VALUES (12, '2015-07-01 00:00:00', 12, 'MODULE 12', 'http://www.baidu.com', '', 1);
 INSERT INTO `submodule_advertisement` VALUES (13, '2015-07-01 00:00:00', 13, 'MODULE 13', 'http://www.baidu.com', '', 1);
 INSERT INTO `submodule_advertisement` VALUES (14, '2015-07-01 00:00:00', 14, 'MODULE 14', 'http://www.baidu.com', '', 1);
-

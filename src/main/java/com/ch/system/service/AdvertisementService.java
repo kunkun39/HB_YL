@@ -1,5 +1,6 @@
 package com.ch.system.service;
 
+import com.ch.system.web.facade.dto.ChannelAdvertisementDTO;
 import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.web.facade.dto.BannerAdvertisementDTO;
 import com.ch.system.web.facade.dto.ModuleAdvertisementDTO;
@@ -44,6 +45,19 @@ public interface AdvertisementService {
     void changeOpenAdvertisementDetails(OpenAdvertisementDTO dto);
 
     void deleteOpenAdvertisement(int openAdvertisementId);
+
+    /*************************频道列表广告部分******************************/
+
+    List<ChannelAdvertisementDTO> obtainChannelAdvertisements(int startPosition, int pageSize);
+
+    int obtainChannelAdvertisementSize();
+
+    ChannelAdvertisementDTO obtainChannelAdvertisementById(int channelAdvertisementId);
+
+    void changeChannelAdvertisementDetails(ChannelAdvertisementDTO dto);
+
+    void deleteChannelAdvertisement(int channelAdvertisementId);
+
 
     /*************************八大模块部分******************************/
 

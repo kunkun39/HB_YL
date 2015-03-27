@@ -1,6 +1,7 @@
 package com.ch.system.repository;
 
 import com.ch.common.repository.EntityObjectDao;
+import com.ch.system.domain.ChannelAdvertisement;
 import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
@@ -38,6 +39,16 @@ public interface AdvertisementDao extends EntityObjectDao {
 
     void deleteAndjustAfterOpenAdvertisementSequence(int position, int openAdvertisementId);
 
+    /*************************频道列表广告部分******************************/
+
+    List<ChannelAdvertisement> loadChannelAdvertisements(int startPosition, int pageSize);
+
+    int loadChannelAdvertisementSize();
+
+    int getMaxChannelAdvertisementSequence();
+
+    void deleteAndjustAfterChannelAdvertisementSequence(int position, int channelAdvertisementId);
+
     /*************************八大模块部分******************************/
 
     List<ModuleAdvertisement> loadModuleAdvertisements();
@@ -49,4 +60,5 @@ public interface AdvertisementDao extends EntityObjectDao {
     int getMaxSubModuleSequence(int moduleAdvertisementId);
 
     void deleteAndjustAfterSubModuleSequence(int subModuleId, int position, int moduleAdvertisementId);
+
 }

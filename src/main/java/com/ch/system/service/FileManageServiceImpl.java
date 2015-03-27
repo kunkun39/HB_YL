@@ -42,10 +42,12 @@ public class FileManageServiceImpl implements FileManageService, InitializingBea
 
             //save the file
             File saveFile = new File(directory, file.getActualFileName());
+            logger.info(baseStorePath);
             try {
                 OutputStream dataOut = new FileOutputStream(saveFile);
                 FileCopyUtils.copy(file.getFile().getInputStream(), dataOut);
             } catch (Exception e) {
+
                 logger.error(e);
                 throw new CHDocumentOperationException("exception update file", e);
             }
@@ -58,4 +60,6 @@ public class FileManageServiceImpl implements FileManageService, InitializingBea
             deleteFile.delete();
         }
     }
+
+
 }

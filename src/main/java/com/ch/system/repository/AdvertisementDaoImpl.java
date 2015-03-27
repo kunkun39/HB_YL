@@ -1,6 +1,7 @@
 package com.ch.system.repository;
 
 import com.ch.common.repository.HibernateEntityObjectDao;
+import com.ch.system.domain.ChannelAdvertisement;
 import com.ch.system.domain.BannerAdvertisement;
 import com.ch.system.domain.ModuleAdvertisement;
 import com.ch.system.domain.OpenAdvertisement;
@@ -32,7 +33,6 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         query.setFirstResult(startPosition);
         List<BannerAdvertisement> bannerAds = query.list();
         return bannerAds;
-
     }
 
     public List<BannerAdvertisement> loadBannerAdvertisements(int startPosition, int pageSize) {
@@ -85,7 +85,6 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
 
     /*************************开机广告部分******************************/
 
-
     public List<OpenAdvertisement> loadOpenAdvertisements(int startPosition, int pageSize) {
         StringBuilder builder = new StringBuilder();
         builder.append("from OpenAdvertisement oa order by oa.sequence asc");
@@ -124,6 +123,49 @@ public class AdvertisementDaoImpl extends HibernateEntityObjectDao implements Ad
         update.executeUpdate();
 
         SQLQuery delete = session.createSQLQuery("delete from open_advertisement where id = " + openAdvertisementId);
+        delete.executeUpdate();
+    }
+
+    /*************************频道列表广告部分******************************/
+
+    public List<ChannelAdvertisement> loadChannelAdvertisements(int startPosition, int pageSize) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("from ChannelAdvertisement oa order by oa.sequence asc");
+
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        Query query = session.createQuery(builder.toString());
+        query.setMaxResults(pageSize);
+        query.setFirstResult(startPosition);
+
+        List<ChannelAdvertisement> channelAds = query.list();
+        return channelAds;
+    }
+
+    public int loadChannelAdvertisementSize() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select count(oa.id) from ChannelAdvertisement oa");
+        List list =  getHibernateTemplate().find(builder.toString());
+        return ((Long)list.get(0)).intValue();
+    }
+
+    public int getMaxChannelAdvertisementSequence() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select max(oa.sequence) from ChannelAdvertisement oa");
+        List list =  getHibernateTemplate().find(builder.toString());
+
+        Object value = list.get(0);
+        if (value != null) {
+            return ((Integer) value).intValue();
+        }
+        return 0;
+    }
+
+    public void deleteAndjustAfterChannelAdvertisementSequence(int position, int channelAdvertisementId) {
+        Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+        SQLQuery update = session.createSQLQuery("update channel_advertisement s set s.sequence = s.sequence - 1 where s.sequence>" + position);
+        update.executeUpdate();
+
+        SQLQuery delete = session.createSQLQuery("delete from channel_advertisement where id = " + channelAdvertisementId);
         delete.executeUpdate();
     }
 
