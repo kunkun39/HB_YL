@@ -94,13 +94,13 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
 
     public String obtainClientChannelAdvertisement() {
         String cachedValue = clientCacheService.getChannelAdvertisement();
-        if(StringUtils.hasText(cachedValue))
-        {
+
+        if (StringUtils.hasText(cachedValue)) {
             /**
              * 发现有缓存，直接返回用户数据
              */
             return cachedValue;
-        }else {
+        } else {
             /**
              * 没有缓存，从数据库中拿数据，然后缓存起来
              */
@@ -133,24 +133,24 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
             return cachedValue;
         } else {
             /**
-         * 没有缓存，从数据库中拿数据，然后缓存起来
-         */
-        List<ModuleAdvertisement> advertisements = clientAdvertisementDao.loadAllModuleAdvertisement();
-        JSONObject all = new JSONObject();
-        JSONArray ads = new JSONArray();
-        for (ModuleAdvertisement advertisement : advertisements) {
-            JSONObject ad = new JSONObject();
-            ad.put("index", advertisement.getSequence());
-            ad.put("title", advertisement.getModuleTitle());
-            ad.put("includesub", advertisement.isIncludeSub());
-            ad.put("address", advertisement.getModuleUrl());
-            ads.add(ad);
+             * 没有缓存，从数据库中拿数据，然后缓存起来
+             */
+            List<ModuleAdvertisement> advertisements = clientAdvertisementDao.loadAllModuleAdvertisement();
+            JSONObject all = new JSONObject();
+            JSONArray ads = new JSONArray();
+            for (ModuleAdvertisement advertisement : advertisements) {
+                JSONObject ad = new JSONObject();
+                ad.put("index", advertisement.getSequence());
+                ad.put("title", advertisement.getModuleTitle());
+                ad.put("includesub", advertisement.isIncludeSub());
+                ad.put("address", advertisement.getModuleUrl());
+                ads.add(ad);
+            }
+            all.put("modules", ads);
+            String returnValue = all.toJSONString();
+            clientCacheService.cacheModuleAdvertisement(returnValue);
+            return returnValue;
         }
-        all.put("modules", ads);
-        String returnValue = all.toJSONString();
-        clientCacheService.cacheModuleAdvertisement(returnValue);
-        return returnValue;
-    }
     }
 
     public String obtainClientSubModule(int moduleAdvertisement) {
