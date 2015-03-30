@@ -43,10 +43,10 @@
       </div>
 
 
-      <form action="#" class="search_form" method="POST">
+      <form action="${pageContext.request.contextPath}/backend/banneradvertisementoverview.html" class="search_form" method="POST">
         <div class="search" >
           &nbsp;&nbsp;<span><label>频道号：</label><input type="text" id="serviceId" name="serviceId" class="text" value="${serviceId}"/></span>&nbsp;&nbsp;
-          <a href="#" onclick="window.location.href='${pageContext.request.contextPath}/backend/banneradvertisementoverview.html'"><button class="thoughtbot">查询</button></a>
+          <a href="#" onclick="this.form.submit()"><button class="thoughtbot">查询</button></a>
         </div>
 
       </form>
