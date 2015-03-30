@@ -117,8 +117,9 @@ public class ClientAdvertisementServiceImpl implements ClientAdvertisementServic
                 ads.add(ad);
             }
             all.put("channelads", ads);
-
-            return all.toJSONString();
+            String returnValue = all.toJSONString();
+            clientCacheService.cacheChannelAdvertisement(returnValue);
+            return returnValue;
         }
     }
 
