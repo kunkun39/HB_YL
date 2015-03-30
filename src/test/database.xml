@@ -20,7 +20,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/bjgh?useUnicode=true"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/hbyl?useUnicode=true"/>
         <property name="username" value="root"/>
         <property name="password" value="minunsql"/>
     </bean>
@@ -37,7 +37,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
-                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.show_sql">false</prop>
 
                 <prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
                 <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
