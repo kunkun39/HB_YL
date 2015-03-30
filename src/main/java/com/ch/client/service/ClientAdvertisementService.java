@@ -16,4 +16,5 @@ public interface ClientAdvertisementService {
     String obtainClientModuleAdvertisement();
 
     String obtainClientSubModule(int moduleAdvertisementId);
+
 }

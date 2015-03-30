@@ -73,4 +73,22 @@ public interface ClientCacheService {
      * 清除八大模块子模块的缓存
      */
     void cleanCachedSubModule(int moduleId);
+
+    /***********************************************频道列表广告*******************************************************/
+
+    /**
+     * 获得频道列表广告缓存
+     */
+    String getChannelAdvertisement();
+
+    /**
+     * 缓存频道列表广告
+     */
+    void cacheChannelAdvertisement(String value);
+
+    /**
+     * 清除频道列表广告缓存
+     */
+    void cleanCachedChannelAdvertisement();
+
 }

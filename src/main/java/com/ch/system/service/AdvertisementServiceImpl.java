@@ -224,6 +224,8 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         }
 
         advertisementDao.saveOrUpdate(channelAdvertisement);
+        //更改后清除缓存
+        clientCacheService.cleanCachedChannelAdvertisement();
     }
 
     public void deleteChannelAdvertisement(int channelAdvertisementId) {
@@ -233,6 +235,8 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
         fileManageService.deleteAdvertisementFile(file);
         advertisementDao.deleteAndjustAfterChannelAdvertisementSequence(channelAdvertisement.getSequence(), channelAdvertisementId, file.getId());
+        //更改后清除缓存
+        clientCacheService.cleanCachedChannelAdvertisement();
     }
 
     /*************************八大模块部分******************************/

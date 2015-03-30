@@ -81,4 +81,22 @@ public class ClientCacheServiceImpl implements ClientCacheService {
     public void cleanCachedSubModule(int moduleId) {
         subModuleCache.remove(SUBMODULE_KEY + moduleId);
     }
+
+    /***********************************************频道列表广告*******************************************************/
+
+    private final static String CHANNEL_ADVERTISEMENT_KEY = "CHANNEL_ADVERTISEMENT_KEY";
+    private Map<String, String> channelAdvertisementeCache = new HashMap<String, String>();
+
+    public String getChannelAdvertisement() {
+        return channelAdvertisementeCache.get(CHANNEL_ADVERTISEMENT_KEY);
+    }
+
+    public void cacheChannelAdvertisement(String value) {
+        channelAdvertisementeCache.put(CHANNEL_ADVERTISEMENT_KEY, value);
+    }
+
+    public void cleanCachedChannelAdvertisement() {
+        channelAdvertisementeCache.clear();
+    }
+
 }
